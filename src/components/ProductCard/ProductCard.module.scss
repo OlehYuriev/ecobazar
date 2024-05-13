@@ -1,0 +1,12 @@
+.item {
+	@apply border border-gray-scale-gray-100 transition-all
+	hover:border-branding-success-dark hover:shadow-hover-item-categories;
+	.button {
+		@apply absolute top-4 right-4 p-2.5 rounded-full opacity-0 transition-all;
+		border: 1px solid #f2f2f2;
+	}
+
+	&:hover .button {
+		opacity: 1;
+	}
+}

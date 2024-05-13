@@ -1,0 +1,6 @@
+.items {
+	@apply flex  flex-wrap mt-8;
+	& > * {
+		@apply w-1/5;
+	}
+}

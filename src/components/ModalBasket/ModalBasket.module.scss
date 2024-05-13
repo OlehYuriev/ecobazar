@@ -1,0 +1,17 @@
+.basket {
+	@apply fixed  top-0 w-full h-full z-10  flex justify-end;
+	right: -200%;
+	transition:
+		right 0.4s,
+		background 0.6s 0.4s;
+	&_active {
+		right: 0;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.items {
+		& > :not(:first-child) {
+			@apply border-t border-gray-scale-gray-100;
+		}
+	}
+}

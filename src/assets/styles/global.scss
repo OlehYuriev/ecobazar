@@ -1,0 +1,19 @@
+html {
+	font-size: 1rem;
+	@media (max-width: 1024px) {
+		font-size: 0.9rem;
+	}
+	@media (max-width: 992px) {
+		font-size: 0.7rem;
+	}
+}
+
+body {
+	@apply font-poppins font-normal leading-normal text-sm;
+}
+
+.container {
+	max-width: 1400px;
+	padding: 0 20px;
+	margin: 0 auto;
+}

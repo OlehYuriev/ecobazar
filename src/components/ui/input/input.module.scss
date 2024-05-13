@@ -1,0 +1,23 @@
+.customRadioLabel {
+	@apply flex items-center cursor-pointer;
+}
+
+.customRadioInput {
+	@apply hidden;
+}
+
+.customRadioSpan {
+	display: inline-block;
+	width: 1.25rem;
+	height: 1.25rem;
+	@apply border-2 border-branding-success rounded-full;
+}
+
+.customRadioInput:checked + .customRadioSpan::after {
+	content: "";
+	display: block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	@apply bg-branding-success w-2.5 h-2.5 rounded-full relative;
+}

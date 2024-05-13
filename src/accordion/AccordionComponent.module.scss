@@ -1,0 +1,9 @@
+.accordion {
+	max-height: 3rem;
+	overflow: hidden;
+	transition: max-height 0.7s ease-out;
+}
+.open {
+	max-height: 500px;
+	transition: max-height 2s ease-out;
+}

@@ -1,0 +1,13 @@
+.pagination {
+	@apply mt-10 text-center flex justify-center items-center text-gray-scale-gray-600 gap-x-5;
+	&__button {
+		@apply w-9 h-9 rounded-full flex items-center justify-center;
+		border: 1px solid #e6e6e6;
+		&:disabled {
+			@apply bg-gray-scale-gray-50 text-gray-scale-gray-300;
+		}
+	}
+	&__active {
+		@apply bg-branding-success text-white w-9 h-9 rounded-full flex items-center justify-center;
+	}
+}

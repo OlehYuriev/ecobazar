@@ -1,0 +1,31 @@
+.categories {
+	@apply mt-8 flex gap-x-6;
+	& > :nth-child(1) {
+		flex: 0 0 19.5rem;
+	}
+	& > :nth-child(2) {
+		flex: 1 1 calc(76% - 0.75rem);
+		@apply self-start;
+	}
+}
+
+.filters {
+	@apply flex flex-col gap-y-5;
+	& > * {
+		@apply border-t border-gray-scale-gray-100 py-5;
+	}
+	& :first-child {
+		border: none;
+	}
+	& :last-child {
+		padding-bottom: 0;
+	}
+}
+
+.productCategories {
+	@apply flex  flex-wrap mt-8 gap-6;
+
+	& > * {
+		width: calc(33.333% - 1rem);
+	}
+}
