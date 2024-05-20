@@ -37,7 +37,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
   return (
     <>
       <div>
-        <Link to="/">
+        <Link to={`/categories/${product.name}`}>
           <div className={styles.item}>
             <div className="relative">
               <img src="../img/apple.png" alt="apple" className="w-full" />
@@ -92,7 +92,9 @@ const ProductCard: FC<IProps> = ({ product }) => {
           </div>
         </Link>
         <ModalComponent isModal={isModal} setIsModal={setIsModal}>
-          <ProductInfo product={product} />
+          <div className={styles.modal}>
+            <ProductInfo product={product} />
+          </div>
         </ModalComponent>
       </div>
     </>

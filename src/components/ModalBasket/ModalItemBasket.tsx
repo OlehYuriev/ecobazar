@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import ButtonQuantity from "../ui/buttons/ButtonQuantity";
 import { useDispatch } from "react-redux";
@@ -14,9 +14,6 @@ interface IProps {
 }
 const ModalItemBasket: FC<IProps> = ({ basket }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(basket);
-  }, [basket]);
 
   return (
     <>

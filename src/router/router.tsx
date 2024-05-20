@@ -3,6 +3,8 @@ import LayoutComponent from "@/components/layout/LayoutComponent";
 import HomePage from "@/pages/HomePage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import CategoriesPage from "@/pages/CategoriesPage";
+import ProductPage from "@/pages/ProductPage";
+import { fetchProduct } from "@/services/fetchProduct";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: "/categories",
         element: <CategoriesPage />,
+      },
+      {
+        path: "/categories/:name",
+        element: <ProductPage />,
+        loader: fetchProduct,
       },
     ],
   },

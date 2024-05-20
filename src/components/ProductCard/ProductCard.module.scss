@@ -16,3 +16,8 @@
 		opacity: 1;
 	}
 }
+
+.modal {
+	@apply bg-white rounded-lg flex gap-x-4  overflow-auto  m-10;
+	height: min(75%, 636px);
+}
