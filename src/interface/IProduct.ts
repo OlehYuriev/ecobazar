@@ -5,4 +5,5 @@ export default interface IProduct {
   category: string;
   sale?: number;
   quantity: number;
+  description: string;
 }

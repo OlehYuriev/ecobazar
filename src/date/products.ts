@@ -7,6 +7,8 @@ export const products: IProduct[] = [
     category: "Fresh Fruit",
     sale: 50,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+		himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
 
   {
@@ -15,6 +17,8 @@ export const products: IProduct[] = [
     img: "sss",
     category: "Fresh Fruit",
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
   {
     name: "Cucumber",
@@ -23,6 +27,8 @@ export const products: IProduct[] = [
     category: "Vegetables",
     sale: 50,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
   {
     name: "Red Apple",
@@ -31,6 +37,8 @@ export const products: IProduct[] = [
     category: "Fresh Fruit",
     sale: 50,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
   {
     name: "dina",
@@ -39,6 +47,8 @@ export const products: IProduct[] = [
     category: "Fresh Fruit",
     sale: 20,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
   {
     name: "dina2",
@@ -47,6 +57,8 @@ export const products: IProduct[] = [
     category: "Fresh Fruit",
     sale: 20,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
   {
     name: "dina3",
@@ -55,5 +67,7 @@ export const products: IProduct[] = [
     category: "Fresh Fruit",
     sale: 20,
     quantity: 1,
+    description: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos 
+	 himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.`,
   },
 ];

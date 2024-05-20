@@ -2,8 +2,14 @@
 	@apply border border-gray-scale-gray-100 transition-all
 	hover:border-branding-success-dark hover:shadow-hover-item-categories;
 	.button {
-		@apply absolute top-4 right-4 p-2.5 rounded-full opacity-0 transition-all;
+		@apply absolute p-2.5 right-4 rounded-full opacity-0 transition-all bg-white;
 		border: 1px solid #f2f2f2;
+		&_heart {
+			@apply top-4;
+		}
+		&_eye {
+			@apply top-16;
+		}
 	}
 
 	&:hover .button {

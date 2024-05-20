@@ -1,0 +1,75 @@
+.swiper-slide {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.swiper {
+	width: 100%;
+	max-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.my-swiper2 {
+	height: 100%;
+	width: 100%;
+	order: 1;
+}
+
+.my-swiper {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+
+.my-swiper .swiper-slide {
+	width: 100%;
+	height: 100%;
+	opacity: 0.4;
+}
+
+.my-swiper .swiper-slide-thumb-active {
+	opacity: 1;
+
+	img {
+		@apply border border-branding-success;
+	}
+}
+
+.my-swiper .swiper-slide img {
+	display: block;
+	border-radius: 2px;
+	width: 80%;
+	height: 100%;
+	object-fit: cover;
+}
+.swiper-container {
+	@apply flex relative h-full;
+}
+.swiper-container .swiper-button-prev,
+.swiper-container .swiper-button-next {
+	left: 3%;
+
+	&::after {
+		content: "";
+		display: none;
+	}
+}
+.swiper-container .swiper-button-prev {
+	top: 2%;
+}
+.swiper-container .swiper-button-next {
+	top: auto;
+	bottom: -4%;
+}

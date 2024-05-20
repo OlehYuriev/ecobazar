@@ -16,6 +16,7 @@ export default {
 				"gray-scale-gray-100": "#e6e6e6",
 				"gray-scale-gray-300": "#b3b3b3",
 				"gray-scale-gray-400": "#999",
+				"gray-scale-gray-500": "#808080",
 				"gray-scale-gray-600": "#666",
 				"gray-scale-gray-700": "#4d4d4d",
 				"gray-scale-gray-800": "#333",

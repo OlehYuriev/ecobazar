@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { getTotalPrice } from "@/utils";
+import { calculateDiscountedPrice, getTotalPrice } from "@/utils";
 import RadioButton from "@/components/ui/input/RadioButton";
 import ButtonMain from "@/components/ui/buttons/ButtonMain";
 
@@ -30,7 +30,9 @@ const OrderSummery: FC = () => {
                 <span className="ml-1.5">X{product.quantity}</span>
               </div>
             </div>
-            <span className="font-medium">${product.price.toFixed(2)}</span>
+            <span className="font-medium">
+              ${calculateDiscountedPrice(product)}
+            </span>
           </div>
         ))}
 

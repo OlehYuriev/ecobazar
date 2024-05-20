@@ -7,6 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "@/store/basket/basketSlice";
 import { RootState } from "@/store/store";
 import { calculateDiscountedPrice } from "@/utils";
+import { IoEyeOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import ModalComponent from "../modal/ModalComponent";
+import ProductInfo from "../ProductInfo/ProductInfo";
 interface IProps {
   product: IProduct;
 }
@@ -14,6 +18,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const dispatch = useDispatch();
   const [isBasket, setIsBasket] = useState(false);
+  const [isModal, setIsModal] = useState(false);
   useEffect(() => {
     const productExistsInBasket = basket.some(
       (item) => item.name === product.name
@@ -21,49 +26,74 @@ const ProductCard: FC<IProps> = ({ product }) => {
     setIsBasket(productExistsInBasket);
   }, [basket, product, isBasket]);
 
+  function addBasket(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    dispatch(addProduct(product));
+  }
+  function openModal(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setIsModal(true);
+  }
   return (
     <>
-      <div className={styles.item}>
-        <div className="relative">
-          <img src="../img/apple.png" alt="apple" className="w-full" />
-          <button type="button" className={styles.button}>
-            <FaRegHeart fontSize="1.35rem" />
-          </button>
-          {product.sale && (
-            <span className="absolute top-4 left-4 bg-branding-error font-medium text-white rounded py-1 px-2">
-              Sale {product.sale}%
-            </span>
-          )}
-        </div>
-        <div className="flex p-3 items-center justify-between">
-          <div>
-            <h4 className="text-gray-scale-gray-700">{product.name}</h4>
-            {product.sale ? (
-              <span className=" text-base font-medium">
-                <span>${calculateDiscountedPrice(product)}</span>
-                <span className="text-gray-scale-gray-400 font-normal line-through ml-1">
-                  ${product.price.toFixed(2)}
+      <div>
+        <Link to="/">
+          <div className={styles.item}>
+            <div className="relative">
+              <img src="../img/apple.png" alt="apple" className="w-full" />
+              <button
+                type="button"
+                className={`${styles.button} ${styles.button_heart}`}
+              >
+                <FaRegHeart fontSize="1.35rem" />
+              </button>
+              <button
+                type="button"
+                className={`${styles.button} ${styles.button_eye}`}
+                onClick={(e) => openModal(e)}
+              >
+                <IoEyeOutline fontSize="1.35rem" />
+              </button>
+              {product.sale && (
+                <span className="absolute top-4 left-4 bg-branding-error font-medium text-white rounded py-1 px-2">
+                  Sale {product.sale}%
                 </span>
-              </span>
-            ) : (
-              <span className=" text-base font-medium">
-                ${product.price.toFixed(2)}
-              </span>
-            )}
-          </div>
+              )}
+            </div>
+            <div className="flex p-3 items-center justify-between">
+              <div>
+                <h4 className="text-gray-scale-gray-700">{product.name}</h4>
+                {product.sale ? (
+                  <span className=" text-base font-medium">
+                    <span>${calculateDiscountedPrice(product)}</span>
+                    <span className="text-gray-scale-gray-400 font-normal line-through ml-1">
+                      ${product.price.toFixed(2)}
+                    </span>
+                  </span>
+                ) : (
+                  <span className=" text-base font-medium">
+                    ${product.price.toFixed(2)}
+                  </span>
+                )}
+              </div>
 
-          <button
-            className={`p-2.5 rounded-full ${
-              isBasket
-                ? "bg-branding-success text-white"
-                : "bg-gray-scale-gray-50"
-            }`}
-            type="button"
-            onClick={() => dispatch(addProduct(product))}
-          >
-            <RiShoppingBagLine fontSize="1.35rem" />
-          </button>
-        </div>
+              <button
+                className={`p-2.5 rounded-full ${
+                  isBasket
+                    ? "bg-branding-success text-white"
+                    : "bg-gray-scale-gray-50"
+                }`}
+                type="button"
+                onClick={(e) => addBasket(e)}
+              >
+                <RiShoppingBagLine fontSize="1.35rem" />
+              </button>
+            </div>
+          </div>
+        </Link>
+        <ModalComponent isModal={isModal} setIsModal={setIsModal}>
+          <ProductInfo product={product} />
+        </ModalComponent>
       </div>
     </>
   );

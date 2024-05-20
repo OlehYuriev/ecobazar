@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import ButtonQuantity from "../ui/buttons/ButtonQuantity";
 import { useDispatch } from "react-redux";
@@ -8,11 +8,16 @@ import {
   removeProduct,
 } from "@/store/basket/basketSlice";
 import IProduct from "@/interface/IProduct";
+import { calculateDiscountedPrice } from "@/utils";
 interface IProps {
   basket: IProduct[];
 }
 const ModalItemBasket: FC<IProps> = ({ basket }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(basket);
+  }, [basket]);
+
   return (
     <>
       {basket.map((item) => (
@@ -23,7 +28,7 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
               <h5>
                 {item.name}
                 <span className=" font-semibold ml-2">
-                  ${item.price.toFixed(2)}
+                  ${calculateDiscountedPrice(item)}
                 </span>
               </h5>
 

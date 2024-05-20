@@ -1,12 +1,5 @@
 import IProduct from "@/interface/IProduct";
 
-export const getTotalPrice = (basket: IProduct[]) => {
-  return basket.reduce(
-    (total: number, product: IProduct) => total + product.price,
-    0
-  );
-};
-
 export function joinLabel(label: string) {
   if (label) {
     const wordsArray = label.split(" ");
@@ -25,9 +18,23 @@ export function joinLabel(label: string) {
 }
 
 export const calculateDiscountedPrice = (product: IProduct) => {
+  const unitPrice = product.price;
+  const quantity = product.quantity;
+
+  let finalPrice = unitPrice * quantity;
+
   if (product.sale) {
-    const discountAmount = product.price * (product.sale / 100);
-    const discountedPrice = product.price - discountAmount;
-    return discountedPrice.toFixed(2);
+    const discountAmount = finalPrice * (product.sale / 100);
+    finalPrice -= discountAmount;
   }
+
+  return parseFloat(finalPrice.toFixed(2));
+};
+
+export const getTotalPrice = (basket: IProduct[]) => {
+  return basket.reduce(
+    (total: number, product: IProduct) =>
+      total + calculateDiscountedPrice(product),
+    0
+  );
 };
