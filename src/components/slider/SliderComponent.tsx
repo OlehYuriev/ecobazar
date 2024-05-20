@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
+import "swiper/css/effect-fade";
 // import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Thumbs, EffectFade } from "swiper/modules";
 
 const SliderComponent: FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,9 +25,10 @@ const SliderComponent: FC = () => {
             nextEl: ".swiper-button-next",
           }}
           thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
-          modules={[FreeMode, Navigation, Thumbs]}
+          modules={[FreeMode, Navigation, Thumbs, EffectFade]}
           className="my-swiper2"
           direction="vertical"
+          effect="fade"
         >
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
@@ -60,7 +61,7 @@ const SliderComponent: FC = () => {
             <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
           </SwiperSlide>
         </Swiper>
-        <div className="py-8">
+        <div className="py-8 relative">
           <Swiper
             onSwiper={setThumbsSwiper}
             loop={true}
@@ -103,12 +104,13 @@ const SliderComponent: FC = () => {
               <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
             </SwiperSlide>
           </Swiper>
-        </div>
-        <div className="swiper-button-prev text-gray-scale-gray-400">
-          <IoIosArrowUp />
-        </div>
-        <div className="swiper-button-next text-gray-scale-gray-400">
-          <IoIosArrowDown />
+
+          <div className="swiper-button-prev text-gray-scale-gray-400">
+            <IoIosArrowUp />
+          </div>
+          <div className="swiper-button-next text-gray-scale-gray-400">
+            <IoIosArrowDown />
+          </div>
         </div>
       </div>
     </>

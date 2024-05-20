@@ -17,3 +17,42 @@ body {
 	padding: 0 20px;
 	margin: 0 auto;
 }
+
+.tab-list {
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.tab-list button {
+	padding: 1rem;
+}
+
+.tab-list button.active {
+	font-weight: bold;
+}
+
+.slider {
+	position: absolute;
+	bottom: 0;
+	height: 4px;
+	background-color: blue;
+	transition: all 0.3s ease;
+}
+
+.tab-content {
+	margin-top: 20px;
+}
+
+.slides {
+	display: flex;
+	overflow-x: scroll;
+}
+
+.slide {
+	min-width: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin-right: 10px;
+}

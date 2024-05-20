@@ -37,7 +37,7 @@ const ProductInfo: FC<IProps> = ({ product }) => {
     <>
       <div className={styles.product}>
         <SliderComponent />
-        <div>
+        <div className={styles.content}>
           <h2 className="font-semibold text-4xl">{product.name}</h2>
           <div className="mt-5">
             {product.sale ? (
@@ -58,9 +58,11 @@ const ProductInfo: FC<IProps> = ({ product }) => {
               </span>
             )}
           </div>
-          <p className="max-w-xl text text-gray-scale-gray-500 pt-6 border-t border-gray-scale-gray-100 mt-6">
-            {product.description}
-          </p>
+          <div className="border-t border-gray-scale-gray-100  mt-6 pt-6">
+            <p className="max-w-xl text text-gray-scale-gray-500 ">
+              {product.description}
+            </p>
+          </div>
           <div className="pt-6 border-t border-gray-scale-gray-100 mt-6 flex items-center gap-x-3">
             <div className="flex items-center gap-x-3">
               <ButtonQuantity value="-" fun={subtractQuantity} />
