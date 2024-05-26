@@ -10,7 +10,6 @@ const ModalComponent: FC<IProps> = ({ isModal, children, setIsModal }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(modalRef.current);
     if (modalRef.current && modalRef.current === event.target) {
       setIsModal(false);
     }

@@ -18,7 +18,7 @@ const RelatedProducts: FC = () => {
         ,
         <div className={styles.related}>
           {randomSaleProducts.map((item) => (
-            <ProductCard product={item} />
+            <ProductCard product={item} key={item.name} />
           ))}
         </div>
       </div>

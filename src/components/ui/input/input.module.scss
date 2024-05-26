@@ -21,3 +21,22 @@
 	transform: translate(-50%, -50%);
 	@apply bg-branding-success w-2.5 h-2.5 rounded-full relative;
 }
+
+.eye {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	transform: translate(0, -50%);
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.checkbox {
+	@apply flex items-center gap-x-2 cursor-pointer;
+	&__input {
+		@apply accent-branding-success-dark w-5 h-5 cursor-pointer;
+	}
+	&__label {
+		@apply text-gray-scale-gray-600;
+	}
+}

@@ -5,6 +5,11 @@ import CheckoutPage from "@/pages/CheckoutPage";
 import CategoriesPage from "@/pages/CategoriesPage";
 import ProductPage from "@/pages/ProductPage";
 import { fetchProduct } from "@/services/fetchProduct";
+import LoginPage from "@/pages/LoginPage";
+import RegisterPage from "@/pages/RegisterPage";
+import DashboardPage from "@/pages/DashboardPage";
+import LayoutAccount from "@/components/layout/LayoutAccount";
+import SettingPage from "@/pages/SettingPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +32,28 @@ const router = createBrowserRouter([
         path: "/categories/:name",
         element: <ProductPage />,
         loader: fetchProduct,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+    ],
+  },
+  {
+    path: "/account",
+    element: <LayoutAccount />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
+      },
+      {
+        path: "setting",
+        element: <SettingPage />,
       },
     ],
   },

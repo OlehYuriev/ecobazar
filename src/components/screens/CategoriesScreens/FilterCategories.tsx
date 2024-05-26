@@ -1,4 +1,4 @@
-import AccordionComponent from "@/accordion/AccordionComponent";
+import AccordionComponent from "@/components/accordion/AccordionComponent";
 import { FC } from "react";
 import ButtonsCategories from "./ButtonsCategories";
 import RangeComponent from "@/components/ui/range/RangeComponent";

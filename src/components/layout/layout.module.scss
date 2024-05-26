@@ -1,0 +1,14 @@
+.link {
+	@apply flex justify-center items-center;
+	min-height: calc(100vh - (12.65rem));
+}
+
+.account {
+	@apply flex gap-x-6 mt-8;
+	& > :nth-child(1) {
+		width: 19rem;
+	}
+	& > :nth-child(2) {
+		flex: 1;
+	}
+}

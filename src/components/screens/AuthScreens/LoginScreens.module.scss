@@ -1,0 +1,14 @@
+.containerLogin {
+	@apply flex justify-center items-center;
+	min-height: calc(100vh - (13.65rem));
+}
+
+.login {
+	@apply p-6 rounded-lg;
+	box-shadow: 0 0 56px 0 rgba(0, 38, 3, 0.08);
+	width: min(100%, 520px);
+	margin: 0 20px;
+	.form {
+		@apply flex flex-col gap-y-4 mt-5;
+	}
+}

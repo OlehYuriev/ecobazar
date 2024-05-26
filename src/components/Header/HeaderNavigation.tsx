@@ -12,20 +12,21 @@ const HeaderNavigation: FC = () => {
     <>
       <div className="py-4 bg-gray-scale-gray-800">
         <div className="container">
-          <div className="flex justify-between items-center">
+          <nav className="flex justify-between items-center">
             <ol className="flex gap-x-3">
               {links.map((link) => (
-                <NavLink
-                  key={link.name}
-                  to={link.url}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-branding-success hover:opacity-80 transition-all"
-                      : "text-white hover:opacity-80 transition-all"
-                  }
-                >
-                  <li>{link.name}</li>
-                </NavLink>
+                <li key={link.name}>
+                  <NavLink
+                    to={link.url}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-branding-success hover:opacity-80 transition-all"
+                        : "text-white hover:opacity-80 transition-all"
+                    }
+                  >
+                    <span>{link.name}</span>
+                  </NavLink>
+                </li>
               ))}
             </ol>
             <a
@@ -35,7 +36,7 @@ const HeaderNavigation: FC = () => {
               <FiPhoneCall />
               <span className="pl-2">(219) 555-0114</span>
             </a>
-          </div>
+          </nav>
         </div>
       </div>
     </>

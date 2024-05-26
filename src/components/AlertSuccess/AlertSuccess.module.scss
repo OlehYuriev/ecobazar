@@ -1,0 +1,8 @@
+.alert {
+	@apply fixed left-4  bg-branding-success text-white font-semibold p-3 rounded-lg;
+	bottom: -100%;
+	transition: all 0.5s;
+	&__active {
+		@apply bottom-4;
+	}
+}

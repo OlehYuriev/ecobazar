@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
+import useAuth from "@/hooks/useAuth";
 const HeaderTop: FC = () => {
+  const authUser = useAuth();
   return (
     <>
       <div className="py-3 bg-gray-scale-gray-800">
@@ -17,7 +20,16 @@ const HeaderTop: FC = () => {
               </span>
             </a>
             <div className="border-l-2 border-gray-scale-gray-600 pl-5">
-              <Link to="/">Sign In</Link>
+              {authUser ? (
+                <Link to="/account">
+                  <FaUser fontSize={"1rem"} />
+                </Link>
+              ) : (
+                <>
+                  <Link to="/login">Sign In</Link> /{" "}
+                  <Link to="/register">Sign Up</Link>
+                </>
+              )}
             </div>
           </div>
         </div>

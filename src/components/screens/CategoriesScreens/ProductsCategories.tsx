@@ -18,10 +18,11 @@ const ProductsCategories: FC<iProps> = ({
   setFilter,
   searchParams,
 }) => {
-  const itemsPerPage = 1; // Количество элементов на странице
+  const itemsPerPage = 4; // Количество элементов на странице
   // Вычисляем общее количество страниц
   const totalPages = Math.ceil(products.length / itemsPerPage);
-  // Получаем подмассив элементов для текущей страницы
+
+  // Получаем под массив элементов для текущей страницы
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentProducts = products.slice(startIndex, endIndex);

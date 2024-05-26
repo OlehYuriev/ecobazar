@@ -4,7 +4,7 @@ import { FC } from "react";
 import { useLoaderData } from "react-router-dom";
 import styles from "./ProductScreens.module.scss";
 import RelatedProducts from "./RelatedProducts";
-import TabsProduct from "./TabsProduct";
+import TabsProduct from "./TabsProduct/TabsProduct";
 
 const ProductScreens: FC = () => {
   const product = useLoaderData() as IProduct;
@@ -15,7 +15,7 @@ const ProductScreens: FC = () => {
         <div className={styles.info}>
           <ProductInfo product={product} />
         </div>
-        <TabsProduct />
+        <TabsProduct product={product} />
         <RelatedProducts />
       </div>
     </>
