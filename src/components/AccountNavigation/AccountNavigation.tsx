@@ -23,7 +23,7 @@ const AccountNavigation: FC = () => {
   }
   return (
     <>
-      <section className="border border-gray-scale-gray-100 rounded-lg">
+      <section className="border border-gray-scale-gray-100 rounded-lg self-start">
         <h2 className="text-xl font-medium mx-5 my-6">Navigation</h2>
         <nav>
           <ol>

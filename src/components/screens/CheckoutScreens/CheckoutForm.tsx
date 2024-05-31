@@ -1,17 +1,13 @@
 import { FC, useState } from "react";
 import InputComponent from "@/components/ui/input/InputComponent";
 import TextareaComponent from "@/components/ui/textarea/TextareaComponent";
+import { IInfoSend } from "@/interface/IInfo";
 
-const CheckoutForm: FC = () => {
-  const [info, setInfo] = useState({
-    firstName: "",
-    lastName: "",
-    companyName: "",
-    streetAddress: "",
-    email: "",
-    phone: "",
-    additionalInfo: "",
-  });
+interface IProps {
+  info: IInfoSend;
+  setInfo: React.Dispatch<React.SetStateAction<IInfoSend>>;
+}
+const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
   return (
     <>
       <form action="" className="flex-1 flex flex-col gap-y-4">

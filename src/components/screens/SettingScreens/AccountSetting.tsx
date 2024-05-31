@@ -1,14 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { updateEmail, updateProfile } from "firebase/auth";
 import { IInfo } from "@/interface/IInfo";
 import { database } from "@/firebase";
 import styles from "./SettingScreens.module.scss";
-import { set, ref as databaseRef, onValue } from "firebase/database";
+import { set, ref as databaseRef } from "firebase/database";
 import PhotoSetting from "./AccountSetting/PhotoSetting";
 import InfoSetting from "./AccountSetting/InfoSetting";
 import { deletePhoto, uploadAndRefreshProfile } from "@/services/uploadPhoto";
 import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
+import useUserInfo from "@/hooks/useUserInfo";
 
 const AccountSetting: FC = () => {
   const authUser = useAuth();
@@ -24,31 +25,7 @@ const AccountSetting: FC = () => {
   const [progress, setProgress] = useState(0);
   const [showAlert, setShowAlert] = useState(false);
 
-  useEffect(() => {
-    if (authUser) {
-      const name = authUser.displayName?.split(" ");
-      const firstName = name && name.length > 0 ? name[0] : "";
-      const lastName = name && name.length > 1 ? name[1] : "";
-      setInfo((prevInfo) => ({
-        ...prevInfo,
-        firstName: firstName,
-        lastName: lastName,
-        email: authUser.email || "",
-      }));
-
-      // Чтение данных из базы данных
-      const userRef = databaseRef(database, "usersInfo/" + authUser.uid);
-      onValue(userRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          setInfo((prevInfo) => ({
-            ...prevInfo,
-            phone: data.user?.phoneNumber || "",
-          }));
-        }
-      });
-    }
-  }, [authUser]);
+  useUserInfo<IInfo>(setInfo);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

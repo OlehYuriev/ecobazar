@@ -7,3 +7,7 @@ export default interface IProduct {
   quantity: number;
   description: string;
 }
+
+export interface IProductSubtotal extends IProduct {
+  subtotal: number;
+}

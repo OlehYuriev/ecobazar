@@ -56,8 +56,11 @@ const InfoSetting: FC<IProps> = ({ info, setInfo, error }) => {
           }
           placeholder="Phone Number"
           label="Phone Number"
+          type="number"
         />
-        <ButtonMain value="Save Changes" type="submit" />
+        <div className="max-w-44">
+          <ButtonMain value="Save Changes" type="submit" />
+        </div>
         {error && <p className=" text-red-600">Error: {error.message}</p>}
       </div>
     </>

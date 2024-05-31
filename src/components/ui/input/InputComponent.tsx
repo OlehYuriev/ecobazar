@@ -39,7 +39,10 @@ const InputComponent: FC<IProps> = ({
   }
   return (
     <>
-      <label htmlFor={htmlForValue} className="flex flex-col w-full relative">
+      <label
+        htmlFor={htmlForValue}
+        className="flex flex-col w-full relative cursor-pointer"
+      >
         {label && <span className="mb-2">{label}</span>}
         <input
           {...rest}
@@ -53,10 +56,13 @@ const InputComponent: FC<IProps> = ({
 
         {typePassword &&
           (!isActiveEye ? (
-            <IoEyeOutline className={styles.eye} onClick={() => toggleEye()} />
+            <IoEyeOutline
+              className={`${styles.eye} ${label ? styles.eye__label : ""}`}
+              onClick={() => toggleEye()}
+            />
           ) : (
             <IoEyeOffOutline
-              className={styles.eye}
+              className={`${styles.eye} ${label ? styles.eye__label : ""}`}
               onClick={() => toggleEye()}
             />
           ))}

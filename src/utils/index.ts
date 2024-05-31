@@ -49,3 +49,11 @@ export function getRandomSaleProducts(
   const shuffledProducts = saleProducts.sort(() => 0.5 - Math.random());
   return shuffledProducts.slice(0, maxItems);
 }
+
+export function formatDate() {
+  return new Date().toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}

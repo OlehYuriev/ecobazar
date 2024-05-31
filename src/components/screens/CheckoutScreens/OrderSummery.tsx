@@ -1,19 +1,30 @@
-import { FC, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import { calculateDiscountedPrice, getTotalPrice } from "@/utils";
+import { FC } from "react";
+
+import { calculateDiscountedPrice } from "@/utils";
 import RadioButton from "@/components/ui/input/RadioButton";
 import ButtonMain from "@/components/ui/buttons/ButtonMain";
+import IProduct from "@/interface/IProduct";
+import { IInfoSend } from "@/interface/IInfo";
 
-const OrderSummery: FC = () => {
-  const basket = useSelector((state: RootState) => state.basket.productsBasket);
-  const TotalPrice = getTotalPrice(basket);
-  const [radioOption, setRadioOption] = useState("Cash on Delivery");
+interface IProps {
+  basket: IProduct[];
+  TotalPrice: number;
+  placeOrder: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  radioOption: string;
+  setRadioOption: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
+  info: IInfoSend;
+}
 
-  function placeOrder() {
-    console.log(radioOption);
-  }
-
+const OrderSummery: FC<IProps> = ({
+  info,
+  basket,
+  TotalPrice,
+  placeOrder,
+  radioOption,
+  setRadioOption,
+  error,
+}) => {
   return (
     <>
       <div className="border border-gray-scale-gray-100 rounded-lg p-6">
@@ -54,7 +65,11 @@ const OrderSummery: FC = () => {
         </div>
         <div className="mt-6">
           <h3 className="text-xl font-medium">Payment Method</h3>
-          <form action="" className="mt-4 flex flex-col gap-y-2.5">
+          <form
+            action=""
+            className="mt-4 flex flex-col gap-y-2.5"
+            onSubmit={placeOrder}
+          >
             <RadioButton
               radioOption={radioOption}
               setRadioOption={setRadioOption}
@@ -71,9 +86,20 @@ const OrderSummery: FC = () => {
               value="Amazon Pay"
             />
             <div className="mt-6">
-              <ButtonMain value="Place Order" fun={placeOrder} />
+              <ButtonMain
+                value="Place Order"
+                type="submit"
+                disabled={
+                  !info.firstName ||
+                  !info.lastName ||
+                  !info.email ||
+                  !info.phone ||
+                  !info.streetAddress
+                }
+              />
             </div>
           </form>
+          {error && <p className=" text-red-600">Error: {error}</p>}
         </div>
       </div>
     </>

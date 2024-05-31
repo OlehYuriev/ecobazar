@@ -1,0 +1,9 @@
+.info {
+	@apply flex gap-x-6;
+	& > :nth-child(1) {
+		flex: 1 1 55%;
+	}
+	& > :nth-child(2) {
+		flex: 1 1 45%;
+	}
+}
