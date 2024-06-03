@@ -1,29 +1,23 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import FilterCategories from "./FilterCategories";
 import ProductsCategories from "./ProductsCategories";
 import styles from "./Categories.module.scss";
 import { products } from "@/date/products";
-import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import useParamsPage from "@/hooks/useParamsPage";
 
 const CategoriesScreens: FC = () => {
   const [radioOption, setRadioOption] = useState("All");
   const [inputFrom, setInputFrom] = useState(0);
   const [inputTo, setInputTo] = useState(100);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { searchParams, setPage, setSearchParams } = useParamsPage();
 
   const [currentPage, setCurrentPage] = useState(1);
   const searchProduct = useSelector(
     (state: RootState) => state.search.productsSearch
   );
-  const setPage = useCallback(
-    (page: string | number) => {
-      searchParams.set("page", String(page));
-      setSearchParams(searchParams);
-    },
-    [searchParams, setSearchParams]
-  );
+
   const setFilter = (filter: string) => {
     searchParams.set("category", filter);
     setSearchParams(searchParams);

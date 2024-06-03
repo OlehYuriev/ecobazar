@@ -10,6 +10,9 @@ import RegisterPage from "@/pages/RegisterPage";
 import DashboardPage from "@/pages/DashboardPage";
 import LayoutAccount from "@/components/layout/LayoutAccount";
 import SettingPage from "@/pages/SettingPage";
+import OrderPage from "@/pages/OrderPage";
+import OrderItemPage from "@/pages/OrderItemPage";
+import { fetchOrder } from "@/services/fetchOrder";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,15 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardPage />,
+      },
+      {
+        path: "order",
+        element: <OrderPage />,
+      },
+      {
+        path: "order/:idOrder",
+        element: <OrderItemPage />,
+        loader: fetchOrder,
       },
       {
         path: "setting",

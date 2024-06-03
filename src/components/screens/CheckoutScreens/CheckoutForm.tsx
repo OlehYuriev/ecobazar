@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import InputComponent from "@/components/ui/input/InputComponent";
 import TextareaComponent from "@/components/ui/textarea/TextareaComponent";
 import { IInfoSend } from "@/interface/IInfo";
@@ -36,11 +36,11 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
             label="Last name"
           />
           <InputComponent
-            value={info.lastName}
+            value={info.companyName}
             setValue={(newValue: string) =>
               setInfo((prevInfo) => ({
                 ...prevInfo,
-                lastName: newValue,
+                companyName: newValue,
               }))
             }
             placeholder="Company Name"

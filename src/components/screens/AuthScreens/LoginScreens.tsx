@@ -38,7 +38,7 @@ const LoginScreens: FC = () => {
     }
   }
   function authLogin(userCredential: UserCredential) {
-    const user = userCredential.user;
+    userCredential.user;
     setLogIn({ email: "", password: "" });
     setErrorMessage("");
     navigate("/account");

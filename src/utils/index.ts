@@ -30,6 +30,18 @@ export const calculateDiscountedPrice = (product: IProduct) => {
 
   return parseFloat(finalPrice.toFixed(2));
 };
+export const calculateDiscountedPriceOneProduct = (product: IProduct) => {
+  const unitPrice = product.price;
+
+  let finalPrice = unitPrice;
+
+  if (product.sale) {
+    const discountAmount = finalPrice * (product.sale / 100);
+    finalPrice -= discountAmount;
+  }
+
+  return parseFloat(finalPrice.toFixed(2));
+};
 
 export const getTotalPrice = (basket: IProduct[]) => {
   return basket.reduce(
@@ -57,3 +69,27 @@ export function formatDate() {
     year: "numeric",
   });
 }
+
+export const timeAgo = (timestamp: number): string => {
+  const now = Date.now(); // Получаем текущие время в миллисекундах
+  const diffInSeconds = Math.floor((now - timestamp) / 1000); // Преобразуем timestamp в секунды
+
+  const intervals = [
+    { label: "year", seconds: 31536000 },
+    { label: "month", seconds: 2592000 },
+    { label: "week", seconds: 604800 },
+    { label: "day", seconds: 86400 },
+    { label: "hour", seconds: 3600 },
+    { label: "minute", seconds: 60 },
+    { label: "second", seconds: 1 },
+  ];
+
+  for (const interval of intervals) {
+    const count = Math.floor(diffInSeconds / interval.seconds);
+    if (count > 0) {
+      return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+    }
+  }
+
+  return "just now";
+};

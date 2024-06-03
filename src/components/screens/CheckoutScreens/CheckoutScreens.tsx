@@ -9,7 +9,12 @@ import useUserInfo from "@/hooks/useUserInfo";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import IProductOrder from "@/interface/IProductOrder";
-import { calculateDiscountedPrice, formatDate, getTotalPrice } from "@/utils";
+import {
+  calculateDiscountedPrice,
+  calculateDiscountedPriceOneProduct,
+  formatDate,
+  getTotalPrice,
+} from "@/utils";
 import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
 import { useDispatch } from "react-redux";
 import { clearBasket } from "@/store/basket/basketSlice";
@@ -61,6 +66,10 @@ const CheckoutScreens: FC = () => {
         setError("Something went wrong");
         console.error("Error adding product:", error);
       }
+    } else if (!authUser && product.order.basketWithSubtotal.length) {
+      setShowAlert(true);
+      setError("");
+      dispatch(clearBasket());
     } else {
       setError("There are no products in the cart");
     }
@@ -71,6 +80,7 @@ const CheckoutScreens: FC = () => {
 
     const basketWithSubtotal = basket.map((product) => ({
       ...product,
+      price: calculateDiscountedPriceOneProduct(product),
       subtotal: calculateDiscountedPrice(product),
     }));
 

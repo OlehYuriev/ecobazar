@@ -30,8 +30,7 @@ const RegisterScreens: FC = () => {
 
     if (register.email && register.password === confirmPassword && isChecked) {
       createUserWithEmailAndPassword(auth, register.email, register.password)
-        .then((userCredential) => {
-          const user = userCredential.user;
+        .then(() => {
           setRegister({ email: "", password: "" });
           setConfirmPassword("");
           setErrorMessage("");

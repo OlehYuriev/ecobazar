@@ -1,0 +1,9 @@
+.comments {
+	@apply flex flex-col gap-y-5;
+	& > * {
+		@apply border-b-2 border-gray-scale-gray-100;
+	}
+	& > :last-child {
+		border: none;
+	}
+}

@@ -1,16 +1,43 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { auth } from "@/firebase";
 import { signOut } from "firebase/auth";
 import { MdDashboard } from "react-icons/md";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
+import { GrUpdate } from "react-icons/gr";
+
 const AccountNavigation: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [activePath, setActivePath] = useState(false);
+  useEffect(() => {
+    if (location.pathname.startsWith("/account/order")) {
+      setActivePath(true);
+    } else {
+      setActivePath(false);
+    }
+  }, [location, activePath]);
+
   const links = [
-    { url: "/account", name: "Dashboard", icon: <MdDashboard /> },
-    { url: "/account/setting", name: "Settings", icon: <IoSettingsOutline /> },
+    {
+      url: "/account",
+      name: "Dashboard",
+      icon: <MdDashboard />,
+      activeUrl: false,
+    },
+    {
+      url: "/account/order",
+      name: "Order History",
+      icon: <GrUpdate />,
+      activeUrl: activePath,
+    },
+    {
+      url: "/account/setting",
+      name: "Settings",
+      icon: <IoSettingsOutline />,
+      activeUrl: false,
+    },
   ];
   function logOut() {
     signOut(auth)
@@ -32,12 +59,13 @@ const AccountNavigation: FC = () => {
               <li key={link.name}>
                 <NavLink
                   to={link.url}
+                  end
                   className={({ isActive }) =>
                     `${
-                      isActive && location.pathname === link.url
+                      isActive || link.activeUrl
                         ? "bg-green-gray-scale-50 border-l-4 border-branding-success"
                         : "text-gray-scale-gray-200"
-                    } flex hover:bg-gray-scale-gray-300 transition-all`
+                    } flex hover:bg-gray-scale-gray-300 transition-all `
                   }
                 >
                   <div className="flex items-center gap-x-2.5 text-base p-4">
