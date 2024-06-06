@@ -18,6 +18,8 @@ import {
 import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
 import { useDispatch } from "react-redux";
 import { clearBasket } from "@/store/basket/basketSlice";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
 
 const CheckoutScreens: FC = () => {
   const authUser = useAuth();
@@ -31,6 +33,7 @@ const CheckoutScreens: FC = () => {
     phone: "",
     additionalInfo: "",
   });
+  const { exchangeRate, currency } = useExchangeRate();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const TotalPrice = getTotalPrice(basket);
   const [radioOption, setRadioOption] = useState("Cash on Delivery");
@@ -80,8 +83,16 @@ const CheckoutScreens: FC = () => {
 
     const basketWithSubtotal = basket.map((product) => ({
       ...product,
-      price: calculateDiscountedPriceOneProduct(product),
-      subtotal: calculateDiscountedPrice(product),
+      price: `${currencyChange(currency)} ${handleUsdAmountChange(
+        calculateDiscountedPriceOneProduct(product),
+        exchangeRate,
+        currency
+      )}`,
+      subtotal: `${currencyChange(currency)} ${handleUsdAmountChange(
+        calculateDiscountedPrice(product),
+        exchangeRate,
+        currency
+      )}`,
     }));
 
     const FullInfoProduct: IProductOrder = {
@@ -91,7 +102,11 @@ const CheckoutScreens: FC = () => {
       },
       ...info,
       payment: radioOption,
-      totalPrice: TotalPrice,
+      totalPrice: `${currencyChange(currency)} ${handleUsdAmountChange(
+        TotalPrice,
+        exchangeRate,
+        currency
+      )}`,
       dateProduct: formatDate(),
     };
 

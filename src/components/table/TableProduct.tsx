@@ -30,9 +30,9 @@ const TableProduct: FC<IProps> = ({ tableArray }) => {
                     {item.name}
                   </div>
                 </td>
-                <td>${item.price}</td>
+                <td>{item.price}</td>
                 <td>x{item.quantity}</td>
-                <td>${item.subtotal}</td>
+                <td>{item.subtotal}</td>
               </tr>
             ))}
           </tbody>

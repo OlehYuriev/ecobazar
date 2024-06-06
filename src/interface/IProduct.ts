@@ -8,6 +8,7 @@ export default interface IProduct {
   description: string;
 }
 
-export interface IProductSubtotal extends IProduct {
-  subtotal: number;
+export interface IProductSubtotal extends Omit<IProduct, "price"> {
+  subtotal: string;
+  price: string;
 }

@@ -48,7 +48,7 @@ const OrderItemScreens = () => {
               <div className="px-5 py-4 border-t border-gray-scale-gray-100">
                 <div className="pb-3 border-b border-gray-scale-gray-100 flex items-center justify-between">
                   <span className="text-gray-scale-gray-600">Subtotal:</span>
-                  <span className="font-medium">${order.totalPrice}</span>
+                  <span className="font-medium">{order.totalPrice}</span>
                 </div>
                 <div className="py-3 border-b border-gray-scale-gray-100 flex items-center justify-between">
                   <span className="text-gray-scale-gray-600">Discount:</span>
@@ -61,7 +61,7 @@ const OrderItemScreens = () => {
                 <div className="pt-3  flex items-center justify-between text-lg">
                   <span>Total</span>
                   <span className="font-semibold text-branding-success-dark">
-                    ${order.totalPrice}
+                    {order.totalPrice}
                   </span>
                 </div>
               </div>

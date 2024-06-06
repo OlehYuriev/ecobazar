@@ -8,8 +8,11 @@ import { RootState } from "@/store/store";
 import HeaderSearch from "./HeaderSearch";
 import ModalBasket from "../ModalBasket/ModalBasket";
 import { getTotalPrice } from "@/utils";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
 
 const HeaderContent: FC = () => {
+  const { exchangeRate, currency } = useExchangeRate();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const [isModal, setIsModal] = useState(false);
   const TotalPrice = getTotalPrice(basket);
@@ -47,7 +50,10 @@ const HeaderContent: FC = () => {
               </button>
               <div className="flex flex-col ml-2">
                 <span className="text-gray-scale-gray-700">Shopping cart:</span>
-                <span className="font-medium">${TotalPrice.toFixed(2)}</span>
+                <span className="font-medium">
+                  {currencyChange(currency)}
+                  {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}
+                </span>
               </div>
             </div>
           </div>

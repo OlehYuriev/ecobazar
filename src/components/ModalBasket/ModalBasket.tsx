@@ -7,12 +7,16 @@ import { useNavigate } from "react-router-dom";
 import ModalItemBasket from "./ModalItemBasket";
 import { getTotalPrice } from "@/utils";
 import ButtonMain from "../ui/buttons/ButtonMain";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
 
 interface IProps {
   isModal: boolean;
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
+  const { exchangeRate, currency } = useExchangeRate();
+
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const navigate = useNavigate();
   const TotalPrice = getTotalPrice(basket);
@@ -47,7 +51,10 @@ const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
           <div>
             <div className="flex justify-between items-center py-6">
               <span>{basket.length} Product</span>
-              <span className="font-semibold">${TotalPrice.toFixed(2)}</span>
+              <span className="font-semibold">
+                {currencyChange(currency)}
+                {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}
+              </span>
             </div>
 
             <ButtonMain value="Checkout" fun={navigateCheckout} />

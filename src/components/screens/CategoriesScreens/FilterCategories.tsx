@@ -39,7 +39,7 @@ const FilterCategories: FC<IProps> = ({
           <AccordionComponent title="Price">
             <RangeComponent
               min={0}
-              max={100}
+              max={1000}
               step={1}
               forid="display1"
               inputFrom={inputFrom}

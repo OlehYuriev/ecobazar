@@ -5,20 +5,27 @@ import styles from "./ProductCard.module.scss";
 import IProduct from "@/interface/IProduct";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "@/store/basket/basketSlice";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { RootState } from "@/store/store";
 import { calculateDiscountedPrice } from "@/utils";
 import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import ModalComponent from "../modal/ModalComponent";
 import ProductInfo from "../ProductInfo/ProductInfo";
+import useExchangeRate from "@/hooks/useExchangeRate";
+
 interface IProps {
   product: IProduct;
 }
+
 const ProductCard: FC<IProps> = ({ product }) => {
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
+
   const dispatch = useDispatch();
   const [isBasket, setIsBasket] = useState(false);
   const [isModal, setIsModal] = useState(false);
+  const { exchangeRate, currency } = useExchangeRate();
+
   useEffect(() => {
     const productExistsInBasket = basket.some(
       (item) => item.name === product.name
@@ -65,14 +72,31 @@ const ProductCard: FC<IProps> = ({ product }) => {
                 <h4 className="text-gray-scale-gray-700">{product.name}</h4>
                 {product.sale ? (
                   <span className=" text-base font-medium">
-                    <span>${calculateDiscountedPrice(product)}</span>
+                    <span>
+                      {currencyChange(currency)}
+                      {handleUsdAmountChange(
+                        calculateDiscountedPrice(product),
+                        exchangeRate,
+                        currency
+                      )}
+                    </span>
                     <span className="text-gray-scale-gray-400 font-normal line-through ml-1">
-                      ${product.price.toFixed(2)}
+                      {currencyChange(currency)}
+                      {handleUsdAmountChange(
+                        product.price,
+                        exchangeRate,
+                        currency
+                      )}
                     </span>
                   </span>
                 ) : (
                   <span className=" text-base font-medium">
-                    ${product.price.toFixed(2)}
+                    {currencyChange(currency)}
+                    {handleUsdAmountChange(
+                      product.price,
+                      exchangeRate,
+                      currency
+                    )}
                   </span>
                 )}
               </div>

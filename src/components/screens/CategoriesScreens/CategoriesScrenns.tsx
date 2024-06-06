@@ -6,11 +6,14 @@ import { products } from "@/date/products";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import useParamsPage from "@/hooks/useParamsPage";
-
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange } from "@/utils";
+import { calculateDiscountedPriceOneProduct } from "@/utils";
 const CategoriesScreens: FC = () => {
+  const { exchangeRate, currency } = useExchangeRate();
   const [radioOption, setRadioOption] = useState("All");
   const [inputFrom, setInputFrom] = useState(0);
-  const [inputTo, setInputTo] = useState(100);
+  const [inputTo, setInputTo] = useState(1000);
   const { searchParams, setPage, setSearchParams } = useParamsPage();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,6 +38,10 @@ const CategoriesScreens: FC = () => {
   }, [searchParams]);
 
   const filteredProducts = products.filter((product) => {
+    const price = calculateDiscountedPriceOneProduct(product);
+    const priceCurrency = parseFloat(
+      handleUsdAmountChange(price, exchangeRate, currency)
+    );
     if (radioOption !== "All" && product.category !== radioOption) {
       return false;
     }
@@ -42,7 +49,7 @@ const CategoriesScreens: FC = () => {
       return false;
     }
     // Фильтрация по цене
-    if (product.price < inputFrom || product.price > inputTo) {
+    if (priceCurrency < inputFrom || priceCurrency > inputTo) {
       return false;
     }
 

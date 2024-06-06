@@ -93,3 +93,23 @@ export const timeAgo = (timestamp: number): string => {
 
   return "just now";
 };
+
+export const handleUsdAmountChange = (
+  price: number,
+  exchangeRate: number | null,
+  currency: string
+) => {
+  let finalPrice = price;
+  if (exchangeRate && currency === "UAH") {
+    finalPrice = price * exchangeRate;
+  }
+  return finalPrice.toFixed(2);
+};
+
+export function currencyChange(currency: string) {
+  let currencySymbol = "$";
+  if (currency === "UAH") {
+    currencySymbol = "₴";
+  }
+  return currencySymbol;
+}

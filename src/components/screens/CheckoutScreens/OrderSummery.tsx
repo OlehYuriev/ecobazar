@@ -1,10 +1,11 @@
 import { FC } from "react";
-
 import { calculateDiscountedPrice } from "@/utils";
 import RadioButton from "@/components/ui/input/RadioButton";
 import ButtonMain from "@/components/ui/buttons/ButtonMain";
 import IProduct from "@/interface/IProduct";
 import { IInfoSend } from "@/interface/IInfo";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
 
 interface IProps {
   basket: IProduct[];
@@ -25,6 +26,7 @@ const OrderSummery: FC<IProps> = ({
   setRadioOption,
   error,
 }) => {
+  const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
       <div className="border border-gray-scale-gray-100 rounded-lg p-6">
@@ -42,7 +44,12 @@ const OrderSummery: FC<IProps> = ({
               </div>
             </div>
             <span className="font-medium">
-              ${calculateDiscountedPrice(product)}
+              {currencyChange(currency)}
+              {handleUsdAmountChange(
+                calculateDiscountedPrice(product),
+                exchangeRate,
+                currency
+              )}
             </span>
           </div>
         ))}
@@ -50,7 +57,10 @@ const OrderSummery: FC<IProps> = ({
         <div className="w-96">
           <div className="flex justify-between py-3">
             <span className="gray-scale-gray-700">Subtotal:</span>
-            <span className="font-medium">${TotalPrice.toFixed(2)}</span>
+            <span className="font-medium">
+              {currencyChange(currency)}
+              {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}
+            </span>
           </div>
           <div className="flex justify-between py-3 border-t border-gray-scale-gray-100">
             <span className="gray-scale-gray-700">Shipping:</span>
@@ -59,7 +69,8 @@ const OrderSummery: FC<IProps> = ({
           <div className="flex justify-between py-3 border-t border-gray-scale-gray-100">
             <span className="gray-scale-gray-700">Total:</span>
             <span className="font-semibold text-lg">
-              ${TotalPrice.toFixed(2)}
+              {currencyChange(currency)}
+              {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}
             </span>
           </div>
         </div>

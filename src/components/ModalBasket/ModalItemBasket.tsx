@@ -9,12 +9,16 @@ import {
 } from "@/store/basket/basketSlice";
 import IProduct from "@/interface/IProduct";
 import { calculateDiscountedPrice } from "@/utils";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
+
 interface IProps {
   basket: IProduct[];
 }
+
 const ModalItemBasket: FC<IProps> = ({ basket }) => {
   const dispatch = useDispatch();
-
+  const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
       {basket.map((item) => (
@@ -25,7 +29,12 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
               <h5>
                 {item.name}
                 <span className=" font-semibold ml-2">
-                  ${calculateDiscountedPrice(item)}
+                  {currencyChange(currency)}
+                  {handleUsdAmountChange(
+                    calculateDiscountedPrice(item),
+                    exchangeRate,
+                    currency
+                  )}
                 </span>
               </h5>
 

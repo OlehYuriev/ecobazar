@@ -3,10 +3,15 @@ import IProduct from "@/interface/IProduct";
 import styles from "./ProductItem.module.scss";
 import { calculateDiscountedPrice } from "@/utils";
 import { Link } from "react-router-dom";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
+
 interface IProps {
   product: IProduct;
 }
+
 const ProductItem: FC<IProps> = ({ product }) => {
+  const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
       <Link to={`/categories/${product.name}`}>
@@ -15,10 +20,16 @@ const ProductItem: FC<IProps> = ({ product }) => {
           <div>
             <h5 className="text-gray-scale-gray-700">{product.name}</h5>
             <span className=" text-base font-medium mr-2">
-              ${calculateDiscountedPrice(product)}
+              {currencyChange(currency)}
+              {handleUsdAmountChange(
+                calculateDiscountedPrice(product),
+                exchangeRate,
+                currency
+              )}
             </span>
             <span className="text-base line-through text-gray-scale-gray-400">
-              ${product.price.toFixed(2)}
+              {currencyChange(currency)}
+              {handleUsdAmountChange(product.price, exchangeRate, currency)}
             </span>
           </div>
         </div>

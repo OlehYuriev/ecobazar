@@ -7,6 +7,9 @@ import ButtonQuantity from "../ui/buttons/ButtonQuantity";
 import { useDispatch } from "react-redux";
 import { addProduct } from "@/store/basket/basketSlice";
 import ButtonMain from "../ui/buttons/ButtonMain";
+import useExchangeRate from "@/hooks/useExchangeRate";
+import { handleUsdAmountChange, currencyChange } from "@/utils";
+
 interface IProps {
   product: IProduct;
 }
@@ -14,6 +17,7 @@ interface IProps {
 const ProductInfo: FC<IProps> = ({ product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product.quantity);
+  const { exchangeRate, currency } = useExchangeRate();
 
   function addBasket(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
@@ -43,10 +47,16 @@ const ProductInfo: FC<IProps> = ({ product }) => {
             {product.sale ? (
               <div className="flex items-center">
                 <span className="text-gray-scale-gray-400 font-normal line-through ml-1 text-xl">
-                  ${product.price.toFixed(2)}
+                  {currencyChange(currency)}
+                  {handleUsdAmountChange(product.price, exchangeRate, currency)}
                 </span>
                 <span className="font-medium text-2xl text-branding-success-dark ml-1.5">
-                  ${calculateDiscountedPrice(product)}
+                  {currencyChange(currency)}
+                  {handleUsdAmountChange(
+                    calculateDiscountedPrice(product),
+                    exchangeRate,
+                    currency
+                  )}
                 </span>
                 <span className="ml-1.5 text-branding-error bg-branding-error bg-opacity-10 font-medium py-1 px-2.5 rounded-3xl">
                   {product.sale}% Off
@@ -54,7 +64,8 @@ const ProductInfo: FC<IProps> = ({ product }) => {
               </div>
             ) : (
               <span className="font-medium text-2xl text-branding-success-dark">
-                ${product.price.toFixed(2)}
+                {currencyChange(currency)}
+                {handleUsdAmountChange(product.price, exchangeRate, currency)}
               </span>
             )}
           </div>

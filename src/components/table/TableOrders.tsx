@@ -29,7 +29,7 @@ const TableOrders: FC<IProps> = ({ tableArray }) => {
                 <td className="pl-6">#{item.idOrder}</td>
                 <td>{item.dateProduct}</td>
                 <td>
-                  ${item.totalPrice} ({item.order?.basketWithSubtotal.length}{" "}
+                  {item.totalPrice} ({item.order?.basketWithSubtotal.length}{" "}
                   Products)
                 </td>
                 <td>Processing</td>
