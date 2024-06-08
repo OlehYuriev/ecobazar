@@ -18,28 +18,3 @@
 		width: 100%;
 	}
 }
-
-.dropMenu {
-	@apply relative;
-
-	@media (hover: hover) {
-		&:hover &__list {
-			opacity: 1;
-			visibility: visible;
-		}
-		&:hover &__icon {
-			transform: rotate(180deg);
-			@apply transition-all;
-		}
-	}
-
-	&__list {
-		@apply flex flex-col absolute bg-gray-scale-gray-100 bg-opacity-80  text-black rounded-sm py-1 gap-y-1 text-base transition-all;
-		opacity: 0;
-		visibility: hidden;
-
-		& > * {
-			@apply hover:bg-branding-success-dark hover:text-white px-2 cursor-pointer transition-all;
-		}
-	}
-}

@@ -6,6 +6,7 @@ import IProduct from "@/interface/IProduct";
 import { useDispatch } from "react-redux";
 import { searchProduct } from "@/store/search/searchSlice";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HeaderSearch: FC = () => {
   const [value, setValue] = useState("");
@@ -13,6 +14,7 @@ const HeaderSearch: FC = () => {
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -59,7 +61,7 @@ const HeaderSearch: FC = () => {
           <IoSearch className={styles.iconSearch} fontSize="1rem" />
           <input
             className="border-y-2 border-l-2 border-gray-scale-gray-100 rounded-l-lg py-3 pl-10 "
-            placeholder="Search"
+            placeholder={t("header.Search")}
             type="text"
             value={value}
             onChange={handleChange}
@@ -82,7 +84,7 @@ const HeaderSearch: FC = () => {
           )}
         </label>
         <button className="bg-branding-success px-3.5 rounded-r-md text-white hover:opacity-80 transition-all">
-          Search
+          {t("header.Search")}
         </button>
       </form>
     </>

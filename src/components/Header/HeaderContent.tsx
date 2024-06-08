@@ -10,8 +10,10 @@ import ModalBasket from "../ModalBasket/ModalBasket";
 import { getTotalPrice } from "@/utils";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 const HeaderContent: FC = () => {
+  const { t } = useTranslation();
   const { exchangeRate, currency } = useExchangeRate();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const [isModal, setIsModal] = useState(false);
@@ -49,7 +51,9 @@ const HeaderContent: FC = () => {
                 <RiShoppingBagLine fontSize="2rem" />
               </button>
               <div className="flex flex-col ml-2">
-                <span className="text-gray-scale-gray-700">Shopping cart:</span>
+                <span className="text-gray-scale-gray-700">
+                  {t("header.basket")}
+                </span>
                 <span className="font-medium">
                   {currencyChange(currency)}
                   {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}

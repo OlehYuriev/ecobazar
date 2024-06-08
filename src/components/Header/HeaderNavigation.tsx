@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { FiPhoneCall } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 const HeaderNavigation: FC = () => {
+  const { t } = useTranslation();
   const links = [
-    { url: "/", name: "Home" },
-    { url: "/categories", name: "Categories" },
+    { url: "/", name: t("header.home") },
+    { url: "/categories", name: t("header.categories") },
   ];
 
   return (

@@ -1,0 +1,16 @@
+{
+  "welcome": "Добро пожаловать в React",
+  "languages": {
+    "english": "Англійська",
+    "ukrainian": "Українська"
+  },
+  "header": {
+    "address": "Розташування магазину: Lincoln- 344, Illinois, Chicago, USA",
+    "SignIn": "Увійти",
+    "SignUp": "Зареєструватися",
+    "Search": "Пошук",
+    "basket": "Кошик",
+    "home": "Головна",
+    "categories": "Категорії"
+  }
+}

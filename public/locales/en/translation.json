@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to React",
+  "languages": {
+    "english": "English",
+    "ukrainian": "Ukrainian"
+  },
+  "header": {
+    "address": "Store Location: Lincoln- 344, Illinois, Chicago, USA",
+    "SignIn": "Sign In",
+    "SignUp": "Sign Up",
+    "Search": " Search",
+    "basket": "Shopping cart:",
+    "home": "Home",
+    "categories": "Categories"
+  }
+}
