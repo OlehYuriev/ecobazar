@@ -1,5 +1,6 @@
 import { FC } from "react";
 import RadioButton from "@/components/ui/input/RadioButton";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   radioOption: string;
@@ -12,6 +13,7 @@ const ButtonsCategories: FC<IProps> = ({
   setRadioOption,
   setFilter,
 }) => {
+  const { t } = useTranslation();
   const AccordionCategories = [
     {
       id: 1,
@@ -21,6 +23,7 @@ const ButtonsCategories: FC<IProps> = ({
           setRadioOption={setRadioOption}
           value="All"
           setFilter={setFilter}
+          label={t("categories.All")}
         />
       ),
     },
@@ -32,6 +35,7 @@ const ButtonsCategories: FC<IProps> = ({
           setRadioOption={setRadioOption}
           value="Fresh Fruit"
           setFilter={setFilter}
+          label={t("categories.FreshFruit")}
         />
       ),
     },
@@ -43,6 +47,7 @@ const ButtonsCategories: FC<IProps> = ({
           setRadioOption={setRadioOption}
           value="Vegetables"
           setFilter={setFilter}
+          label={t("categories.FreshVegetables")}
         />
       ),
     },

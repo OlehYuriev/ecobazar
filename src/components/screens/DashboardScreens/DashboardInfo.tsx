@@ -3,11 +3,13 @@ import styles from "./DashboardScreens.module.scss";
 import { useEffect, useState } from "react";
 import { ref as databaseRef, onValue } from "firebase/database";
 import { database } from "@/firebase";
+import { useTranslation } from "react-i18next";
+
 const DashboardInfo = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const authUser = useAuth();
-
+  const { t } = useTranslation();
   useEffect(() => {
     if (authUser) {
       const userRef = databaseRef(database, "usersInfo/" + authUser.uid);
@@ -50,11 +52,11 @@ const DashboardInfo = () => {
           {authUser?.displayName && (
             <h5 className="text-xl font-medium mt-2">{authUser.displayName}</h5>
           )}
-          <p className="text-gray-scale-gray-500">Customer</p>
+          <p className="text-gray-scale-gray-500">{t("Customer")}</p>
         </div>
         <div className="border border-gray-scale-gray-100 rounded-lg p-8">
           <h4 className="text-gray-scale-gray-400 uppercase font-medium">
-            Billing Address
+            {t("BillingAddress")}
           </h4>
           {authUser?.displayName && (
             <h5 className="mt-4 text-lg font-medium">{authUser.displayName}</h5>

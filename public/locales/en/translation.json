@@ -1,5 +1,16 @@
 {
-  "welcome": "Welcome to React",
+  "Customer": "Customer",
+  "BillingAddress": "Billing Address",
+  "RecetOrderHistory": "Recet Order History",
+  "NoOrders": "there are no orders",
+  "OrderHistory": "Order History",
+  "Errors": {
+    "Error": "Error",
+    "failedUpdateAddress": "Failed to update address",
+    "failedChangePassword": "Failed to change password",
+    "RepeatPassword": "Repeat password",
+    "InvalidCurrentPasswordEntered": "Invalid current password entered"
+  },
   "languages": {
     "english": "English",
     "ukrainian": "Ukrainian"
@@ -12,5 +23,106 @@
     "basket": "Shopping cart:",
     "home": "Home",
     "categories": "Categories"
+  },
+  "home": {
+    "FreshHealthy": "Fresh & Healthy Organic Food",
+    "SaleUp": "Sale up to",
+    "ShippingFree": "Free Shipping",
+    "freeShipping": "Free shipping on all your order.",
+    "SummerSale": "Summer Sale",
+    "OnlyFruit": " Only Fruit & Vegetable",
+    "bestDeal": "Best Deal",
+    "specialProducts": "Special Products Deal of the Month",
+    "CustomerSupport": "Customer Support 24/7",
+    "InstantAccess": "Instant access to Support",
+    "SecurePayment": "100% Secure Payment",
+    "moneySave": "We ensure your money is save",
+    "MoneyBack": "Money-Back Guarantee",
+    "30Days": "30 Days Money-Back Guarantee sda",
+    "PopularProducts": "Popular Products",
+    "PopularCategories": "Popular Categories"
+  },
+  "categoriesPage": {
+    "Discount": "Discount",
+    "firstOrder": "on your first order",
+    "AllCategories": "All Categories",
+    "SaleProducts": "Sale Products",
+    "Price": "Price",
+    "Sale": "Sale"
+  },
+  "account": {
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "PhoneNumber": "Phone Number",
+    "SaveChanges": "Save Changes",
+    "ChoseImage": "Chose Image",
+    "Progress": "Progress:",
+    "Address": "Address",
+    "CityAddress": "City and address",
+    "ChangeAddress": "Change Address",
+    "AddressUpdated": "Address updated",
+    "AccountSettings": "Account Settings",
+    "ProfileUpdatedSuccessfully": "Profile updated successfully",
+    "ChangePassword": "Change Password",
+    "Password": "Password",
+    "CurrentPassword": "Current Password",
+    "NewPassword": "New Password",
+    "ConfirmPassword": "Confirm Password",
+    "PasswordChanged": "Password changed"
+  },
+  "categories": {
+    "All": "All",
+    "FreshFruit": "Fresh Fruit",
+    "FreshVegetables": "Fresh Vegetables",
+    "MeatFish": "Meat & Fish",
+    "Snacks": "Snacks",
+    "Beverages": "Beverages",
+    "BeautyHealth": "Beauty & Health"
+  },
+  "links": {
+    "ShopNow": "Shop now",
+    "ViewAll": "View All",
+    "Navigation": "Navigation",
+    "LogOut": "Log-out",
+    "Dashboard": "Dashboard",
+    "OrderHistory": "Order History",
+    "Settings": "Settings"
+  },
+  "products": {
+    "Green Apple": {
+      "name": "Green Apple",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    },
+    "Orange": {
+      "name": "Orange",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    },
+    "Cucumber": {
+      "name": "Cucumber",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Vegetables"
+    },
+    "Red Apple": {
+      "name": "Red Apple",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    },
+    "dina": {
+      "name": "dina",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    },
+    "dina2": {
+      "name": "dina2",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    },
+    "dina3": {
+      "name": "dina3",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Fresh Fruit"
+    }
   }
 }

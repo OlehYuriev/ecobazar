@@ -1,5 +1,17 @@
 {
-  "welcome": "Добро пожаловать в React",
+  "Customer": "Замовник",
+  "BillingAddress": "Платіжна адреса",
+  "RecetOrderHistory": "Перегляд історії замовлень",
+  "NoOrders": "Замовлень немає",
+  "OrderHistory": "Історія Замовлень",
+  "Errors": {
+    "Error": "Помилка",
+    "failedUpdateAddress": "Не вдалося оновити адресу",
+    "failedChangePassword": "Не вдалося змінити пароль",
+    "RepeatPassword": "Повторіть пароль",
+    "InvalidCurrentPasswordEntered": "Введено недійсний поточний пароль"
+  },
+
   "languages": {
     "english": "Англійська",
     "ukrainian": "Українська"
@@ -9,8 +21,109 @@
     "SignIn": "Увійти",
     "SignUp": "Зареєструватися",
     "Search": "Пошук",
-    "basket": "Кошик",
+    "basket": "Магазинний кошик:",
     "home": "Головна",
     "categories": "Категорії"
+  },
+  "home": {
+    "FreshHealthy": "Свіжа та здорова органічна їжа",
+    "SaleUp": "Знижка до",
+    "ShippingFree": "Безкоштовна доставка",
+    "freeShipping": "Безкоштовна доставка  вашого замовлення.",
+    "SummerSale": "Літній розпродаж",
+    "OnlyFruit": "Тільки фрукти та овочі",
+    "bestDeal": "Найкраща угода",
+    "specialProducts": "Спеціальна пропозиція місяця",
+    "CustomerSupport": "Підтримка клієнтів 24/7",
+    "InstantAccess": "Миттєвий доступ до служби підтримки",
+    "SecurePayment": "100% безпечний платіж",
+    "moneySave": "Ми гарантуємо економію ваших грошей",
+    "MoneyBack": "Гарантія повернення грошей",
+    "30Days": "30 днів гарантії повернення грошей",
+    "PopularProducts": "Популярні продукти",
+    "PopularCategories": "Популярні категорії"
+  },
+  "categoriesPage": {
+    "Discount": "Знижка",
+    "firstOrder": "на ваше перше замовлення",
+    "AllCategories": "Всі категорії",
+    "SaleProducts": "Продукти по знижці",
+    "Price": "Ціна",
+    "Sale": "Знижка"
+  },
+  "account": {
+    "FirstName": "Ім'я",
+    "LastName": "Прізвище",
+    "PhoneNumber": "Номер телефону",
+    "SaveChanges": "Зберегти зміни",
+    "ChoseImage": "Виберіть зображення",
+    "Progress": "Прогрес:",
+    "Address": "Адреса",
+    "CityAddress": "Місто та адреса",
+    "ChangeAddress": "Змінити адресу",
+    "AddressUpdated": "Адреса оновлена",
+    "AccountSettings": "Налаштування облікового запису",
+    "ProfileUpdatedSuccessfully": "Профіль успішно оновлено",
+    "ChangePassword": "Змінити пароль",
+    "Password": "Пароль",
+    "CurrentPassword": "Поточний пароль",
+    "NewPassword": "Новий пароль",
+    "ConfirmPassword": "Підтвердити пароль",
+    "PasswordChanged": "Пароль змінено"
+  },
+  "categories": {
+    "All": "Все",
+    "FreshFruit": "Свіжий фрукт",
+    "FreshVegetables": "Свіжі овочі",
+    "MeatFish": "М'ясо та Риба",
+    "Snacks": "Снеки",
+    "Beverages": "Напої",
+    "BeautyHealth": "Краса та здоров'я"
+  },
+  "links": {
+    "ShopNow": "Здійснити покупку",
+    "ViewAll": "Переглянути все",
+    "Navigation": "Навігація",
+    "LogOut": "Вийти",
+    "Dashboard": "Панель",
+    "OrderHistory": "Історія Замовлень",
+    "Settings": "Налаштування"
+  },
+  "products": {
+    "Green Apple": {
+      "name": "Зелене яблуко",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    },
+    "Orange": {
+      "name": "Апельсин",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    },
+    "Cucumber": {
+      "name": "Огірок",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Овочі"
+    },
+    "Red Apple": {
+      "name": "Червоне яблуко",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    },
+    "dina": {
+      "name": "Діна",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаeос. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    },
+    "dina2": {
+      "name": "Діна2",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаеos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    },
+    "dina3": {
+      "name": "Діна3",
+      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaеos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "category": "Свіжі фрукти"
+    }
   }
 }

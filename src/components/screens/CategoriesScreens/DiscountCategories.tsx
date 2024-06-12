@@ -1,6 +1,8 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 const DiscountCategories: FC = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="rounded-lg relative">
@@ -18,9 +20,9 @@ const DiscountCategories: FC = () => {
             <span className="text-3xl font-semibold text-branding-warning mr-2">
               79%
             </span>
-            Discount
+            {t("categoriesPage.Discount")}
           </p>
-          <p>on your first order</p>
+          <p> {t("categoriesPage.firstOrder")}</p>
         </div>
       </div>
     </>

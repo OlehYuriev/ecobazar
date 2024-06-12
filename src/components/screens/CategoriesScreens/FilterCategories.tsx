@@ -5,6 +5,7 @@ import RangeComponent from "@/components/ui/range/RangeComponent";
 import styles from "./Categories.module.scss";
 import DiscountCategories from "./DiscountCategories";
 import SaleProducts from "./SaleProducts";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   radioOption: string;
@@ -25,18 +26,19 @@ const FilterCategories: FC<IProps> = ({
   setInputTo,
   setFilter,
 }) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex flex-col gap-y-5">
         <div className={styles.filters}>
-          <AccordionComponent title="All Categories">
+          <AccordionComponent title={t("categoriesPage.AllCategories")}>
             <ButtonsCategories
               radioOption={radioOption}
               setRadioOption={setRadioOption}
               setFilter={setFilter}
             />
           </AccordionComponent>
-          <AccordionComponent title="Price">
+          <AccordionComponent title={t("categoriesPage.Price")}>
             <RangeComponent
               min={0}
               max={1000}

@@ -15,8 +15,9 @@
 		background-repeat: no-repeat;
 		&__content {
 			@apply relative  max-w-md;
-			top: 25%;
+			padding-top: 14%;
 			left: 6%;
+			padding-bottom: 2%;
 		}
 		&__title {
 			@apply font-semibold  text-white text-balance leading-tight;
@@ -29,6 +30,7 @@
 		&__sale {
 			@apply font-normal mt-2 text-white opacity-80;
 			font-size: clamp(10px, 1.1vw, 14px);
+			max-width: 20vw;
 		}
 	}
 

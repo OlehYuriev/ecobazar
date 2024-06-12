@@ -3,28 +3,30 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { BsHeadset } from "react-icons/bs";
 import { BsBagCheck } from "react-icons/bs";
 import { PiPackage } from "react-icons/pi";
+import { useTranslation } from "react-i18next";
 
 const InfoShop: FC = () => {
+  const { t } = useTranslation();
   const info = [
     {
       icon: <TbTruckDelivery />,
-      title: "Free Shipping",
-      description: "Free shipping on all your order",
+      title: t("home.ShippingFree"),
+      description: t("home.freeShipping"),
     },
     {
       icon: <BsHeadset />,
-      title: "Customer Support 24/7",
-      description: "Instant access to Support",
+      title: t("home.CustomerSupport"),
+      description: t("home.InstantAccess"),
     },
     {
       icon: <BsBagCheck />,
-      title: "100% Secure Payment",
-      description: "We ensure your money is save",
+      title: t("home.SecurePayment"),
+      description: t("home.moneySave"),
     },
     {
       icon: <PiPackage />,
-      title: "Money-Back Guarantee",
-      description: "30 Days Money-Back Guarantee",
+      title: t("home.MoneyBack"),
+      description: t("home.30Days"),
     },
   ];
   return (
@@ -32,7 +34,7 @@ const InfoShop: FC = () => {
       <section className="mt-6">
         <div className="container">
           <div className="bg-white shadow-info py-10 rounded-lg">
-            <ol className="flex justify-around">
+            <ol className="flex justify-around flex-wrap">
               {info.map((item) => {
                 return (
                   <li key={item.title} className="flex px-2 ">

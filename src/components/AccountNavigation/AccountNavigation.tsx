@@ -6,8 +6,10 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { GrUpdate } from "react-icons/gr";
+import { useTranslation } from "react-i18next";
 
 const AccountNavigation: FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [activePath, setActivePath] = useState(false);
@@ -22,19 +24,19 @@ const AccountNavigation: FC = () => {
   const links = [
     {
       url: "/account",
-      name: "Dashboard",
+      name: t("links.Dashboard"),
       icon: <MdDashboard />,
       activeUrl: false,
     },
     {
       url: "/account/order",
-      name: "Order History",
+      name: t("links.OrderHistory"),
       icon: <GrUpdate />,
       activeUrl: activePath,
     },
     {
       url: "/account/setting",
-      name: "Settings",
+      name: t("links.Settings"),
       icon: <IoSettingsOutline />,
       activeUrl: false,
     },
@@ -51,7 +53,9 @@ const AccountNavigation: FC = () => {
   return (
     <>
       <section className="border border-gray-scale-gray-100 rounded-lg self-start">
-        <h2 className="text-xl font-medium mx-5 my-6">Navigation</h2>
+        <h2 className="text-xl font-medium mx-5 my-6">
+          {t("links.Navigation")}
+        </h2>
         <nav>
           <ol>
             {" "}
@@ -84,7 +88,7 @@ const AccountNavigation: FC = () => {
                 <span className="text-2xl text-gray-scale-gray-200">
                   <TbLogout />
                 </span>
-                <span>Log-out</span>
+                <span> {t("links.LogOut")}</span>
               </button>
             </li>
           </ol>

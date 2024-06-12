@@ -5,12 +5,14 @@ import { FC, useEffect, useState } from "react";
 import { set, ref as databaseRef, onValue } from "firebase/database";
 import useAuth from "@/hooks/useAuth";
 import { database } from "@/firebase";
+import { useTranslation } from "react-i18next";
 
 const BillingAddress: FC = () => {
   const authUser = useAuth();
   const [showAlert, setShowAlert] = useState(false);
   const [address, setAddress] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (authUser) {
@@ -36,14 +38,14 @@ const BillingAddress: FC = () => {
       setShowAlert(true);
     } catch (error) {
       console.log(error);
-      setError("failed to update address");
+      setError(t("Errors.failedUpdateAddress"));
     }
   }
   return (
     <>
       <section className="border border-gray-scale-gray-100 rounded-lg">
         <div className="border-b border-gray-scale-gray-100 py-4 px-6">
-          <h3 className="text-xl">Billing Address</h3>
+          <h3 className="text-xl">{t("account.Address")}</h3>
         </div>
         <div className="py-4 px-6">
           <form
@@ -54,26 +56,30 @@ const BillingAddress: FC = () => {
             <InputComponent
               value={address}
               setValue={setAddress}
-              placeholder="Address"
+              placeholder={t("account.Address")}
               autoComplete="address"
-              label="City and address"
+              label={t("account.CityAddress")}
             />
 
             <div className="max-w-44">
               <ButtonMain
-                value="Change Password "
+                value={t("account.ChangeAddress")}
                 type="submit"
                 disabled={!address}
               />
             </div>
           </form>
-          {error && <p className=" text-red-600">Error: {error}</p>}
+          {error && (
+            <p className=" text-red-600">
+              {t("Errors.Error")}: {error}
+            </p>
+          )}
         </div>
       </section>
       <AlertSuccess
         showAlert={showAlert}
         setShowAlert={setShowAlert}
-        message="Address updated"
+        message={t("account.AddressUpdated")}
       />
     </>
   );

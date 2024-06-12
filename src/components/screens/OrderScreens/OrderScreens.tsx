@@ -6,11 +6,12 @@ import { database } from "@/firebase";
 import IProductOrder from "@/interface/IProductOrder";
 import PaginationPage from "@/components/pagination/PaginationPage";
 import useParamsPage from "@/hooks/useParamsPage";
+import { useTranslation } from "react-i18next";
 
 const OrderScreens = () => {
   const authUser = useAuth();
   const [ordersArray, setOrdersArray] = useState<IProductOrder[] | null>(null);
-
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const { searchParams, setPage } = useParamsPage();
 
@@ -49,7 +50,7 @@ const OrderScreens = () => {
       {" "}
       <div className="border border-gray-scale-gray-100 rounded-lg mt-6  pb-9">
         <div className="py-4 px-6">
-          <h3 className="text-xl font-medium">Order History</h3>
+          <h3 className="text-xl font-medium"> {t("OrderHistory")}</h3>
         </div>
         {ordersArray && ordersArray.length ? (
           <>
@@ -68,7 +69,7 @@ const OrderScreens = () => {
           </>
         ) : (
           <h5 className="text-center font-semibold text-branding-warning text-3xl">
-            No orders
+            {t("NoOrders")}
           </h5>
         )}
       </div>

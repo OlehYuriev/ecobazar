@@ -2,30 +2,32 @@ import { FC } from "react";
 import TitleSection from "../TitleSection/TitleSection";
 import { Link } from "react-router-dom";
 import styles from "./CategoriesHome.module.scss";
+import { useTranslation } from "react-i18next";
 
 const CategoriesHome: FC = () => {
+  const { t } = useTranslation();
   const categories = [
     {
       img: "fruits",
-      title: "Fresh Fruit",
+      title: t("categories.FreshFruit"),
       url: "/categories?category=Fresh+Fruit",
     },
     {
       img: "vegetables",
-      title: "Fresh Vegetables",
+      title: t("categories.FreshVegetables"),
       url: "/categories?category=Vegetables",
     },
-    { img: "meat", title: "Meat & Fish", url: "/categories" },
-    { img: "snacks", title: "Snacks", url: "/categories" },
-    { img: "beverages", title: "Beverages", url: "/categories" },
-    { img: "beauty", title: "Beauty & Health", url: "/categories" },
+    { img: "meat", title: t("categories.MeatFish"), url: "/categories" },
+    { img: "snacks", title: t("categories.Snacks"), url: "/categories" },
+    { img: "beverages", title: t("categories.Beverages"), url: "/categories" },
+    { img: "beauty", title: t("categories.BeautyHealth"), url: "/categories" },
   ];
   return (
     <>
       <section className="mt-14">
         <div className="container">
           <div>
-            <TitleSection title="Popular Categories" />
+            <TitleSection title={t("home.PopularCategories")} />
             <div className="flex justify-between mt-12 gap-1.5">
               {categories.map((item) => {
                 return (

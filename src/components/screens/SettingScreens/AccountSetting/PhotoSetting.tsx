@@ -1,5 +1,6 @@
 import { User } from "firebase/auth";
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
@@ -14,7 +15,7 @@ const PhotoSetting: FC<IProps> = ({
   authUser,
 }) => {
   const [previewURL, setPreviewURL] = useState<string | null>(null);
-
+  const { t } = useTranslation();
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const selectedFile = event.target.files[0];
@@ -68,12 +69,12 @@ const PhotoSetting: FC<IProps> = ({
 						  font-semibold rounded-56 py-3.5 px-8 hover:text-black
 						   hover:bg-green-gray-scale-50 transition-all cursor-pointer mt-8"
             >
-              Chose Image
+              {t("account.ChoseImage")}
             </div>
           </label>
           {uploading && (
             <p className="text-branding-success">
-              Progress: {progress.toFixed(2)}%
+              {t("account.Progress")} {progress.toFixed(2)}%
             </p>
           )}
         </div>

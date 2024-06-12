@@ -15,7 +15,7 @@ const LinkComponent: FC<IProps> = ({ name, classes }) => {
         className={`inline-flex items-center text-branding-success text-base hover:text-branding-warning transition-all ${classes}`}
         onClick={() => window.scrollTo(0, 0)}
       >
-        <span className=" pr-4">{name}</span> <FaArrowRightLong />
+        <span className=" pr-3">{name}</span> <FaArrowRightLong />
       </Link>
     </>
   );

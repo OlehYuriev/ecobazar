@@ -8,8 +8,10 @@ import {
   updatePassword,
 } from "firebase/auth";
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ChangePassword: FC = () => {
+  const { t } = useTranslation();
   const [currentPassword, setCurrentPassword] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [password, setPassword] = useState({
@@ -38,23 +40,21 @@ const ChangePassword: FC = () => {
           setShowAlert(true);
           setError("");
         } else {
-          setError("Invalid current password entered");
-          setError("failed to change password");
+          setError(t("Errors.failedChangePassword"));
         }
       } else {
-        setError("Repeat password");
+        setError(t("Errors.RepeatPassword"));
       }
     } catch (error) {
       console.error("Error updating password:", error);
-
-      setError("Invalid current password entered");
+      setError(t("Errors.InvalidCurrentPasswordEntered"));
     }
   }
   return (
     <>
       <section className="border border-gray-scale-gray-100 rounded-lg">
         <div className="border-b border-gray-scale-gray-100 py-4 px-6">
-          <h3 className="text-xl">Account Settings</h3>
+          <h3 className="text-xl">{t("account.ChangePassword")}</h3>
         </div>
         <div className="py-4 px-6">
           <form
@@ -65,10 +65,10 @@ const ChangePassword: FC = () => {
             <InputComponent
               value={currentPassword}
               setValue={setCurrentPassword}
-              placeholder="Password"
+              placeholder={t("account.Password")}
               typePassword={true}
               autoComplete="password"
-              label="Current Password"
+              label={t("account.CurrentPassword")}
             />
             <div className="flex gap-x-4">
               <InputComponent
@@ -79,10 +79,10 @@ const ChangePassword: FC = () => {
                     newPassword: newValue,
                   }));
                 }}
-                placeholder="Password"
+                placeholder={t("account.Password")}
                 typePassword={true}
                 autoComplete="password"
-                label="New Password Password"
+                label={t("account.NewPassword")}
               />
               <InputComponent
                 value={password.confirmNewPassword}
@@ -92,15 +92,15 @@ const ChangePassword: FC = () => {
                     confirmNewPassword: newValue,
                   }));
                 }}
-                placeholder="Password"
+                placeholder={t("account.Password")}
                 typePassword={true}
                 autoComplete="password"
-                label="Confirm Password"
+                label={t("account.ConfirmPassword")}
               />
             </div>
             <div className="max-w-44">
               <ButtonMain
-                value="Change Password "
+                value={t("account.ChangePassword")}
                 type="submit"
                 disabled={
                   !currentPassword ||
@@ -110,13 +110,17 @@ const ChangePassword: FC = () => {
               />
             </div>
           </form>
-          {error && <p className=" text-red-600">Error: {error}</p>}
+          {error && (
+            <p className=" text-red-600">
+              {t("Errors.Error")}: {error}
+            </p>
+          )}
         </div>
       </section>
       <AlertSuccess
         showAlert={showAlert}
         setShowAlert={setShowAlert}
-        message="Password changed"
+        message={t("account.PasswordChanged")}
       />
     </>
   );

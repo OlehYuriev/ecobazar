@@ -5,12 +5,14 @@ import { calculateDiscountedPrice } from "@/utils";
 import { Link } from "react-router-dom";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   product: IProduct;
 }
 
 const ProductItem: FC<IProps> = ({ product }) => {
+  const { t } = useTranslation();
   const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
@@ -18,7 +20,9 @@ const ProductItem: FC<IProps> = ({ product }) => {
         <div className={styles.item}>
           <img src="../img/apple.png" alt="apple" className=" max-w-28" />
           <div>
-            <h5 className="text-gray-scale-gray-700">{product.name}</h5>
+            <h5 className="text-gray-scale-gray-700">
+              {t(`products.${product.name}.name`)}
+            </h5>
             <span className=" text-base font-medium mr-2">
               {currencyChange(currency)}
               {handleUsdAmountChange(

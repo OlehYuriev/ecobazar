@@ -10,8 +10,10 @@ import InfoSetting from "./AccountSetting/InfoSetting";
 import { deletePhoto, uploadAndRefreshProfile } from "@/services/uploadPhoto";
 import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
 import useUserInfo from "@/hooks/useUserInfo";
+import { useTranslation } from "react-i18next";
 
 const AccountSetting: FC = () => {
+  const { t } = useTranslation();
   const authUser = useAuth();
   const [info, setInfo] = useState<IInfo>({
     firstName: "",
@@ -79,7 +81,7 @@ const AccountSetting: FC = () => {
     <>
       <section className="border border-gray-scale-gray-100 rounded-lg">
         <div className="border-b border-gray-scale-gray-100 py-4 px-6">
-          <h3 className="text-xl">Account Settings</h3>
+          <h3 className="text-xl">{t("account.AccountSettings")}</h3>
         </div>
         <div className="py-4 px-6">
           <form action="" className={styles.form} onSubmit={handleSubmit}>
@@ -96,7 +98,7 @@ const AccountSetting: FC = () => {
       <AlertSuccess
         showAlert={showAlert}
         setShowAlert={setShowAlert}
-        message="Profile updated successfully"
+        message={t("account.ProfileUpdatedSuccessfully")}
       />
     </>
   );

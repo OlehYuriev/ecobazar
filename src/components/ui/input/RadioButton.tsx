@@ -6,6 +6,7 @@ interface IProps {
   setRadioOption: React.Dispatch<React.SetStateAction<string>>;
   value: string;
   setFilter?: (filter: string) => void;
+  label: string;
 }
 
 const RadioButton: FC<IProps> = ({
@@ -13,6 +14,7 @@ const RadioButton: FC<IProps> = ({
   setRadioOption,
   value,
   setFilter,
+  label,
 }) => {
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRadioOption(event.target.value);
@@ -31,7 +33,7 @@ const RadioButton: FC<IProps> = ({
           className={styles.customRadioInput}
         />
         <span className={styles.customRadioSpan}></span>
-        <span className="ml-1.5"> {value}</span>
+        <span className="ml-1.5"> {label}</span>
       </label>
     </>
   );

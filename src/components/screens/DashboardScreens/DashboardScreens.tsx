@@ -6,11 +6,12 @@ import { ref as databaseRef, onValue } from "firebase/database";
 import { database } from "@/firebase";
 import IProductOrder from "@/interface/IProductOrder";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const DashboardScreens: FC = () => {
   const authUser = useAuth();
   const [ordersArray, setOrdersArray] = useState<IProductOrder[] | null>(null);
-
+  const { t } = useTranslation();
   useEffect(() => {
     if (authUser) {
       const productsRef = databaseRef(database, "products/" + authUser.uid);
@@ -33,12 +34,12 @@ const DashboardScreens: FC = () => {
         <DashboardInfo />
         <div className="border border-gray-scale-gray-100 rounded-lg mt-6  pb-9">
           <div className="py-4 px-6 flex items-center justify-between">
-            <h3 className="text-xl font-medium">Recet Order History</h3>
+            <h3 className="text-xl font-medium">{t("RecetOrderHistory")}</h3>
             <Link
               to="/account/order"
               className="text-branding-success hover:text-branding-warning transition-all"
             >
-              View All
+              {t("links.ViewAll")}
             </Link>
           </div>
 
@@ -48,7 +49,7 @@ const DashboardScreens: FC = () => {
             </div>
           ) : (
             <h5 className="text-center font-semibold text-branding-warning text-3xl">
-              No orders
+              {t("NoOrders")}
             </h5>
           )}
         </div>

@@ -13,12 +13,14 @@ import { Link } from "react-router-dom";
 import ModalComponent from "../modal/ModalComponent";
 import ProductInfo from "../ProductInfo/ProductInfo";
 import useExchangeRate from "@/hooks/useExchangeRate";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   product: IProduct;
 }
 
 const ProductCard: FC<IProps> = ({ product }) => {
+  const { t } = useTranslation();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
 
   const dispatch = useDispatch();
@@ -63,13 +65,15 @@ const ProductCard: FC<IProps> = ({ product }) => {
               </button>
               {product.sale && (
                 <span className="absolute top-4 left-4 bg-branding-error font-medium text-white rounded py-1 px-2">
-                  Sale {product.sale}%
+                  {t("categoriesPage.Sale")} {product.sale}%
                 </span>
               )}
             </div>
             <div className="flex p-3 items-center justify-between">
               <div>
-                <h4 className="text-gray-scale-gray-700">{product.name}</h4>
+                <h4 className="text-gray-scale-gray-700">
+                  {t(`products.${product.name}.name`)}
+                </h4>
                 {product.sale ? (
                   <span className=" text-base font-medium">
                     <span>
