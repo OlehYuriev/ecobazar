@@ -62,8 +62,8 @@ export function getRandomSaleProducts(
   return shuffledProducts.slice(0, maxItems);
 }
 
-export function formatDate() {
-  return new Date().toLocaleDateString("en-GB", {
+export function formatDate(data: string) {
+  return new Date().toLocaleDateString(data, {
     day: "numeric",
     month: "long",
     year: "numeric",

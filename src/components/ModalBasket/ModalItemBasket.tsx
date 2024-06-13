@@ -11,6 +11,7 @@ import IProduct from "@/interface/IProduct";
 import { calculateDiscountedPrice } from "@/utils";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   basket: IProduct[];
@@ -18,6 +19,7 @@ interface IProps {
 
 const ModalItemBasket: FC<IProps> = ({ basket }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
@@ -27,7 +29,7 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
             <img src="../img/apple.png" alt="apple" className="max-w-32" />
             <div className="flex flex-col w-52">
               <h5>
-                {item.name}
+                {t(`products.${item.name}.name`)}
                 <span className=" font-semibold ml-2">
                   {currencyChange(currency)}
                   {handleUsdAmountChange(
@@ -45,7 +47,7 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
                     fun={() => dispatch(addQuantity(item))}
                   />
                   <span>
-                    quantity:
+                    {t("quantity")}{" "}
                     <span className="font-semibold">{item.quantity}</span>
                   </span>
                   <ButtonQuantity

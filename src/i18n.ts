@@ -9,6 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
+    saveMissing: true,
     detection: {
       order: ["localStorage", "cookie", "navigator", "htmlTag"],
       caches: ["localStorage", "cookie"],

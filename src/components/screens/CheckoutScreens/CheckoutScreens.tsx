@@ -20,8 +20,10 @@ import { useDispatch } from "react-redux";
 import { clearBasket } from "@/store/basket/basketSlice";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 const CheckoutScreens: FC = () => {
+  const { t } = useTranslation();
   const authUser = useAuth();
   const dispatch = useDispatch();
   const [info, setInfo] = useState<IInfoSend>({
@@ -66,7 +68,7 @@ const CheckoutScreens: FC = () => {
         dispatch(clearBasket());
         setError("");
       } catch (error) {
-        setError("Something went wrong");
+        setError(t("Errors.SomethingWentWrong"));
         console.error("Error adding product:", error);
       }
     } else if (!authUser && product.order.basketWithSubtotal.length) {
@@ -74,7 +76,7 @@ const CheckoutScreens: FC = () => {
       setError("");
       dispatch(clearBasket());
     } else {
-      setError("There are no products in the cart");
+      setError(t("Errors.ThereNoProducts"));
     }
   }
 
@@ -107,7 +109,8 @@ const CheckoutScreens: FC = () => {
         exchangeRate,
         currency
       )}`,
-      dateProduct: formatDate(),
+      dateProduct: formatDate("en-GB"),
+      dateProductUa: formatDate("uk-UA"),
     };
 
     await addProduct(FullInfoProduct);
@@ -150,7 +153,7 @@ const CheckoutScreens: FC = () => {
       <AlertSuccess
         showAlert={showAlert}
         setShowAlert={setShowAlert}
-        message="Thanks for your order"
+        message={t("ThanksOrder")}
       />
     </>
   );

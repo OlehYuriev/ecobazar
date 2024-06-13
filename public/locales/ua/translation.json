@@ -1,15 +1,40 @@
 {
   "Customer": "Замовник",
+  "Product": "Продукт",
+  "Checkout": "Перейти до сплати",
+  "quantity": "кількість:",
   "BillingAddress": "Платіжна адреса",
+  "ShippingAddress": "Адреса доставки",
   "RecetOrderHistory": "Перегляд історії замовлень",
   "NoOrders": "Замовлень немає",
   "OrderHistory": "Історія Замовлень",
+  "OrderSummery": "Підсумок Замовлення",
+  "Subtotal": "Підсумок:",
+  "Shipping": "Доставка:",
+  "Free": "Безкоштовно",
+  "Total": "Всього:",
+  "PaymentMethod": "Спосіб оплати",
+  "CashDelivery": "Готівкою при доставці",
+  "PlaceOrder": "Зробити замовлення",
+  "optional": "необов'язково",
+  "NotesDelivery": "Примітки щодо вашого замовлення, напр. спеціальні примітки для доставки",
+  "ThanksOrder": "Дякуємо за ваше замовлення",
+  "OrderDetails": "Деталі замовлення",
+  "OrderNotFound": "Замовлення не знайдено",
+  "table": {
+    "OrderID": "ID замовлення",
+    "Date": "Дата",
+    "Status": "Статус",
+    "Processing": "Обробка"
+  },
   "Errors": {
     "Error": "Помилка",
     "failedUpdateAddress": "Не вдалося оновити адресу",
     "failedChangePassword": "Не вдалося змінити пароль",
     "RepeatPassword": "Повторіть пароль",
-    "InvalidCurrentPasswordEntered": "Введено недійсний поточний пароль"
+    "InvalidCurrentPasswordEntered": "Введено недійсний поточний пароль",
+    "SomethingWentWrong": "Щось пішло не так",
+    "ThereNoProducts": "У кошику немає товарів"
   },
 
   "languages": {
@@ -69,7 +94,10 @@
     "CurrentPassword": "Поточний пароль",
     "NewPassword": "Новий пароль",
     "ConfirmPassword": "Підтвердити пароль",
-    "PasswordChanged": "Пароль змінено"
+    "PasswordChanged": "Пароль змінено",
+    "CompanyName": "Назва компанії",
+    "OrderNotes": "Примітки до замовлення",
+    "AdditionalInfo": "Додаткова інформація"
   },
   "categories": {
     "All": "Все",
@@ -87,7 +115,17 @@
     "LogOut": "Вийти",
     "Dashboard": "Панель",
     "OrderHistory": "Історія Замовлень",
-    "Settings": "Налаштування"
+    "Settings": "Налаштування",
+    "ViewDetails": "Докладніше",
+    "BackList": "Назад до списку"
+  },
+  "productName": {
+    "product_zero": "Продуктів",
+    "product_one": "Продукт",
+    "product_two": "Продукта",
+    "product_few": "Продукта",
+    "product_many": "Продуктів",
+    "product_other": "Продуктів"
   },
   "products": {
     "Green Apple": {

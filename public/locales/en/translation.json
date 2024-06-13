@@ -1,15 +1,40 @@
 {
   "Customer": "Customer",
+  "Product": "Product",
+  "Checkout": "Checkout",
+  "quantity": "quantity:",
   "BillingAddress": "Billing Address",
+  "ShippingAddress": "Shipping Address",
   "RecetOrderHistory": "Recet Order History",
   "NoOrders": "there are no orders",
   "OrderHistory": "Order History",
+  "OrderSummery": "Order Summery",
+  "Subtotal": "Subtotal:",
+  "Shipping": "Shipping:",
+  "Free": "Free",
+  "Total": "Total:",
+  "PaymentMethod": "Payment Method",
+  "CashDelivery": "Cash on Delivery",
+  "PlaceOrder": "Place Order",
+  "optional": "optional",
+  "NotesDelivery": "Notes about your order, e.g. special notes for delivery",
+  "ThanksOrder": "Thanks for your order",
+  "OrderDetails": "Order Details",
+  "OrderNotFound": "Order not found",
+  "table": {
+    "OrderID": "Order ID",
+    "Date": "Date",
+    "Status": "Status",
+    "Processing": "Processing"
+  },
   "Errors": {
     "Error": "Error",
     "failedUpdateAddress": "Failed to update address",
     "failedChangePassword": "Failed to change password",
     "RepeatPassword": "Repeat password",
-    "InvalidCurrentPasswordEntered": "Invalid current password entered"
+    "InvalidCurrentPasswordEntered": "Invalid current password entered",
+    "SomethingWentWrong": "Something went wrong",
+    "ThereNoProducts": "There are no products in the cart"
   },
   "languages": {
     "english": "English",
@@ -68,7 +93,10 @@
     "CurrentPassword": "Current Password",
     "NewPassword": "New Password",
     "ConfirmPassword": "Confirm Password",
-    "PasswordChanged": "Password changed"
+    "PasswordChanged": "Password changed",
+    "CompanyName": "Company Name",
+    "OrderNotes": "Order Notes",
+    "AdditionalInfo": "Additional Info"
   },
   "categories": {
     "All": "All",
@@ -86,7 +114,13 @@
     "LogOut": "Log-out",
     "Dashboard": "Dashboard",
     "OrderHistory": "Order History",
-    "Settings": "Settings"
+    "Settings": "Settings",
+    "ViewDetails": "View Details",
+    "BackList": "Back to List"
+  },
+  "productName": {
+    "product_one": "Product",
+    "product_other": "Products"
   },
   "products": {
     "Green Apple": {

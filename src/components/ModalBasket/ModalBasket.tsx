@@ -9,6 +9,7 @@ import { getTotalPrice } from "@/utils";
 import ButtonMain from "../ui/buttons/ButtonMain";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   isModal: boolean;
@@ -17,6 +18,7 @@ interface IProps {
 const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
   const { exchangeRate, currency } = useExchangeRate();
 
+  const { t } = useTranslation();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
   const navigate = useNavigate();
   const TotalPrice = getTotalPrice(basket);
@@ -38,7 +40,7 @@ const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
           <div>
             <div className="flex justify-between items-center ">
               <h5 className="font-medium text-xl">
-                Shopping Card ({basket.length})
+                {t("header.basket")} ({basket.length})
               </h5>
               <span className="cursor-pointer ml-24" onClick={closeBasketModal}>
                 <IoMdClose fontSize="1.63rem" />
@@ -50,14 +52,17 @@ const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
           </div>
           <div>
             <div className="flex justify-between items-center py-6">
-              <span>{basket.length} Product</span>
+              <span>
+                {basket.length}{" "}
+                {t("productName.product", { count: basket.length })}
+              </span>
               <span className="font-semibold">
                 {currencyChange(currency)}
                 {handleUsdAmountChange(TotalPrice, exchangeRate, currency)}
               </span>
             </div>
 
-            <ButtonMain value="Checkout" fun={navigateCheckout} />
+            <ButtonMain value={t("Checkout")} fun={navigateCheckout} />
           </div>
         </div>
       </section>

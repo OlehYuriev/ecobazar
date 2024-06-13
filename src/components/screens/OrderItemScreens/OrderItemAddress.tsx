@@ -1,12 +1,41 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./OrderItemScreens.module.scss";
 import IProductOrder from "@/interface/IProductOrder";
+import { useTranslation } from "react-i18next";
+import useAuth from "@/hooks/useAuth";
+import { ref as databaseRef, onValue } from "firebase/database";
+import { database } from "@/firebase";
 
 interface IProps {
   order: IProductOrder;
 }
 
 const OrderItemAddress: FC<IProps> = ({ order }) => {
+  const { t } = useTranslation();
+  const authUser = useAuth();
+  const [address, setAddress] = useState<string>("");
+  const [Phone, setPhone] = useState<string>("");
+
+  useEffect(() => {
+    console.log(authUser);
+    if (authUser) {
+      // Чтение данных из базы данных
+      const userRef = databaseRef(database, "usersAddress/" + authUser.uid);
+      onValue(userRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          setAddress(data.userAddress || "");
+        }
+      });
+      const userPhone = databaseRef(database, "usersInfo/" + authUser.uid);
+      onValue(userPhone, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          setPhone(data.user?.phoneNumber || "");
+        }
+      });
+    }
+  }, [authUser]);
   return (
     <>
       {" "}
@@ -14,11 +43,35 @@ const OrderItemAddress: FC<IProps> = ({ order }) => {
         <div className={`${styles.item}  pb-4`}>
           <div className="border-b border-gray-scale-gray-100">
             <h3 className="py-4 px-5 uppercase text-gray-scale-gray-400">
-              Billing Address
+              {t("BillingAddress")}
             </h3>
           </div>
 
+          <div className="px-5">{authUser?.displayName}</div>
+          <div className="text-gray-scale-gray-600 px-5">{address}</div>
           <div className="px-5">
+            <h5 className="text-gray-scale-gray-400 uppercase text-xs font-medium">
+              Email
+            </h5>
+            <span>{authUser?.email} </span>
+          </div>
+          <div className="px-5">
+            <h5 className="text-gray-scale-gray-400 uppercase text-xs font-medium">
+              {t("account.PhoneNumber")}
+            </h5>
+            <span>{Phone || order.phone}</span>
+          </div>
+        </div>
+        <div
+          className={`${styles.item} border-l border-gray-scale-gray-100 pb-4`}
+        >
+          <div className="border-b border-gray-scale-gray-100">
+            <h3 className="py-4 px-5 uppercase text-gray-scale-gray-400">
+              {t("ShippingAddress")}
+            </h3>
+          </div>
+
+          <div className="px-5 text-base">
             {order.firstName} {order.lastName}
           </div>
           <div className="text-gray-scale-gray-600 px-5">
@@ -32,35 +85,9 @@ const OrderItemAddress: FC<IProps> = ({ order }) => {
           </div>
           <div className="px-5">
             <h5 className="text-gray-scale-gray-400 uppercase text-xs font-medium">
-              Phone
+              {t("account.PhoneNumber")}
             </h5>
             <span>{order.phone}</span>
-          </div>
-        </div>
-        <div
-          className={`${styles.item} border-l border-gray-scale-gray-100 pb-4`}
-        >
-          <div className="border-b border-gray-scale-gray-100">
-            <h3 className="py-4 px-5 uppercase text-gray-scale-gray-400">
-              Shipping Address
-            </h3>
-          </div>
-
-          <div className="px-5 text-base">Ecobazar</div>
-          <div className="text-gray-scale-gray-600 px-5">
-            4140 Parker Rd. Allentown, New Mexico 31134 4
-          </div>
-          <div className="px-5">
-            <h5 className="text-gray-scale-gray-400 uppercase text-xs font-medium">
-              Email
-            </h5>
-            <span>dainne.ressell@gmail.com</span>
-          </div>
-          <div className="px-5">
-            <h5 className="text-gray-scale-gray-400 uppercase text-xs font-medium">
-              Phone
-            </h5>
-            <span>(219) 555-0114</span>
           </div>
         </div>
       </div>

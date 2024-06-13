@@ -6,6 +6,7 @@ export default interface IProductOrder extends IInfoSend {
   payment: string;
   totalPrice: string;
   dateProduct: string;
+  dateProductUa: string;
   order: {
     basketWithSubtotal: IProductSubtotal[];
   };

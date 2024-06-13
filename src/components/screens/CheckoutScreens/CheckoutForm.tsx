@@ -2,12 +2,14 @@ import { FC } from "react";
 import InputComponent from "@/components/ui/input/InputComponent";
 import TextareaComponent from "@/components/ui/textarea/TextareaComponent";
 import { IInfoSend } from "@/interface/IInfo";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   info: IInfoSend;
   setInfo: React.Dispatch<React.SetStateAction<IInfoSend>>;
 }
 const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
+  const { t } = useTranslation();
   return (
     <>
       <form action="" className="flex-1 flex flex-col gap-y-4">
@@ -20,8 +22,8 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 firstName: newValue,
               }))
             }
-            placeholder="Your first name"
-            label="First name"
+            placeholder={t("account.FirstName")}
+            label={t("account.FirstName")}
           />
 
           <InputComponent
@@ -32,8 +34,8 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 lastName: newValue,
               }))
             }
-            placeholder="Your last name"
-            label="Last name"
+            placeholder={t("account.LastName")}
+            label={t("account.LastName")}
           />
           <InputComponent
             value={info.companyName}
@@ -43,8 +45,8 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 companyName: newValue,
               }))
             }
-            placeholder="Company Name"
-            label="Company Name (optional)"
+            placeholder={t("account.CompanyName")}
+            label={`${t("account.CompanyName")} (${t("optional")})`}
           />
         </div>
         <div>
@@ -56,8 +58,8 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 streetAddress: newValue,
               }))
             }
-            placeholder="Street Address"
-            label="Street Address"
+            placeholder={t("account.CityAddress")}
+            label={t("account.CityAddress")}
           />
         </div>
         <div>
@@ -70,7 +72,7 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 email: newValue,
               }))
             }
-            placeholder="Email Address"
+            placeholder="Email"
             label="Email"
           />
         </div>
@@ -83,13 +85,15 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 phone: newValue,
               }))
             }
-            placeholder="Phone number"
-            label="Phone"
+            placeholder={t("account.PhoneNumber")}
+            label={t("account.PhoneNumber")}
             type="tel"
           />
         </div>
         <div>
-          <h3 className="text-2xl font-medium mb-5">Additional Info</h3>
+          <h3 className="text-2xl font-semibold mb-5">
+            {t("account.AdditionalInfo")}
+          </h3>
           <TextareaComponent
             value={info.additionalInfo}
             setValue={(newValue: string) =>
@@ -98,8 +102,8 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
                 additionalInfo: newValue,
               }))
             }
-            placeholder="Notes about your order, e.g. special notes for delivery"
-            label="Order Notes (Optional)"
+            placeholder={t("NotesDelivery")}
+            label={`${t("account.OrderNotes")} (${t("optional")})`}
           />
         </div>
       </form>
