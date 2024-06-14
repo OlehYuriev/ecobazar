@@ -6,18 +6,24 @@ import { Link, useNavigate } from "react-router-dom";
 import CheckboxComponent from "@/components/ui/input/CheckboxComponent";
 import {
   browserSessionPersistence,
+  sendPasswordResetEmail,
   setPersistence,
   signInWithEmailAndPassword,
   UserCredential,
 } from "firebase/auth";
 import { auth } from "@/firebase";
 import { FirebaseError } from "firebase/app";
+import { useTranslation } from "react-i18next";
+import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
 
 const LoginScreens: FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [logIn, setLogIn] = useState({ email: "", password: "" });
   const [isChecked, setIsChecked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
   const handleEmailChange = (newValue: string) => {
     setLogIn((prevState) => ({
       ...prevState,
@@ -30,18 +36,19 @@ const LoginScreens: FC = () => {
       password: newValue,
     }));
   };
+
   function errorText(error: FirebaseError) {
     if (error.code === "auth/invalid-credential") {
-      setErrorMessage("Invalid email address or password.");
+      setErrorMessage(t("Errors.InvalidEmailPassword"));
     } else {
-      setErrorMessage("An error occurred while logging in. Please try again.");
+      setErrorMessage(t("Errors.AnErrorLoggingIn"));
     }
   }
   function authLogin(userCredential: UserCredential) {
     userCredential.user;
     setLogIn({ email: "", password: "" });
     setErrorMessage("");
-    navigate("/account");
+    navigate("/account/setting");
   }
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,11 +82,24 @@ const LoginScreens: FC = () => {
       }
     }
   }
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      await sendPasswordResetEmail(auth, logIn.email);
+      setShowAlert(true);
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      setErrorMessage(t("Errors.cannotFindEmail"));
+    }
+  };
   return (
     <>
       <div className={styles.containerLogin}>
         <div className={styles.login}>
-          <h1 className="text-3xl font-semibold text-center">Sign In</h1>
+          <h1 className="text-3xl font-semibold text-center">
+            {t("header.SignIn")}
+          </h1>
           <form action="" onSubmit={(e) => submit(e)} className={styles.form}>
             <InputComponent
               value={logIn.email}
@@ -90,7 +110,7 @@ const LoginScreens: FC = () => {
             <InputComponent
               value={logIn.password}
               setValue={handlePasswordChange}
-              placeholder="Password"
+              placeholder={t("account.Password")}
               typePassword={true}
               autoComplete="current-password"
             />
@@ -99,9 +119,15 @@ const LoginScreens: FC = () => {
               <CheckboxComponent
                 isChecked={isChecked}
                 setIsChecked={setIsChecked}
-                label="Remember me"
+                label={t("RememberMe")}
               />
-              <p className="text-gray-scale-gray-600">Forget Password</p>
+              <button
+                type="button"
+                className="text-gray-scale-gray-600 hover:text-branding-warning transition-all"
+                onClick={handleSubmit}
+              >
+                {t("ForgetPassword")}
+              </button>
             </div>
             <ButtonMain
               value="Login"
@@ -111,17 +137,21 @@ const LoginScreens: FC = () => {
           </form>
           {errorMessage && <p className=" text-red-600 mt-3">{errorMessage}</p>}
           <div className="text-gray-scale-gray-600 text-center mt-5">
-            Don’t have account?{" "}
+            {t("HaveAccount")}{" "}
             <Link
               to={"/register"}
-              className="text-gray-scale-gray-900 font-medium hover:text-branding-success transition-all"
+              className="text-gray-scale-gray-900 font-semibold hover:text-branding-success transition-all"
             >
-              {" "}
-              Register
+              {t("header.SignUp")}
             </Link>
           </div>
         </div>
       </div>
+      <AlertSuccess
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
+        message={t("letterSentEmail")}
+      />
     </>
   );
 };

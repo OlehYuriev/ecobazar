@@ -6,8 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import CheckboxComponent from "@/components/ui/input/CheckboxComponent";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
+import { useTranslation } from "react-i18next";
 
 const RegisterScreens: FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [register, setRegister] = useState({ email: "", password: "" });
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -34,7 +36,7 @@ const RegisterScreens: FC = () => {
           setRegister({ email: "", password: "" });
           setConfirmPassword("");
           setErrorMessage("");
-          navigate("/account");
+          navigate("/account/setting");
         })
         .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
@@ -54,7 +56,9 @@ const RegisterScreens: FC = () => {
     <>
       <div className={styles.containerLogin}>
         <div className={styles.login}>
-          <h1 className="text-3xl font-semibold text-center">Create Account</h1>
+          <h1 className="text-3xl font-semibold text-center">
+            {t("CreateAccount")}
+          </h1>
           <form action="" onSubmit={submit} className={styles.form}>
             <InputComponent
               value={register.email}
@@ -66,24 +70,24 @@ const RegisterScreens: FC = () => {
             <InputComponent
               value={register.password}
               setValue={handlePasswordChange}
-              placeholder="Password"
+              placeholder={t("account.Password")}
               typePassword={true}
               autoComplete="current-password"
             />{" "}
             <InputComponent
               value={confirmPassword}
               setValue={setConfirmPassword}
-              placeholder="Confirm Password"
+              placeholder={t("account.ConfirmPassword")}
               typePassword={true}
               autoComplete="confirm-password"
             />
             <CheckboxComponent
               isChecked={isChecked}
               setIsChecked={setIsChecked}
-              label="Accept all terms & Conditions"
+              label={t("AcceptConditions")}
             />
             <ButtonMain
-              value="Login"
+              value={t("CreateAccount")}
               type="submit"
               disabled={
                 !register.email ||
@@ -95,13 +99,13 @@ const RegisterScreens: FC = () => {
           </form>
           {errorMessage && <p className=" text-red-600 mt-3">{errorMessage}</p>}
           <div className="text-gray-scale-gray-600 text-center mt-5">
-            Already have account{" "}
+            {t("AlreadyHaveAccount")}{" "}
             <Link
               to={"/login"}
-              className="text-gray-scale-gray-900 font-medium hover:text-branding-success transition-all"
+              className="text-gray-scale-gray-900 font-semibold hover:text-branding-success transition-all"
             >
               {" "}
-              Login
+              {t("header.SignIn")}
             </Link>
           </div>
         </div>

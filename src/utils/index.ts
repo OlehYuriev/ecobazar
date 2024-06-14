@@ -70,28 +70,56 @@ export function formatDate(data: string) {
   });
 }
 
-export const timeAgo = (timestamp: number): string => {
+const getPluralForm = (count: number, forms: string[]): string => {
+  if (count === 1) {
+    return forms[0];
+  } else if (count >= 2 && count <= 4) {
+    return forms[1];
+  } else {
+    return forms[2];
+  }
+};
+
+export const timeAgo = (timestamp: number, language: string): string => {
   const now = Date.now(); // Получаем текущие время в миллисекундах
   const diffInSeconds = Math.floor((now - timestamp) / 1000); // Преобразуем timestamp в секунды
 
-  const intervals = [
-    { label: "year", seconds: 31536000 },
-    { label: "month", seconds: 2592000 },
-    { label: "week", seconds: 604800 },
-    { label: "day", seconds: 86400 },
-    { label: "hour", seconds: 3600 },
-    { label: "minute", seconds: 60 },
-    { label: "second", seconds: 1 },
-  ];
-
-  for (const interval of intervals) {
-    const count = Math.floor(diffInSeconds / interval.seconds);
-    if (count > 0) {
-      return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+  if (language === "ua") {
+    const intervals = [
+      { label: ["рік", "роки", "років"], seconds: 31536000 },
+      { label: ["місяць", "місяці", "місяців"], seconds: 2592000 },
+      { label: ["тиждень", "тижні", "тижнів"], seconds: 604800 },
+      { label: ["день", "дні", "днів"], seconds: 86400 },
+      { label: ["година", "години", "годин"], seconds: 3600 },
+      { label: ["хвилина", "хвилини", "хвилин"], seconds: 60 },
+      { label: ["секунда", "секунди", "секунд"], seconds: 1 },
+    ];
+    for (const interval of intervals) {
+      const count = Math.floor(diffInSeconds / interval.seconds);
+      if (count > 0) {
+        const label = getPluralForm(count, interval.label);
+        return `${count} ${label} назад`;
+      }
     }
+    return "тільки що";
+  } else {
+    const intervals = [
+      { label: "year", seconds: 31536000 },
+      { label: "month", seconds: 2592000 },
+      { label: "week", seconds: 604800 },
+      { label: "day", seconds: 86400 },
+      { label: "hour", seconds: 3600 },
+      { label: "minute", seconds: 60 },
+      { label: "second", seconds: 1 },
+    ];
+    for (const interval of intervals) {
+      const count = Math.floor(diffInSeconds / interval.seconds);
+      if (count > 0) {
+        return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+      }
+    }
+    return "just now";
   }
-
-  return "just now";
 };
 
 export const handleUsdAmountChange = (

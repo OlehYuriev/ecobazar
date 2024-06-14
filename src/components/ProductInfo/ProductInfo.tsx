@@ -9,12 +9,14 @@ import { addProduct } from "@/store/basket/basketSlice";
 import ButtonMain from "../ui/buttons/ButtonMain";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   product: IProduct;
 }
 
 const ProductInfo: FC<IProps> = ({ product }) => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product.quantity);
   const { exchangeRate, currency } = useExchangeRate();
@@ -42,7 +44,9 @@ const ProductInfo: FC<IProps> = ({ product }) => {
       <div className={styles.product}>
         <SliderComponent />
         <div className={styles.content}>
-          <h2 className="font-semibold text-4xl">{product.name}</h2>
+          <h2 className="font-semibold text-4xl">
+            {t(`products.${product.name}.name`)}
+          </h2>
           <div className="mt-5">
             {product.sale ? (
               <div className="flex items-center">
@@ -59,7 +63,7 @@ const ProductInfo: FC<IProps> = ({ product }) => {
                   )}
                 </span>
                 <span className="ml-1.5 text-branding-error bg-branding-error bg-opacity-10 font-medium py-1 px-2.5 rounded-3xl">
-                  {product.sale}% Off
+                  {product.sale}% {i18n.language === "en" && "Off"}
                 </span>
               </div>
             ) : (
@@ -71,7 +75,7 @@ const ProductInfo: FC<IProps> = ({ product }) => {
           </div>
           <div className="border-t border-gray-scale-gray-100  mt-6 pt-6">
             <p className="max-w-xl text text-gray-scale-gray-500 ">
-              {product.description}
+              {t(`products.${product.name}.description`)}
             </p>
           </div>
           <div className="pt-6 border-t border-gray-scale-gray-100 mt-6 flex items-center gap-x-3">
@@ -80,12 +84,12 @@ const ProductInfo: FC<IProps> = ({ product }) => {
               <span>{quantity}</span>
               <ButtonQuantity value="+" fun={addQuantity} />
             </div>
-            <ButtonMain value="Add to Cart" fun={(e) => addBasket(e)} />
+            <ButtonMain value={t("AddCart")} fun={(e) => addBasket(e)} />
           </div>
           <div className="pt-6 border-t border-gray-scale-gray-100 mt-6 font-medium">
-            Category:{" "}
+            {t("Category")}:{" "}
             <span className=" font-normal text-gray-scale-gray-500">
-              {product.category}
+              {t(`products.${product.name}.category`)}
             </span>
           </div>
         </div>

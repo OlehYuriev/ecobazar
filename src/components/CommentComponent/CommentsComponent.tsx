@@ -5,12 +5,14 @@ import { ref as databaseRef, onValue } from "firebase/database";
 import IComment from "@/interface/IComment";
 import { database } from "@/firebase";
 import styles from "./comments.module.scss";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   product: IProduct;
 }
 
 const CommentsComponent: FC<IProps> = ({ product }) => {
+  const { t, i18n } = useTranslation();
   const [comments, setComments] = useState<IComment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -42,7 +44,12 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
     setVisibleComments((prevVisibleComments) => prevVisibleComments + 4);
   };
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error)
+    return (
+      <div>
+        {t("Errors.Error")}: {error}
+      </div>
+    );
   return (
     <>
       <div className={styles.comments}>
@@ -70,7 +77,7 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
 
                 <span className="font-medium">{item.username}</span>
               </div>
-              <small>{timeAgo(item.timestamp)}</small>
+              <small>{timeAgo(item.timestamp, i18n.language)}</small>
             </div>
             <p className="mt-3 text-gray-scale-gray-500">{item.comment}</p>
           </div>
@@ -81,7 +88,7 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
             className="text-branding-success bg-branding-success bg-opacity-10
 				 py-3.5  rounded-lg max-w-36 font-semibold hover:text-branding-warning transition-all"
           >
-            Load More
+            {t("LoadMore")}
           </button>
         )}
       </div>

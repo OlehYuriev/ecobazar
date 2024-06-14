@@ -6,14 +6,15 @@ import { push, ref as databaseRef, set } from "firebase/database";
 import { database } from "@/firebase";
 import TextareaComponent from "@/components/ui/textarea/TextareaComponent";
 import ButtonMain from "@/components/ui/buttons/ButtonMain";
-
 import CommentsComponent from "@/components/CommentComponent/CommentsComponent";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   product: IProduct;
 }
 
 const TabsProduct: FC<IProps> = ({ product }) => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
   const [sliderStyle, setSliderStyle] = useState<{
     width: number;
@@ -58,18 +59,20 @@ const TabsProduct: FC<IProps> = ({ product }) => {
     <>
       <div className="mt-11">
         <div className={styles.tabList}>
-          {["Descriptions", "Additional Information", "Customer Feedback"].map(
-            (tab, index) => (
-              <button
-                key={tab}
-                className={activeTab === index ? styles.active : ""}
-                onClick={() => handleTabClick(index)}
-                ref={(el) => (tabRefs.current[index] = el)}
-              >
-                {tab}
-              </button>
-            )
-          )}
+          {[
+            t("Descriptions"),
+            t("account.AdditionalInfo"),
+            t("CustomerFeedback"),
+          ].map((tab, index) => (
+            <button
+              key={tab}
+              className={activeTab === index ? styles.active : ""}
+              onClick={() => handleTabClick(index)}
+              ref={(el) => (tabRefs.current[index] = el)}
+            >
+              {tab}
+            </button>
+          ))}
           <div
             className={styles.slider}
             style={{ width: sliderStyle.width, left: sliderStyle.left }}
@@ -85,16 +88,16 @@ const TabsProduct: FC<IProps> = ({ product }) => {
           {activeTab === 1 && (
             <div className={styles.slide}>
               <div className={styles.list}>
-                <span>Weight:</span>
+                <span>{t("Weight")}</span>
                 <span className="text-gray-scale-gray-600">03</span>
-                <span>Color:</span>
-                <span className="text-gray-scale-gray-600">Green</span>
-                <span>Category:</span>
+                <span>{t("Category")}</span>
                 <span className="text-gray-scale-gray-600">
-                  {product.category}
+                  {t(`products.${product.name}.category`)}
                 </span>
-                <span>Stock Status:</span>
-                <span className="text-gray-scale-gray-600">Available</span>
+                <span>{t("StockStatus")}</span>
+                <span className="text-gray-scale-gray-600">
+                  {t("Available")}
+                </span>
               </div>
             </div>
           )}
@@ -110,19 +113,19 @@ const TabsProduct: FC<IProps> = ({ product }) => {
                 <TextareaComponent
                   value={comment}
                   setValue={setComment}
-                  placeholder="Add a comment"
-                  label="Add a comment"
+                  placeholder={t("AddComment")}
+                  label={t("AddComment")}
                 />
                 <div className="max-w-48 mt-5">
                   <ButtonMain
-                    value="Send comment"
+                    value={t("SendComment")}
                     type="submit"
                     disabled={!comment}
                   />
                 </div>
               </form>
             ) : (
-              <h3>Log in and enter your name</h3>
+              <h3>{t("LogInEnterName")}</h3>
             )}
           </div>
         </div>

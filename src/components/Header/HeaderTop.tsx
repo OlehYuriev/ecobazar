@@ -15,6 +15,16 @@ const HeaderTop: FC = () => {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState("Eng");
+  const [isCurrencyLoaded, setIsCurrencyLoaded] = useState(false);
+
+  useEffect(() => {
+    // Load currency from localStorage
+    const savedCurrency = localStorage.getItem("currency");
+    if (savedCurrency) {
+      dispatch(setCurrency(savedCurrency));
+    }
+    setIsCurrencyLoaded(true);
+  }, [dispatch]);
 
   useEffect(() => {
     if (i18n.language === "ua") {
@@ -22,7 +32,14 @@ const HeaderTop: FC = () => {
     } else {
       setLanguage("Eng");
     }
-  }, [i18n.language, language]);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    // Save currency to localStorage
+    if (isCurrencyLoaded) {
+      localStorage.setItem("currency", currency);
+    }
+  }, [currency, isCurrencyLoaded]);
 
   const changeLanguage = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.textContent === "Ukrainian") {
@@ -39,6 +56,12 @@ const HeaderTop: FC = () => {
       dispatch(setCurrency("USD"));
     }
   }
+
+  // Do not render component until currency is loaded
+  if (!isCurrencyLoaded) {
+    return null;
+  }
+
   return (
     <>
       <div className="py-3 bg-gray-scale-gray-800">
