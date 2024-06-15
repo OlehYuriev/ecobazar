@@ -6,6 +6,7 @@ interface IProps {
   children: React.ReactNode;
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 const ModalComponent: FC<IProps> = ({ isModal, children, setIsModal }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 

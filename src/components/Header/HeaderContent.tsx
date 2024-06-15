@@ -11,12 +11,18 @@ import { getTotalPrice } from "@/utils";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { useTranslation } from "react-i18next";
+import ModalComponent from "../modal/ModalComponent";
+import AccountTable from "../table/AccountTable";
 
 const HeaderContent: FC = () => {
   const { t } = useTranslation();
   const { exchangeRate, currency } = useExchangeRate();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
+  const wishlist = useSelector(
+    (state: RootState) => state.wishlist.productsWishlist
+  );
   const [isModal, setIsModal] = useState(false);
+  const [isModalWishlist, setIsModalWishlist] = useState(false);
   const TotalPrice = getTotalPrice(basket);
   function openBasketModal() {
     setIsModal(true);
@@ -32,8 +38,19 @@ const HeaderContent: FC = () => {
 
           <div className="flex items-center">
             <div className="pr-4">
-              <button type="button" className="relative">
-                <FaRegHeart fontSize="2rem" />
+              <button
+                type="button"
+                className="relative"
+                onClick={() => setIsModalWishlist(true)}
+              >
+                {wishlist.length !== 0 && (
+                  <span
+                    className={`${styles.circle} ${styles.circle_wishlist}`}
+                  >
+                    <span>{wishlist.length}</span>
+                  </span>
+                )}
+                <FaRegHeart fontSize="1.8rem" />
               </button>
             </div>
             <div className="border-l-2 border-gray-scale-gray-100 pl-4 flex">
@@ -43,7 +60,7 @@ const HeaderContent: FC = () => {
                 onClick={openBasketModal}
               >
                 {basket.length !== 0 && (
-                  <span className={styles.circle}>
+                  <span className={`${styles.circle} ${styles.circle_basket}`}>
                     <span>{basket.length}</span>
                   </span>
                 )}
@@ -52,7 +69,7 @@ const HeaderContent: FC = () => {
               </button>
               <div className="flex flex-col ml-2">
                 <span className="text-gray-scale-gray-700">
-                  {t("header.basket")}
+                  {t("header.basket")}:
                 </span>
                 <span className="font-medium">
                   {currencyChange(currency)}
@@ -64,6 +81,33 @@ const HeaderContent: FC = () => {
         </div>
       </div>
       <ModalBasket isModal={isModal} setIsModal={setIsModal} />
+      <ModalComponent isModal={isModalWishlist} setIsModal={setIsModalWishlist}>
+        {wishlist.length ? (
+          <div className={styles.modal}>
+            <h2 className="font-semibold text-center text-3xl">
+              {t("MyWishlist")}
+            </h2>
+            <div className="overflow-auto mt-3">
+              <AccountTable
+                type="wishlist"
+                tableArray={wishlist}
+                columns={[
+                  t("Product"),
+                  t("categoriesPage.Price"),
+                  "Stock Status",
+                  " ",
+                ]}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className={styles.modal}>
+            <h2 className="font-semibold text-center text-3xl text-branding-warning">
+              {t("WishListEmpty")}
+            </h2>
+          </div>
+        )}
+      </ModalComponent>
     </>
   );
 };

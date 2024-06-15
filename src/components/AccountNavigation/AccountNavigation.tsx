@@ -7,6 +7,8 @@ import { TbLogout } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { GrUpdate } from "react-icons/gr";
 import { useTranslation } from "react-i18next";
+import { RiShoppingBagLine } from "react-icons/ri";
+import { FaRegHeart } from "react-icons/fa";
 
 const AccountNavigation: FC = () => {
   const { t } = useTranslation();
@@ -33,6 +35,18 @@ const AccountNavigation: FC = () => {
       name: t("links.OrderHistory"),
       icon: <GrUpdate />,
       activeUrl: activePath,
+    },
+    {
+      url: "/account/wishlist",
+      name: t("Wishlist"),
+      icon: <FaRegHeart />,
+      activeUrl: false,
+    },
+    {
+      url: "/account/shoppingCart",
+      name: t("header.basket"),
+      icon: <RiShoppingBagLine />,
+      activeUrl: false,
     },
     {
       url: "/account/setting",

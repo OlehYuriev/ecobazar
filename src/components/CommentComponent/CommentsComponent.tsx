@@ -33,7 +33,7 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
       },
       (error) => {
         console.log(error);
-
+        setError("error");
         setLoading(false);
       }
     );

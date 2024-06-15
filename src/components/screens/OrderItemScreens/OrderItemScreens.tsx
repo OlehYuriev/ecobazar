@@ -95,7 +95,7 @@ const OrderItemScreens = () => {
             </div>
           </div>
           <div className="overflow-auto">
-            <TableProduct tableArray={order} />
+            <TableProduct tableArray={order?.order.basketWithSubtotal} />
           </div>
         </section>
       ) : (

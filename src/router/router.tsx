@@ -13,6 +13,8 @@ import SettingPage from "@/pages/SettingPage";
 import OrderPage from "@/pages/OrderPage";
 import OrderItemPage from "@/pages/OrderItemPage";
 import { fetchOrder } from "@/services/fetchOrder";
+import ShoppingCartPage from "@/pages/ShoppingCartPage";
+import WishlistPage from "@/pages/WishlistPage";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,14 @@ const router = createBrowserRouter([
       {
         path: "setting",
         element: <SettingPage />,
+      },
+      {
+        path: "shoppingCart",
+        element: <ShoppingCartPage />,
+      },
+      {
+        path: "wishlist",
+        element: <WishlistPage />,
       },
     ],
   },

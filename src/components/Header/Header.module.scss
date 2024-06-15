@@ -4,7 +4,16 @@
 	transform: translate(0, -50%);
 }
 .circle {
-	@apply absolute bg-branding-success rounded-full text-white w-5 h-5 flex justify-center items-center text-xss border border-white right-0;
+	@apply absolute bg-branding-success rounded-full text-white w-5 h-5 flex justify-center items-center
+		text-xss border border-white right-0;
+	&_basket {
+		right: -0.125rem;
+		top: 0.25rem;
+	}
+	&_wishlist {
+		right: -0.425rem;
+		top: -0.15rem;
+	}
 }
 
 .form {
@@ -17,4 +26,11 @@
 	label {
 		width: 100%;
 	}
+}
+
+.modal {
+	@apply bg-white p-6;
+	max-height: 80vh;
+	width: 80vw;
+	overflow: auto;
 }

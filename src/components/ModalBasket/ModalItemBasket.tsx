@@ -1,17 +1,13 @@
 import { FC } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import ButtonQuantity from "../ui/buttons/ButtonQuantity";
 import { useDispatch } from "react-redux";
-import {
-  addQuantity,
-  subtractQuantity,
-  removeProduct,
-} from "@/store/basket/basketSlice";
+import { removeProduct } from "@/store/basket/basketSlice";
 import IProduct from "@/interface/IProduct";
 import { calculateDiscountedPrice } from "@/utils";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { useTranslation } from "react-i18next";
+import QuantityBasket from "../QuantityBasket/QuantityBasket";
 
 interface IProps {
   basket: IProduct[];
@@ -28,9 +24,11 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
           <div className="flex items-center">
             <img src="../img/apple.png" alt="apple" className="max-w-32" />
             <div className="flex flex-col w-52">
-              <h5>
-                {t(`products.${item.name}.name`)}
-                <span className=" font-semibold ml-2">
+              <h5>{t(`products.${item.name}.name`)}</h5>
+
+              <div className="flex items-center">
+                <QuantityBasket product={item} />
+                <span className=" font-semibold ml-4">
                   {currencyChange(currency)}
                   {handleUsdAmountChange(
                     calculateDiscountedPrice(item),
@@ -38,23 +36,6 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
                     currency
                   )}
                 </span>
-              </h5>
-
-              <div className="flex flex-col  mt-2">
-                <div className="flex gap-x-2.5 items-center">
-                  <ButtonQuantity
-                    value="+"
-                    fun={() => dispatch(addQuantity(item))}
-                  />
-                  <span>
-                    {t("quantity")}{" "}
-                    <span className="font-semibold">{item.quantity}</span>
-                  </span>
-                  <ButtonQuantity
-                    value="-"
-                    fun={() => dispatch(subtractQuantity(item))}
-                  />
-                </div>
               </div>
             </div>
           </div>

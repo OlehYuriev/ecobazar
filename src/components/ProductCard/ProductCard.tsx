@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { RiShoppingBagLine } from "react-icons/ri";
 import styles from "./ProductCard.module.scss";
 import IProduct from "@/interface/IProduct";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "@/store/basket/basketSlice";
+import { addProductWIshlist } from "@/store/wishlist/wishlistSlice";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { RootState } from "@/store/store";
 import { calculateDiscountedPrice } from "@/utils";
@@ -14,6 +15,7 @@ import ModalComponent from "../modal/ModalComponent";
 import ProductInfo from "../ProductInfo/ProductInfo";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { useTranslation } from "react-i18next";
+import useProductExists from "@/hooks/useProductExists";
 
 interface IProps {
   product: IProduct;
@@ -22,22 +24,24 @@ interface IProps {
 const ProductCard: FC<IProps> = ({ product }) => {
   const { t } = useTranslation();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
-
+  const wishlist = useSelector(
+    (state: RootState) => state.wishlist.productsWishlist
+  );
   const dispatch = useDispatch();
-  const [isBasket, setIsBasket] = useState(false);
+
   const [isModal, setIsModal] = useState(false);
   const { exchangeRate, currency } = useExchangeRate();
 
-  useEffect(() => {
-    const productExistsInBasket = basket.some(
-      (item) => item.name === product.name
-    );
-    setIsBasket(productExistsInBasket);
-  }, [basket, product, isBasket]);
+  const basketExists = useProductExists(basket, product);
 
+  const wishlistExists = useProductExists(wishlist, product);
   function addBasket(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     dispatch(addProduct(product));
+  }
+  function addWishlist(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    dispatch(addProductWIshlist(product));
   }
   function openModal(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -52,7 +56,12 @@ const ProductCard: FC<IProps> = ({ product }) => {
               <img src="../img/apple.png" alt="apple" className="w-full" />
               <button
                 type="button"
-                className={`${styles.button} ${styles.button_heart}`}
+                className={`${styles.button} ${styles.button_heart} ${
+                  wishlistExists
+                    ? " bg-red-500 text-white"
+                    : "bg-gray-scale-gray-50"
+                }`}
+                onClick={(e) => addWishlist(e)}
               >
                 <FaRegHeart fontSize="1.35rem" />
               </button>
@@ -107,7 +116,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
 
               <button
                 className={`p-2.5 rounded-full ${
-                  isBasket
+                  basketExists
                     ? "bg-branding-success text-white"
                     : "bg-gray-scale-gray-50"
                 }`}

@@ -10,6 +10,8 @@
 	}
 
 	.items {
+		height: 50vh;
+		overflow-y: auto;
 		& > :not(:first-child) {
 			@apply border-t border-gray-scale-gray-100;
 		}

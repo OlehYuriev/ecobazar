@@ -1,11 +1,12 @@
 import { FC } from "react";
 import styles from "./table.module.scss";
-import IProductOrder from "@/interface/IProductOrder";
 import { useTranslation } from "react-i18next";
+import { IProductSubtotal } from "@/interface/IProduct";
 
 interface IProps {
-  tableArray: IProductOrder | null;
+  tableArray: IProductSubtotal[];
 }
+
 const TableProduct: FC<IProps> = ({ tableArray }) => {
   const { t } = useTranslation();
 
@@ -22,7 +23,7 @@ const TableProduct: FC<IProps> = ({ tableArray }) => {
             </tr>
           </thead>
           <tbody>
-            {tableArray?.order.basketWithSubtotal.map((item) => (
+            {tableArray.map((item) => (
               <tr
                 className="text-left text-gray-scale-gray-800"
                 key={item.name}
