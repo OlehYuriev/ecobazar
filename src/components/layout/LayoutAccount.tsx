@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import AccountNavigation from "../AccountNavigation/AccountNavigation";
 import useAuth from "@/hooks/useAuth";
 import styles from "./layout.module.scss";
+import FooterComponent from "../footer/FooterComponent";
 
 const LayoutAccount: FC = () => {
   const authUser = useAuth();
@@ -27,6 +28,7 @@ const LayoutAccount: FC = () => {
           </div>
         )}
       </main>
+      <FooterComponent />
     </>
   );
 };

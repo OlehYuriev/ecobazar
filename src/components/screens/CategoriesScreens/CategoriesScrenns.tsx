@@ -9,6 +9,7 @@ import useParamsPage from "@/hooks/useParamsPage";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange } from "@/utils";
 import { calculateDiscountedPriceOneProduct } from "@/utils";
+
 const CategoriesScreens: FC = () => {
   const { exchangeRate, currency } = useExchangeRate();
   const [radioOption, setRadioOption] = useState("All");

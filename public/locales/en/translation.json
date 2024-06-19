@@ -48,6 +48,9 @@
   "Wishlist": "Wishlist",
   "MyWishlist": "My Wishlist",
   "WishListEmpty": "Wish list is empty",
+  "FeaturedProducts": "Featured Products",
+  "MyAccount": "My Account",
+  "Pages": "Pages",
   "table": {
     "OrderID": "Order ID",
     "Date": "Date",
@@ -79,6 +82,17 @@
     "home": "Home",
     "categories": "Categories"
   },
+  "team": {
+    "OurTeam": "Our Awesome Team",
+    "JennyWilson": "Jenny Wilson",
+    "CeoFounder": "Ceo & Founder",
+    "JaneCooper": "Jane Cooper",
+    "Worker": "Worker",
+    "CodyFisher": "Cody Fisher",
+    "SecurityGuard": "Security Guard",
+    "RobertFox": "Robert Fox",
+    "SeniorFarmerManager": "Senior Farmer Manager"
+  },
   "home": {
     "FreshHealthy": "Fresh & Healthy Organic Food",
     "SaleUp": "Sale up to",
@@ -95,7 +109,8 @@
     "MoneyBack": "Money-Back Guarantee",
     "30Days": "30 Days Money-Back Guarantee sda",
     "PopularProducts": "Popular Products",
-    "PopularCategories": "Popular Categories"
+    "PopularCategories": "Popular Categories",
+    "FreeOnAll": "Free on all your order, Free Shipping and 30 days money-back guarantee"
   },
   "categoriesPage": {
     "Discount": "Discount",

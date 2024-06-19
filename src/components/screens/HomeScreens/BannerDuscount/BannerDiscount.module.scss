@@ -1,0 +1,12 @@
+.banner {
+	background-image: image-set(
+		url(../img/DiscountBannar.avif) type("image/avif"),
+		url(../img/DiscountBannar.webp) type("image/webp"),
+		url(../img/DiscountBannar.jpj) type("image/jpj")
+	);
+	background-size: cover;
+	background-position: center right;
+	background-repeat: no-repeat;
+	padding: 4.2% 3.6%;
+	border-radius: 10px;
+}

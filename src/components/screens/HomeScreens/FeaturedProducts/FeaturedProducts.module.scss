@@ -1,0 +1,6 @@
+.items {
+	@apply flex justify-between  mt-8 gap-x-7;
+	& > * {
+		width: 20%;
+	}
+}

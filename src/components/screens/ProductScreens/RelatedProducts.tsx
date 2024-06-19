@@ -19,7 +19,7 @@ const RelatedProducts: FC = () => {
         <h3 className="font-semibold text-3xl text-center">
           {t("RelatedProducts")}
         </h3>
-        ,
+
         <div className={styles.related}>
           {randomSaleProducts.map((item) => (
             <ProductCard product={item} key={item.name} />

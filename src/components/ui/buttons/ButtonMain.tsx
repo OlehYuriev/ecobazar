@@ -17,7 +17,7 @@ const ButtonMain: FC<Props> = ({ value, fun, type = "button", ...rest }) => {
         onClick={handleClick}
         {...rest}
         type={type}
-        className="p-4 bg-branding-success rounded-56 w-full  flex justify-center font-semibold text-white hover:text-branding-warning transition-all  disabled:bg-opacity-50 disabled:hover:text-white"
+        className="py-4 px-10 bg-branding-success rounded-56 w-full  flex justify-center font-semibold text-white hover:text-branding-warning transition-all  disabled:bg-opacity-50 disabled:hover:text-white"
       >
         <span>{value}</span>
       </button>

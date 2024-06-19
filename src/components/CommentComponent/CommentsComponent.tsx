@@ -28,7 +28,7 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
           ? Object.keys(data).map((key) => ({ id: key, ...data[key] }))
           : [];
         setComments(commentsList);
-
+        console.log(comments);
         setLoading(false);
       },
       (error) => {
@@ -40,6 +40,7 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
 
     return () => unsubscribe();
   }, [product.name]);
+
   const loadMoreComments = () => {
     setVisibleComments((prevVisibleComments) => prevVisibleComments + 4);
   };
