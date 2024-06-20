@@ -177,38 +177,358 @@
   "products": {
     "Green Apple": {
       "name": "Зелене яблуко",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "description": "Соковите та кислі зелені яблука, ідеальні для здорового перекусу або випічки.",
       "category": "Свіжі фрукти"
     },
     "Orange": {
       "name": "Апельсин",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "description": "Соковиті та солодкі апельсини, чудові для вживання у вигляді соку або свіжих.",
+      "category": "Свіжі фрукти"
+    },
+    "Banana": {
+      "name": "Банан",
+      "description": "Дозрілі банани, ідеальні для швидкого збадьорення або приготування смузі.",
+      "category": "Свіжі фрукти"
+    },
+    "Strawberry": {
+      "name": "Полуниця",
+      "description": "Солодкі та соковиті полуниці, ідеальні для десертів або перекусів.",
+      "category": "Свіжі фрукти"
+    },
+    "Grapes": {
+      "name": "Виноград",
+      "description": "Свіжий виноград, ідеальний для перекусів або додавання до салатів.",
+      "category": "Свіжі фрукти"
+    },
+    "Blueberries": {
+      "name": "Чорниці",
+      "description": "Булькотливі чорниці, ідеальні для випічки або вживання у свіжому вигляді.",
+      "category": "Свіжі фрукти"
+    },
+    "Watermelon": {
+      "name": "Кавун",
+      "description": "Освіжаючий кавун, ідеальний для спекотного літнього дня.",
+      "category": "Свіжі фрукти"
+    },
+    "Pineapple": {
+      "name": "Ананас",
+      "description": "Солодкий і кислуватий ананас, ідеальний для перекусів або приготування.",
+      "category": "Свіжі фрукти"
+    },
+    "Mango": {
+      "name": "Манго",
+      "description": "Соковите манго, ідеальне для десертів або свіжого вживання.",
+      "category": "Свіжі фрукти"
+    },
+    "Kiwi": {
+      "name": "Ківі",
+      "description": "Кислувате і солодке ківі, чудове для додавання до фруктових салатів.",
       "category": "Свіжі фрукти"
     },
     "Cucumber": {
       "name": "Огірок",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Овочі"
+      "description": "Свіжі огірки, ідеальні для салатів або перекусів.",
+      "category": "Свіжі овочі"
     },
-    "Red Apple": {
-      "name": "Червоне яблуко",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Свіжі фрукти"
+    "Tomato": {
+      "name": "Помідор",
+      "description": "Соковиті помідори, ідеальні для салатів, соусів або свіжого вживання.",
+      "category": "Свіжі овочі"
     },
-    "dina": {
-      "name": "Діна",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаeос. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Свіжі фрукти"
+    "Carrot": {
+      "name": "Морква",
+      "description": "Хрустка морква, чудова для перекусів або приготування.",
+      "category": "Свіжі овочі"
     },
-    "dina2": {
-      "name": "Діна2",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himенаеos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Свіжі фрукти"
+    "Broccoli": {
+      "name": "Брокколі",
+      "description": "Свіжий брокколі, ідеальний для парування або смаження.",
+      "category": "Свіжі овочі"
     },
-    "dina3": {
-      "name": "Діна3",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaеos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Свіжі фрукти"
+    "Bell Pepper": {
+      "name": "Перець болгарський",
+      "description": "Хрусткий болгарський перець, чудовий для салатів або приготування.",
+      "category": "Свіжі овочі"
+    },
+    "Spinach": {
+      "name": "Шпинат",
+      "description": "Свіжий шпинат, ідеальний для салатів або приготування.",
+      "category": "Свіжі овочі"
+    },
+    "Lettuce": {
+      "name": "Салат",
+      "description": "Хрусткий салат, ідеальний для салатів або сендвічів.",
+      "category": "Свіжі овочі"
+    },
+    "Onion": {
+      "name": "Цибуля",
+      "description": "Свіжа цибуля, чудова для приготування або додавання до салатів.",
+      "category": "Свіжі овочі"
+    },
+    "Garlic": {
+      "name": "Часник",
+      "description": "Ароматний часник, ідеальний для підсилення смаку страв.",
+      "category": "Свіжі овочі"
+    },
+    "Potato": {
+      "name": "Картопля",
+      "description": "Універсальна картопля, чудова для запікання, смаження або пюре.",
+      "category": "Свіжі овочі"
+    },
+    "Chicken Breast": {
+      "name": "Куряче філе",
+      "description": "Худе куряче філе, ідеальне для грилювання або запікання.",
+      "category": "М'ясо та риба"
+    },
+    "Salmon Fillet": {
+      "name": "Філе лосося",
+      "description": "Багатий і смачний філе лосося, ідеальний для грилювання або запікання.",
+      "category": "М'ясо та риба"
+    },
+    "Beef Steak": {
+      "name": "Біфштекс",
+      "description": "Соковитий біфштекс, ідеальний для грилювання або смаження на сковороді.",
+      "category": "М'ясо та риба"
+    },
+    "Pork Chops": {
+      "name": "Свинячі котлети",
+      "description": "Ніжні свинячі котлети, прекрасні для грилювання або запікання.",
+      "category": "М'ясо та риба"
+    },
+    "Shrimp": {
+      "name": "Креветки",
+      "description": "Свіжі креветки, ідеальні для грилювання, варіння або додавання до страв.",
+      "category": "М'ясо та риба"
+    },
+    "Lamb Chops": {
+      "name": "Котлети з ягняти",
+      "description": "Соковиті котлети з ягняти, ідеальні для грилювання або печення.",
+      "category": "М'ясо та риба"
+    },
+    "Cod Fillet": {
+      "name": "Філе тріски",
+      "description": "Пухке філе тріски, ідеальне для запікання або смаження на сковороді.",
+      "category": "М'ясо та риба"
+    },
+    "Tuna Steak": {
+      "name": "Стейк тунця",
+      "description": "Ціпкий і ароматний стейк тунця, ідеальний для грилювання або смаження.",
+      "category": "М'ясо та риба"
+    },
+    "Crab Legs": {
+      "name": "Крабові ніжки",
+      "description": "Солодкі і ніжні крабові ніжки, ідеальні для морепродуктового застолля.",
+      "category": "М'ясо та риба"
+    },
+    "Beef Ribs": {
+      "name": "Баранина ребра",
+      "description": "Смачні баранячі ребра, чудові для повільного варіння або барбекю.",
+      "category": "М'ясо та риба"
+    },
+    "Potato Chips": {
+      "name": "Картопляний чіпс",
+      "description": "Хрусткий картопляний чіпс, ідеальний для перекусу.",
+      "category": "Закуски"
+    },
+    "Chocolate Bar": {
+      "name": "Шоколадна плитка",
+      "description": "Ніжний молочний шоколад, чудовий десерт.",
+      "category": "Закуски"
+    },
+    "Popcorn": {
+      "name": "Попкорн",
+      "description": "Батерійний попкорн, ідеальний для кіноночей.",
+      "category": "Закуски"
+    },
+    "Trail Mix": {
+      "name": "Суміш для перекусу",
+      "description": "Збалансована суміш для перекусу в дорозі.",
+      "category": "Закуски"
+    },
+    "Pretzels": {
+      "name": "Печиво-кренделі",
+      "description": "Хрустке печиво-кренделі, чудово підходить для погруження або перекусу.",
+      "category": "Закуски"
+    },
+    "Granola Bars": {
+      "name": "Гранола бари",
+      "description": "Поживні гранола бари, ідеальні для швидкого енергетичного заряду.",
+      "category": "Закуски"
+    },
+    "Cheese Puffs": {
+      "name": "Сирні кульки",
+      "description": "Смачні та хрусткі сирні кульки, задовольняючий перекус.",
+      "category": "Закуски"
+    },
+    "Dried Fruit": {
+      "name": "Сухофрукти",
+      "description": "Солодкі та жувальні сухофрукти, здоровий вибір перекусу.",
+      "category": "Закуски"
+    },
+    "Crackers": {
+      "name": "Крекери",
+      "description": "Легкі та хрусткі крекери, ідеальні з сиром або соусами.",
+      "category": "Закуски"
+    },
+    "Nuts": {
+      "name": "Горішки",
+      "description": "Суміш асортименту горіхів, поживний перекус, повний смаку.",
+      "category": "Закуски"
+    },
+    "Beef Ribs": {
+      "name": "Говяжі ребра",
+      "description": "Смачні говяжі ребра, ідеальні для повільного запікання або барбекю.",
+      "category": "М'ясо та риба"
+    },
+    "Potato Chips": {
+      "name": "Чіпси з картоплі",
+      "category": "Закуски",
+      "description": "Хрусткі чіпси з картоплі, ідеальні для перекусу."
+    },
+    "Chocolate Bar": {
+      "name": "Шоколадна плитка",
+      "category": "Закуски",
+      "description": "Ніжна молочна шоколадна плитка, чудовий десерт."
+    },
+    "Popcorn": {
+      "name": "Попкорн",
+      "category": "Закуски",
+      "description": "Маслянистий попкорн, ідеальний для кіноночей."
+    },
+    "Trail Mix": {
+      "name": "Суміш для перекусу",
+      "category": "Закуски",
+      "description": "Здорова суміш для перекусу, збалансований перекус на ходу."
+    },
+    "Pretzels": {
+      "name": "Крендельки",
+      "category": "Закуски",
+      "description": "Хрусткі крендельки, чудові для занурення або перекусу."
+    },
+    "Granola Bars": {
+      "name": "Гранола батончики",
+      "category": "Закуски",
+      "description": "Поживні гранола батончики, ідеальні для швидкого підйому енергії."
+    },
+    "Cheese Puffs": {
+      "name": "Сирні закуски",
+      "category": "Закуски",
+      "description": "Смачні сирні закуски, задовольняючий перекус."
+    },
+    "Dried Fruit": {
+      "name": "Сухофрукти",
+      "category": "Закуски",
+      "description": "Солодкі і жувальні сухофрукти, здоровий вибір для перекусу."
+    },
+    "Crackers": {
+      "name": "Крекери",
+      "category": "Закуски",
+      "description": "Легкі і хрусткі крекери, ідеальні з сиром або соусами."
+    },
+    "Nuts": {
+      "name": "Горіхи",
+      "category": "Закуски",
+      "description": "Асорті змішані горіхи, поживна закуска з багатим смаком."
+    },
+    "Coffee Beans": {
+      "name": "Кавові зерна",
+      "category": "Напої",
+      "description": "Приміщені кавові зерна, ідеальні для заварювання вашого улюбленого напою."
+    },
+    "Green Tea": {
+      "name": "Зелений чай",
+      "category": "Напої",
+      "description": "Освіжаючий зелений чай, багатий антиоксидантами."
+    },
+    "Orange Juice": {
+      "name": "Апельсиновий сік",
+      "category": "Напої",
+      "description": "Свіжо вижатий апельсиновий сік, насичений вітаміном C."
+    },
+    "Mineral Water": {
+      "name": "Мінеральна вода",
+      "category": "Напої",
+      "description": "Чиста мінеральна вода, освіжаюча та зволожуюча."
+    },
+    "Soda": {
+      "name": "Газована вода",
+      "category": "Напої",
+      "description": "Газована вода, освіжаючий і захоплюючий напій."
+    },
+    "Coconut Water": {
+      "name": "Кокосова вода",
+      "category": "Напої",
+      "description": "Натуральна кокосова вода, зволожує та освіжає."
+    },
+    "Red Wine": {
+      "name": "Червоне вино",
+      "category": "Напої",
+      "description": "Плавне червоне вино, ідеальне для вечорів відпочинку."
+    },
+    "Apple Cider": {
+      "name": "Яблучний сидр",
+      "category": "Напої",
+      "description": "Солодкий та кислий яблучний сидр, прекрасний для осінніх днів."
+    },
+    "Energy Drink": {
+      "name": "Енергетичний напій",
+      "category": "Напої",
+      "description": "Освіжаючий енергетичний напій, піднімає рівень енергії."
+    },
+    "Hot Chocolate": {
+      "name": "Гарячий шоколад",
+      "category": "Напої",
+      "description": "Багатий та кремовий гарячий шоколад, ідеальний для холодних днів."
+    },
+    "Face Cream": {
+      "name": "Масло для обличчя",
+      "category": "Краса та здоров'я",
+      "description": "Масло для обличчя, зволожує та живить шкіру."
+    },
+    "Shampoo": {
+      "name": "Шампунь",
+      "category": "Краса та здоров'я",
+      "description": "Ніжний шампунь, ефективно очищує волосся та шкіру голови."
+    },
+    "Conditioner": {
+      "name": "Кондиціонер",
+      "category": "Краса та здоров'я",
+      "description": "Зволожуючий кондиціонер, робить волосся м'яким і легко керованим."
+    },
+    "Toothpaste": {
+      "name": "Зубна паста",
+      "category": "Краса та здоров'я",
+      "description": "Фторований зубний паста, захищає зуби та освіжає дихання."
+    },
+    "Face Mask": {
+      "name": "Маска для обличчя",
+      "category": "Краса та здоров'я",
+      "description": "Оновлююча маска для обличчя, омолоджує та засвітлює шкіру."
+    },
+    "Hand Cream": {
+      "name": "Рукавичкове масло",
+      "category": "Краса та здоров'я",
+      "description": "Живильне масло для рук, зволожує та захищає руки."
+    },
+    "Sunscreen": {
+      "name": "Сонцезахисний крем",
+      "category": "Краса та здоров'я",
+      "description": "Сонцезахисний крем SPF 30, захищає від ультрафіолетових променів."
+    },
+    "Lip Balm": {
+      "name": "Зволожуючий бальзам для губ",
+      "category": "Краса та здоров'я",
+      "description": "Зволожуючий бальзам для губ, запобігає сухості та тріщинам."
+    },
+    "Body Lotion": {
+      "name": "Зволожуюче молочко для тіла",
+      "category": "Краса та здоров'я",
+      "description": "Зволожуюче молочко для тіла, робить шкіру гладкою і зволоженою."
+    },
+    "Vitamin Supplements": {
+      "name": "Вітамінні добавки",
+      "category": "Краса та здоров'я",
+      "description": "Мультивітамінні добавки, підтримують загальний стан здоров'я та благополуччя."
     }
   }
 }

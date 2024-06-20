@@ -49,9 +49,12 @@ const ProductCard: FC<IProps> = ({ product }) => {
   }
   return (
     <>
-      <div>
-        <Link to={`/categories/${product.name}`}>
-          <div className={styles.item}>
+      <div className={styles.item}>
+        <Link
+          to={`/categories/${product.name}`}
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <div>
             <div className="relative">
               <img src="../img/apple.png" alt="apple" className="w-full" />
               <button
@@ -80,7 +83,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
             </div>
             <div className="flex p-3 items-center justify-between">
               <div>
-                <h4 className="text-gray-scale-gray-700">
+                <h4 className="text-gray-scale-gray-700 pr-3">
                   {t(`products.${product.name}.name`)}
                 </h4>
                 {product.sale ? (

@@ -10,8 +10,11 @@ const SaleProducts: FC = () => {
   const [randomSaleProducts, setRandomSaleProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
-    const saleProducts = getRandomSaleProducts(3, products);
-    setRandomSaleProducts(saleProducts);
+    const saleProducts = products.filter(
+      (product) => product.sale && product.sale > 0
+    );
+    const randomProducts = getRandomSaleProducts(3, saleProducts);
+    setRandomSaleProducts(randomProducts);
   }, []);
 
   return (

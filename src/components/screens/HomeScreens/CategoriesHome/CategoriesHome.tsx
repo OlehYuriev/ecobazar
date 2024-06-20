@@ -15,19 +15,35 @@ const CategoriesHome: FC = () => {
     {
       img: "vegetables",
       title: t("categories.FreshVegetables"),
-      url: "/categories?category=Vegetables",
+      url: "/categories?category=Fresh+Vegetables",
     },
-    { img: "meat", title: t("categories.MeatFish"), url: "/categories" },
-    { img: "snacks", title: t("categories.Snacks"), url: "/categories" },
-    { img: "beverages", title: t("categories.Beverages"), url: "/categories" },
-    { img: "beauty", title: t("categories.BeautyHealth"), url: "/categories" },
+    {
+      img: "meat",
+      title: t("categories.MeatFish"),
+      url: "/categories?category=Meat+%26+Fish",
+    },
+    {
+      img: "snacks",
+      title: t("categories.Snacks"),
+      url: "/categories?category=Snacks",
+    },
+    {
+      img: "beverages",
+      title: t("categories.Beverages"),
+      url: "/categories?category=Beverages",
+    },
+    {
+      img: "beauty",
+      title: t("categories.BeautyHealth"),
+      url: "/categories?category=Beauty+%26+Health",
+    },
   ];
   return (
     <>
       <section className="mt-14">
         <div className="container">
           <div>
-            <TitleSection title={t("home.PopularCategories")} />
+            <TitleSection title={t("header.categories")} />
             <div className="flex justify-between mt-12 gap-1.5">
               {categories.map((item) => {
                 return (

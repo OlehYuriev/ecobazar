@@ -170,38 +170,358 @@
   "products": {
     "Green Apple": {
       "name": "Green Apple",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "description": "Crisp and tart green apples, perfect for a healthy snack or baking.",
       "category": "Fresh Fruit"
     },
     "Orange": {
       "name": "Orange",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
+      "description": "Juicy and sweet oranges, great for juicing or eating fresh.",
+      "category": "Fresh Fruit"
+    },
+    "Banana": {
+      "name": "Banana",
+      "description": "Ripe bananas, perfect for a quick energy boost or smoothies.",
+      "category": "Fresh Fruit"
+    },
+    "Strawberry": {
+      "name": "Strawberry",
+      "description": "Sweet and juicy strawberries, ideal for desserts or snacking.",
+      "category": "Fresh Fruit"
+    },
+    "Grapes": {
+      "name": "Grapes",
+      "description": "Fresh grapes, perfect for snacking or adding to salads.",
+      "category": "Fresh Fruit"
+    },
+    "Blueberries": {
+      "name": "Blueberries",
+      "description": "Plump blueberries, ideal for baking or eating fresh.",
+      "category": "Fresh Fruit"
+    },
+    "Watermelon": {
+      "name": "Watermelon",
+      "description": "Refreshing watermelon, perfect for a hot summer day.",
+      "category": "Fresh Fruit"
+    },
+    "Pineapple": {
+      "name": "Pineapple",
+      "description": "Sweet and tangy pineapple, great for snacking or cooking.",
+      "category": "Fresh Fruit"
+    },
+    "Mango": {
+      "name": "Mango",
+      "description": "Juicy mangoes, perfect for desserts or fresh eating.",
+      "category": "Fresh Fruit"
+    },
+    "Kiwi": {
+      "name": "Kiwi",
+      "description": "Tangy and sweet kiwi, excellent for adding to fruit salads.",
       "category": "Fresh Fruit"
     },
     "Cucumber": {
       "name": "Cucumber",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Vegetables"
+      "description": "Fresh cucumbers, perfect for salads or snacking.",
+      "category": "Fresh Vegetables"
     },
-    "Red Apple": {
-      "name": "Red Apple",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Fresh Fruit"
+    "Tomato": {
+      "name": "Tomato",
+      "description": "Juicy tomatoes, ideal for salads, sauces, or fresh eating.",
+      "category": "Fresh Vegetables"
     },
-    "dina": {
-      "name": "dina",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Fresh Fruit"
+    "Carrot": {
+      "name": "Carrot",
+      "description": "Crisp carrots, great for snacking or cooking.",
+      "category": "Fresh Vegetables"
     },
-    "dina2": {
-      "name": "dina2",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Fresh Fruit"
+    "Broccoli": {
+      "name": "Broccoli",
+      "description": "Fresh broccoli, perfect for steaming or stir-frying.",
+      "category": "Fresh Vegetables"
     },
-    "dina3": {
-      "name": "dina3",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar.",
-      "category": "Fresh Fruit"
+    "Bell Pepper": {
+      "name": "Bell Pepper",
+      "description": "Crisp bell peppers, great for salads or cooking.",
+      "category": "Fresh Vegetables"
+    },
+    "Spinach": {
+      "name": "Spinach",
+      "description": "Fresh spinach, ideal for salads or cooking.",
+      "category": "Fresh Vegetables"
+    },
+    "Lettuce": {
+      "name": "Lettuce",
+      "description": "Crisp lettuce, perfect for salads or sandwiches.",
+      "category": "Fresh Vegetables"
+    },
+    "Onion": {
+      "name": "Onion",
+      "description": "Fresh onions, great for cooking or adding to salads.",
+      "category": "Fresh Vegetables"
+    },
+    "Garlic": {
+      "name": "Garlic",
+      "description": "Aromatic garlic, perfect for enhancing flavors in dishes.",
+      "category": "Fresh Vegetables"
+    },
+    "Potato": {
+      "name": "Potato",
+      "description": "Versatile potatoes, great for baking, frying, or mashing.",
+      "category": "Fresh Vegetables"
+    },
+    "Chicken Breast": {
+      "name": "Chicken Breast",
+      "description": "Lean chicken breast, perfect for grilling or baking.",
+      "category": "Meat & Fish"
+    },
+    "Salmon Fillet": {
+      "name": "Salmon Fillet",
+      "description": "Rich and flavorful salmon fillet, ideal for grilling or baking.",
+      "category": "Meat & Fish"
+    },
+    "Beef Steak": {
+      "name": "Beef Steak",
+      "description": "Juicy beef steak, perfect for grilling or pan-searing.",
+      "category": "Meat & Fish"
+    },
+    "Pork Chops": {
+      "name": "Pork Chops",
+      "description": "Tender pork chops, great for grilling or baking.",
+      "category": "Meat & Fish"
+    },
+    "Shrimp": {
+      "name": "Shrimp",
+      "description": "Fresh shrimp, perfect for grilling, boiling, or adding to dishes.",
+      "category": "Meat & Fish"
+    },
+    "Lamb Chops": {
+      "name": "Lamb Chops",
+      "description": "Succulent lamb chops, ideal for grilling or roasting.",
+      "category": "Meat & Fish"
+    },
+    "Cod Fillet": {
+      "name": "Cod Fillet",
+      "description": "Flaky cod fillet, perfect for baking or pan-searing.",
+      "category": "Meat & Fish"
+    },
+    "Tuna Steak": {
+      "name": "Tuna Steak",
+      "description": "Firm and flavorful tuna steak, ideal for grilling or searing.",
+      "category": "Meat & Fish"
+    },
+    "Crab Legs": {
+      "name": "Crab Legs",
+      "description": "Sweet and tender crab legs, perfect for a seafood feast.",
+      "category": "Meat & Fish"
+    },
+    "Beef Ribs": {
+      "name": "Beef Ribs",
+      "description": "Savory beef ribs, great for slow-roasting or barbecuing.",
+      "category": "Meat & Fish"
+    },
+    "Potato Chips": {
+      "name": "Potato Chips",
+      "description": "Crunchy potato chips, perfect for snacking.",
+      "category": "Snacks"
+    },
+    "Chocolate Bar": {
+      "name": "Chocolate Bar",
+      "description": "Smooth milk chocolate bar, a delightful treat.",
+      "category": "Snacks"
+    },
+    "Popcorn": {
+      "name": "Popcorn",
+      "description": "Buttery popcorn, perfect for movie nights.",
+      "category": "Snacks"
+    },
+    "Trail Mix": {
+      "name": "Trail Mix",
+      "description": "Healthy trail mix, a balanced snack on the go.",
+      "category": "Snacks"
+    },
+    "Pretzels": {
+      "name": "Pretzels",
+      "description": "Crunchy pretzels, great for dipping or snacking.",
+      "category": "Snacks"
+    },
+    "Granola Bars": {
+      "name": "Granola Bars",
+      "description": "Nutritious granola bars, perfect for a quick energy boost.",
+      "category": "Snacks"
+    },
+    "Cheese Puffs": {
+      "name": "Cheese Puffs",
+      "description": "Cheesy and crunchy cheese puffs, a satisfying snack.",
+      "category": "Snacks"
+    },
+    "Dried Fruit": {
+      "name": "Dried Fruit",
+      "description": "Sweet and chewy dried fruit mix, a healthy snack option.",
+      "category": "Snacks"
+    },
+    "Crackers": {
+      "name": "Crackers",
+      "description": "Light and crispy crackers, perfect with cheese or dips.",
+      "category": "Snacks"
+    },
+    "Nuts": {
+      "name": "Nuts",
+      "description": "Assorted nuts mix, a nutritious snack full of flavor.",
+      "category": "Snacks"
+    },
+    "Beef Ribs": {
+      "name": "Beef Ribs",
+      "description": "Savory beef ribs, great for slow-roasting or barbecuing.",
+      "category": "Meat & Fish"
+    },
+    "Potato Chips": {
+      "name": "Potato Chips",
+      "category": "Snacks",
+      "description": "Crunchy potato chips, perfect for snacking."
+    },
+    "Chocolate Bar": {
+      "name": "Chocolate Bar",
+      "category": "Snacks",
+      "description": "Smooth milk chocolate bar, a delightful treat."
+    },
+    "Popcorn": {
+      "name": "Popcorn",
+      "category": "Snacks",
+      "description": "Buttery popcorn, perfect for movie nights."
+    },
+    "Trail Mix": {
+      "name": "Trail Mix",
+      "category": "Snacks",
+      "description": "Healthy trail mix, a balanced snack on the go."
+    },
+    "Pretzels": {
+      "name": "Pretzels",
+      "category": "Snacks",
+      "description": "Crunchy pretzels, great for dipping or snacking."
+    },
+    "Granola Bars": {
+      "name": "Granola Bars",
+      "category": "Snacks",
+      "description": "Nutritious granola bars, perfect for a quick energy boost."
+    },
+    "Cheese Puffs": {
+      "name": "Cheese Puffs",
+      "category": "Snacks",
+      "description": "Cheesy and crunchy cheese puffs, a satisfying snack."
+    },
+    "Dried Fruit": {
+      "name": "Dried Fruit",
+      "category": "Snacks",
+      "description": "Sweet and chewy dried fruit mix, a healthy snack option."
+    },
+    "Crackers": {
+      "name": "Crackers",
+      "category": "Snacks",
+      "description": "Light and crispy crackers, perfect with cheese or dips."
+    },
+    "Nuts": {
+      "name": "Nuts",
+      "category": "Snacks",
+      "description": "Assorted nuts mix, a nutritious snack full of flavor."
+    },
+    "Coffee Beans": {
+      "name": "Coffee Beans",
+      "category": "Beverages",
+      "description": "Premium coffee beans, perfect for brewing your favorite cup."
+    },
+    "Green Tea": {
+      "name": "Green Tea",
+      "category": "Beverages",
+      "description": "Refreshing green tea, rich in antioxidants."
+    },
+    "Orange Juice": {
+      "name": "Orange Juice",
+      "category": "Beverages",
+      "description": "Freshly squeezed orange juice, packed with Vitamin C."
+    },
+    "Mineral Water": {
+      "name": "Mineral Water",
+      "category": "Beverages",
+      "description": "Pure mineral water, refreshing and hydrating."
+    },
+    "Soda": {
+      "name": "Soda",
+      "category": "Beverages",
+      "description": "Carbonated soda, a fizzy and refreshing drink."
+    },
+    "Coconut Water": {
+      "name": "Coconut Water",
+      "category": "Beverages",
+      "description": "Natural coconut water, hydrating and refreshing."
+    },
+    "Red Wine": {
+      "name": "Red Wine",
+      "category": "Beverages",
+      "description": "Smooth red wine, perfect for relaxing evenings."
+    },
+    "Apple Cider": {
+      "name": "Apple Cider",
+      "category": "Beverages",
+      "description": "Sweet and tangy apple cider, great for autumn days."
+    },
+    "Energy Drink": {
+      "name": "Energy Drink",
+      "category": "Beverages",
+      "description": "Refreshing energy drink, boosts energy levels."
+    },
+    "Hot Chocolate": {
+      "name": "Hot Chocolate",
+      "category": "Beverages",
+      "description": "Rich and creamy hot chocolate, perfect for cold days."
+    },
+    "Face Cream": {
+      "name": "Face Cream",
+      "category": "Beauty & Health",
+      "description": "Moisturizing face cream, nourishes and hydrates skin."
+    },
+    "Shampoo": {
+      "name": "Shampoo",
+      "category": "Beauty & Health",
+      "description": "Gentle shampoo, cleanses hair and scalp effectively."
+    },
+    "Conditioner": {
+      "name": "Conditioner",
+      "category": "Beauty & Health",
+      "description": "Hydrating conditioner, leaves hair soft and manageable."
+    },
+    "Toothpaste": {
+      "name": "Toothpaste",
+      "category": "Beauty & Health",
+      "description": "Fluoride toothpaste, protects teeth and freshens breath."
+    },
+    "Face Mask": {
+      "name": "Face Mask",
+      "category": "Beauty & Health",
+      "description": "Revitalizing face mask, rejuvenates and brightens skin."
+    },
+    "Hand Cream": {
+      "name": "Hand Cream",
+      "category": "Beauty & Health",
+      "description": "Nourishing hand cream, moisturizes and protects hands."
+    },
+    "Sunscreen": {
+      "name": "Sunscreen",
+      "category": "Beauty & Health",
+      "description": "SPF 30 sunscreen, protects against UV rays."
+    },
+    "Lip Balm": {
+      "name": "Lip Balm",
+      "category": "Beauty & Health",
+      "description": "Moisturizing lip balm, prevents dryness and chapping."
+    },
+    "Body Lotion": {
+      "name": "Body Lotion",
+      "category": "Beauty & Health",
+      "description": "Hydrating body lotion, keeps skin smooth and moisturized."
+    },
+    "Vitamin Supplements": {
+      "name": "Vitamin Supplements",
+      "category": "Beauty & Health",
+      "description": "Multivitamin supplements, supports overall health and wellness."
     }
   }
 }

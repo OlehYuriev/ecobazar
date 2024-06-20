@@ -55,10 +55,7 @@ export function getRandomSaleProducts(
   maxItems: number,
   products: IProduct[]
 ): IProduct[] {
-  const saleProducts = products.filter(
-    (product) => product.sale && product.sale > 0
-  );
-  const shuffledProducts = saleProducts.sort(() => 0.5 - Math.random());
+  const shuffledProducts = products.sort(() => 0.5 - Math.random());
   return shuffledProducts.slice(0, maxItems);
 }
 

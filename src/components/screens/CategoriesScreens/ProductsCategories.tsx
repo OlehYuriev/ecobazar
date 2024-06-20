@@ -18,7 +18,7 @@ const ProductsCategories: FC<iProps> = ({
   setFilter,
   searchParams,
 }) => {
-  const itemsPerPage = 4; // Количество элементов на странице
+  const itemsPerPage = 15; // Количество элементов на странице
   // Вычисляем общее количество страниц
   const totalPages = Math.ceil(products.length / itemsPerPage);
 

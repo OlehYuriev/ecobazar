@@ -45,9 +45,57 @@ const ButtonsCategories: FC<IProps> = ({
         <RadioButton
           radioOption={radioOption}
           setRadioOption={setRadioOption}
-          value="Vegetables"
+          value="Fresh Vegetables"
           setFilter={setFilter}
           label={t("categories.FreshVegetables")}
+        />
+      ),
+    },
+    {
+      id: 4,
+      radio: (
+        <RadioButton
+          radioOption={radioOption}
+          setRadioOption={setRadioOption}
+          value="Meat & Fish"
+          setFilter={setFilter}
+          label={t("categories.MeatFish")}
+        />
+      ),
+    },
+    {
+      id: 5,
+      radio: (
+        <RadioButton
+          radioOption={radioOption}
+          setRadioOption={setRadioOption}
+          value="Snacks"
+          setFilter={setFilter}
+          label={t("categories.Snacks")}
+        />
+      ),
+    },
+    {
+      id: 6,
+      radio: (
+        <RadioButton
+          radioOption={radioOption}
+          setRadioOption={setRadioOption}
+          value="Beverages"
+          setFilter={setFilter}
+          label={t("categories.Beverages")}
+        />
+      ),
+    },
+    {
+      id: 7,
+      radio: (
+        <RadioButton
+          radioOption={radioOption}
+          setRadioOption={setRadioOption}
+          value="Beauty & Health"
+          setFilter={setFilter}
+          label={t("categories.BeautyHealth")}
         />
       ),
     },
