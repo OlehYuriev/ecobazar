@@ -42,7 +42,7 @@ const ProductInfo: FC<IProps> = ({ product }) => {
   return (
     <>
       <div className={styles.product}>
-        <SliderComponent />
+        <SliderComponent product={product} />
         <div className={styles.content}>
           <h2 className="font-semibold text-4xl">
             {t(`products.${product.name}.name`)}

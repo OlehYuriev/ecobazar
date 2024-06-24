@@ -8,101 +8,54 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/effect-fade";
-// import required modules
-import { FreeMode, Navigation, Thumbs, EffectFade } from "swiper/modules";
+import { Navigation, Thumbs, EffectFade } from "swiper/modules";
+import IProduct from "@/interface/IProduct";
 
-const SliderComponent: FC = () => {
+interface IProps {
+  product: IProduct;
+}
+
+const SliderComponent: FC<IProps> = ({ product }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   return (
     <>
       <div className="swiper-container">
         <Swiper
-          loop={true}
           spaceBetween={10}
           navigation={{
             prevEl: ".swiper-button-prev",
             nextEl: ".swiper-button-next",
           }}
           thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
-          modules={[FreeMode, Navigation, Thumbs, EffectFade]}
+          modules={[Navigation, Thumbs, EffectFade]}
           className="my-swiper2"
           direction="vertical"
           effect="fade"
         >
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-          </SwiperSlide>
+          {product.img.map((item) => (
+            <SwiperSlide key={item}>
+              <div className="bg-white w-full h-full">
+                <img src={`../img/products/${item}.png`} alt={product.name} />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className="py-8 relative">
           <Swiper
             onSwiper={setThumbsSwiper}
-            loop={true}
             spaceBetween={10}
             slidesPerView={4}
-            freeMode={true}
             watchSlidesProgress={true}
-            modules={[FreeMode, Thumbs]}
+            modules={[Thumbs]}
             className="my-swiper"
             direction="vertical"
           >
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-            </SwiperSlide>
+            {product.img.map((item) => (
+              <SwiperSlide key={item}>
+                <img src={`../img/products/${item}.png`} alt={product.name} />
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           <div className="swiper-button-prev text-gray-scale-gray-400">

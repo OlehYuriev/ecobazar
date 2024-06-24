@@ -11,7 +11,7 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .swiper {
@@ -52,7 +52,7 @@
 	border-radius: 2px;
 	width: 80%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 .swiper-container {
 	@apply flex relative h-full;

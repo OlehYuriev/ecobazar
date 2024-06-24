@@ -55,8 +55,12 @@ const ProductCard: FC<IProps> = ({ product }) => {
           onClick={() => window.scrollTo(0, 0)}
         >
           <div>
-            <div className="relative">
-              <img src="../img/apple.png" alt="apple" className="w-full" />
+            <div className="relative p-1">
+              <img
+                src={`../img/products/${product.img[0]}.png`}
+                alt={product.name}
+                className="w-full h-72 object-contain"
+              />
               <button
                 type="button"
                 className={`${styles.button} ${styles.button_heart} ${
