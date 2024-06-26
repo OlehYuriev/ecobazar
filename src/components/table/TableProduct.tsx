@@ -9,7 +9,7 @@ interface IProps {
 
 const TableProduct: FC<IProps> = ({ tableArray }) => {
   const { t } = useTranslation();
-
+  console.log(tableArray);
   return (
     <>
       <div className={styles.tableContainer}>
@@ -30,7 +30,11 @@ const TableProduct: FC<IProps> = ({ tableArray }) => {
               >
                 <td className="pl-6">
                   <div className="flex items-center gap-x-3">
-                    <img src="/img/apple.png" alt="sd" className="w-16" />
+                    <img
+                      src={`/img/products/${item.img[0]}.png`}
+                      alt={item.name}
+                      className="w-16"
+                    />
                     {t(`products.${item.name}.name`)}
                   </div>
                 </td>

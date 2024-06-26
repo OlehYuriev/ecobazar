@@ -16,9 +16,17 @@ const ProductItem: FC<IProps> = ({ product }) => {
   const { exchangeRate, currency } = useExchangeRate();
   return (
     <>
-      <Link to={`/categories/${product.name}`}>
+      <Link
+        to={`/categories/${product.name}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
         <div className={styles.item}>
-          <img src="../img/apple.png" alt="apple" className=" max-w-28" />
+          <img
+            src={`../img/products/${product.img[0]}.png`}
+            alt={product.name}
+            className=" max-w-28"
+          />
+
           <div>
             <h5 className="text-gray-scale-gray-700">
               {t(`products.${product.name}.name`)}

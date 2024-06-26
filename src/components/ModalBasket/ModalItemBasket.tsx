@@ -22,7 +22,11 @@ const ModalItemBasket: FC<IProps> = ({ basket }) => {
       {basket.map((item) => (
         <div key={item.name} className="flex justify-between items-center">
           <div className="flex items-center">
-            <img src="../img/apple.png" alt="apple" className="max-w-32" />
+            <img
+              src={`../img/products/${item.img[0]}.png`}
+              alt={item.name}
+              className="max-w-32"
+            />
             <div className="flex flex-col w-52">
               <h5>{t(`products.${item.name}.name`)}</h5>
 

@@ -59,7 +59,11 @@ const AccountTable: FC<IProps> = ({ tableArray, columns, type }) => {
                 >
                   <td className="pl-6">
                     <div className="flex items-center gap-x-3">
-                      <img src="/img/apple.png" alt="sd" className="w-24" />
+                      <img
+                        src={`/img/products/${product.img[0]}.png`}
+                        alt={product.name}
+                        className="w-24"
+                      />
                       {t(`products.${product.name}.name`)}
                     </div>
                   </td>

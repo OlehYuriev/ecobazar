@@ -50,10 +50,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
   return (
     <>
       <div className={styles.item}>
-        <Link
-          to={`/categories/${product.name}`}
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to={`/categories/${product.name}`}>
           <div>
             <div className="relative p-1">
               <img

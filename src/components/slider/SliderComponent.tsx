@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import "./SliderComponent.scss";
@@ -16,22 +16,39 @@ interface IProps {
 }
 
 const SliderComponent: FC<IProps> = ({ product }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
+    null
+  );
+
+  const handleSlideChange = (swiper: SwiperClass) => {
+    setCurrentIndex(swiper.realIndex);
+  };
+  const goToNextSlide = () => {
+    if (swiperInstance !== null) {
+      swiperInstance.slideNext(); // Метод для перехода к следующему слайду
+    }
+  };
+
+  const goToPrevSlide = () => {
+    if (swiperInstance !== null) {
+      swiperInstance.slidePrev(); // Метод для перехода к предыдущему слайду
+    }
+  };
+
   return (
     <>
       <div className="swiper-container">
         <Swiper
           spaceBetween={10}
-          navigation={{
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
-          }}
           thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
           modules={[Navigation, Thumbs, EffectFade]}
           className="my-swiper2"
           direction="vertical"
           effect="fade"
+          onSlideChange={handleSlideChange}
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
         >
           {product.img.map((item) => (
             <SwiperSlide key={item}>
@@ -45,7 +62,7 @@ const SliderComponent: FC<IProps> = ({ product }) => {
           <Swiper
             onSwiper={setThumbsSwiper}
             spaceBetween={10}
-            slidesPerView={4}
+            slidesPerView={product.img.length >= 4 ? 4 : product.img.length}
             watchSlidesProgress={true}
             modules={[Thumbs]}
             className="my-swiper"
@@ -58,10 +75,22 @@ const SliderComponent: FC<IProps> = ({ product }) => {
             ))}
           </Swiper>
 
-          <div className="swiper-button-prev text-gray-scale-gray-400">
+          <div
+            className={`swiper-button-prev text-gray-scale-gray-400 ${
+              currentIndex == 0 ? "swiper-button-disabled" : ""
+            }`}
+            onClick={goToPrevSlide}
+          >
             <IoIosArrowUp />
           </div>
-          <div className="swiper-button-next text-gray-scale-gray-400">
+          <div
+            className={`swiper-button-next text-gray-scale-gray-400 ${
+              currentIndex === product.img.length - 1
+                ? "swiper-button-disabled"
+                : ""
+            }`}
+            onClick={goToNextSlide}
+          >
             <IoIosArrowDown />
           </div>
         </div>

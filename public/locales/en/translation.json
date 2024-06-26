@@ -293,21 +293,13 @@
       "description": "Fresh shrimp, perfect for grilling, boiling, or adding to dishes.",
       "category": "Meat & Fish"
     },
-    "Lamb Chops": {
-      "name": "Lamb Chops",
-      "description": "Succulent lamb chops, ideal for grilling or roasting.",
-      "category": "Meat & Fish"
-    },
+
     "Cod Fillet": {
       "name": "Cod Fillet",
       "description": "Flaky cod fillet, perfect for baking or pan-searing.",
       "category": "Meat & Fish"
     },
-    "Tuna Steak": {
-      "name": "Tuna Steak",
-      "description": "Firm and flavorful tuna steak, ideal for grilling or searing.",
-      "category": "Meat & Fish"
-    },
+
     "Crab Legs": {
       "name": "Crab Legs",
       "description": "Sweet and tender crab legs, perfect for a seafood feast.",
@@ -448,11 +440,7 @@
       "category": "Beverages",
       "description": "Carbonated soda, a fizzy and refreshing drink."
     },
-    "Coconut Water": {
-      "name": "Coconut Water",
-      "category": "Beverages",
-      "description": "Natural coconut water, hydrating and refreshing."
-    },
+
     "Red Wine": {
       "name": "Red Wine",
       "category": "Beverages",
@@ -468,11 +456,7 @@
       "category": "Beverages",
       "description": "Refreshing energy drink, boosts energy levels."
     },
-    "Hot Chocolate": {
-      "name": "Hot Chocolate",
-      "category": "Beverages",
-      "description": "Rich and creamy hot chocolate, perfect for cold days."
-    },
+
     "Face Cream": {
       "name": "Face Cream",
       "category": "Beauty & Health",
@@ -493,11 +477,7 @@
       "category": "Beauty & Health",
       "description": "Fluoride toothpaste, protects teeth and freshens breath."
     },
-    "Face Mask": {
-      "name": "Face Mask",
-      "category": "Beauty & Health",
-      "description": "Revitalizing face mask, rejuvenates and brightens skin."
-    },
+
     "Hand Cream": {
       "name": "Hand Cream",
       "category": "Beauty & Health",
@@ -517,11 +497,6 @@
       "name": "Body Lotion",
       "category": "Beauty & Health",
       "description": "Hydrating body lotion, keeps skin smooth and moisturized."
-    },
-    "Vitamin Supplements": {
-      "name": "Vitamin Supplements",
-      "category": "Beauty & Health",
-      "description": "Multivitamin supplements, supports overall health and wellness."
     }
   }
 }

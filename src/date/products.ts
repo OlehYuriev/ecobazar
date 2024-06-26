@@ -173,12 +173,7 @@ export const products: IProduct[] = [
   {
     name: "Chicken Breast",
     price: 50,
-    img: [
-      "chickenBreast1",
-      "chickenBreast2",
-      "chickenBreast3",
-      "chickenBreast4",
-    ],
+    img: ["chickenBreast1", "chickenBreast2", "chickenBreast3"],
     category: "Meat & Fish",
     sale: 10,
     quantity: 1,
@@ -187,7 +182,13 @@ export const products: IProduct[] = [
   {
     name: "Salmon Fillet",
     price: 80,
-    img: ["salmonFillet1", "salmonFillet2", "salmonFillet3", "salmonFillet4"],
+    img: [
+      "salmonFillet1",
+      "salmonFillet2",
+      "salmonFillet3",
+      "salmonFillet4",
+      "salmonFillet5",
+    ],
     category: "Meat & Fish",
     sale: 20,
     quantity: 1,
@@ -196,7 +197,7 @@ export const products: IProduct[] = [
   {
     name: "Beef Steak",
     price: 100,
-    img: ["beefSteak1", "beefSteak2", "beefSteak3", "beefSteak4"],
+    img: ["beefSteak1", "beefSteak2"],
     category: "Meat & Fish",
     sale: 15,
     quantity: 1,
@@ -205,7 +206,7 @@ export const products: IProduct[] = [
   {
     name: "Pork Chops",
     price: 60,
-    img: ["porkChops1", "porkChops2", "porkChops3", "porkChops4"],
+    img: ["porkChops2", "porkChops1"],
     category: "Meat & Fish",
     quantity: 1,
     description: `Tender pork chops, great for grilling or baking.`,
@@ -213,36 +214,21 @@ export const products: IProduct[] = [
   {
     name: "Shrimp",
     price: 70,
-    img: ["shrimp1", "shrimp2", "shrimp3", "shrimp4"],
+    img: ["shrimp1", "shrimp2", "shrimp3"],
     category: "Meat & Fish",
     quantity: 1,
     description: `Fresh shrimp, perfect for grilling, boiling, or adding to dishes.`,
   },
-  {
-    name: "Lamb Chops",
-    price: 90,
-    img: ["lambChops1", "lambChops2", "lambChops3", "lambChops4"],
-    category: "Meat & Fish",
-    quantity: 1,
-    description: `Succulent lamb chops, ideal for grilling or roasting.`,
-  },
+
   {
     name: "Cod Fillet",
     price: 75,
-    img: ["codFillet1", "codFillet2", "codFillet3", "codFillet4"],
+    img: ["codFillet1", "codFillet2"],
     category: "Meat & Fish",
     quantity: 1,
     description: `Flaky cod fillet, perfect for baking or pan-searing.`,
   },
-  {
-    name: "Tuna Steak",
-    price: 85,
-    img: ["tunaSteak1", "tunaSteak2", "tunaSteak3", "tunaSteak4"],
-    category: "Meat & Fish",
-    sale: 10,
-    quantity: 1,
-    description: `Firm and flavorful tuna steak, ideal for grilling or searing.`,
-  },
+
   {
     name: "Crab Legs",
     price: 120,
@@ -254,7 +240,7 @@ export const products: IProduct[] = [
   {
     name: "Beef Ribs",
     price: 110,
-    img: ["beefRibs1", "beefRibs2", "beefRibs3", "beefRibs4"],
+    img: ["beefRibs1", "beefRibs2"],
     category: "Meat & Fish",
     sale: 20,
     quantity: 1,
@@ -263,7 +249,7 @@ export const products: IProduct[] = [
   {
     name: "Potato Chips",
     price: 5,
-    img: ["potatoChips1", "potatoChips2", "potatoChips3", "potatoChips4"],
+    img: ["potatoChips1", "potatoChips2", "potatoChips3"],
     category: "Snacks",
     quantity: 1,
     description: `Crunchy potato chips, perfect for snacking.`,
@@ -271,7 +257,7 @@ export const products: IProduct[] = [
   {
     name: "Chocolate Bar",
     price: 3,
-    img: ["chocolateBar1", "chocolateBar2", "chocolateBar3", "chocolateBar4"],
+    img: ["chocolateBar1", "chocolateBar2"],
     category: "Snacks",
     sale: 10,
     quantity: 1,
@@ -288,7 +274,7 @@ export const products: IProduct[] = [
   {
     name: "Trail Mix",
     price: 6,
-    img: ["trailMix1", "trailMix2", "trailMix3", "trailMix4"],
+    img: ["trailMix1", "trailMix2"],
     category: "Snacks",
     sale: 20,
     quantity: 1,
@@ -314,7 +300,7 @@ export const products: IProduct[] = [
   {
     name: "Cheese Puffs",
     price: 4,
-    img: ["cheesePuffs1", "cheesePuffs2", "cheesePuffs3", "cheesePuffs4"],
+    img: ["cheesePuffs1", "cheesePuffs2"],
     category: "Snacks",
     quantity: 1,
     description: `Cheesy and crunchy cheese puffs, a satisfying snack.`,
@@ -322,7 +308,7 @@ export const products: IProduct[] = [
   {
     name: "Dried Fruit",
     price: 5,
-    img: ["driedFruit1", "driedFruit2", "driedFruit3", "driedFruit4"],
+    img: ["driedFruit1", "driedFruit2"],
     category: "Snacks",
     quantity: 1,
     description: `Sweet and chewy dried fruit mix, a healthy snack option.`,
@@ -330,7 +316,7 @@ export const products: IProduct[] = [
   {
     name: "Crackers",
     price: 3,
-    img: ["crackers1", "crackers2", "crackers3", "crackers4"],
+    img: ["crackers1", "crackers2"],
     category: "Snacks",
     sale: 10,
     quantity: 1,
@@ -347,7 +333,7 @@ export const products: IProduct[] = [
   {
     name: "Coffee Beans",
     price: 10,
-    img: ["coffeeBeans1", "coffeeBeans2", "coffeeBeans3", "coffeeBeans4"],
+    img: ["coffeeBeans1", "coffeeBeans2"],
     category: "Beverages",
     quantity: 1,
     description: `Premium coffee beans, perfect for brewing your favorite cup.`,
@@ -355,7 +341,7 @@ export const products: IProduct[] = [
   {
     name: "Green Tea",
     price: 5,
-    img: ["greenTea1", "greenTea2", "greenTea3", "greenTea4"],
+    img: ["greenTea1", "greenTea2"],
     category: "Beverages",
     sale: 15,
     quantity: 1,
@@ -364,7 +350,7 @@ export const products: IProduct[] = [
   {
     name: "Orange Juice",
     price: 3,
-    img: ["orangeJuice1", "orangeJuice2", "orangeJuice3", "orangeJuice4"],
+    img: ["orangeJuice3", "orangeJuice2", "orangeJuice1"],
     category: "Beverages",
     quantity: 1,
     description: `Freshly squeezed orange juice, packed with Vitamin C.`,
@@ -372,7 +358,7 @@ export const products: IProduct[] = [
   {
     name: "Mineral Water",
     price: 2,
-    img: ["mineralWater1", "mineralWater2", "mineralWater3", "mineralWater4"],
+    img: ["mineralWater3", "mineralWater2", "mineralWater1"],
     category: "Beverages",
     quantity: 1,
     description: `Pure mineral water, refreshing and hydrating.`,
@@ -380,24 +366,17 @@ export const products: IProduct[] = [
   {
     name: "Soda",
     price: 1,
-    img: ["soda1", "soda2", "soda3", "soda4"],
+    img: ["soda1", "soda2", "soda3"],
     category: "Beverages",
     sale: 10,
     quantity: 1,
     description: `Carbonated soda, a fizzy and refreshing drink.`,
   },
-  {
-    name: "Coconut Water",
-    price: 4,
-    img: ["coconutWater1", "coconutWater2", "coconutWater3", "coconutWater4"],
-    category: "Beverages",
-    quantity: 1,
-    description: `Natural coconut water, hydrating and refreshing.`,
-  },
+
   {
     name: "Red Wine",
     price: 20,
-    img: ["redWine1", "redWine2", "redWine3", "redWine4"],
+    img: ["redWine1", "redWine2"],
     category: "Beverages",
     quantity: 1,
     description: `Smooth red wine, perfect for relaxing evenings.`,
@@ -419,18 +398,11 @@ export const products: IProduct[] = [
     quantity: 1,
     description: `Refreshing energy drink, boosts energy levels.`,
   },
-  {
-    name: "Hot Chocolate",
-    price: 4,
-    img: ["hotChocolate1", "hotChocolate2", "hotChocolate3", "hotChocolate4"],
-    category: "Beverages",
-    quantity: 1,
-    description: `Rich and creamy hot chocolate, perfect for cold days.`,
-  }, // Beauty & Health
+  // Beauty & Health
   {
     name: "Face Cream",
     price: 15,
-    img: ["faceCream1", "faceCream2", "faceCream3", "faceCream4"],
+    img: ["faceCream1", "faceCream2"],
     category: "Beauty & Health",
     quantity: 1,
     description: `Moisturizing face cream, nourishes and hydrates skin.`,
@@ -447,7 +419,7 @@ export const products: IProduct[] = [
   {
     name: "Conditioner",
     price: 8,
-    img: ["conditioner1", "conditioner2", "conditioner3", "conditioner4"],
+    img: ["conditioner1", "conditioner2"],
     category: "Beauty & Health",
     quantity: 1,
     description: `Hydrating conditioner, leaves hair soft and manageable.`,
@@ -455,18 +427,10 @@ export const products: IProduct[] = [
   {
     name: "Toothpaste",
     price: 5,
-    img: ["toothpaste1", "toothpaste2", "toothpaste3", "toothpaste4"],
+    img: ["toothpaste1", "toothpaste2"],
     category: "Beauty & Health",
     quantity: 1,
     description: `Fluoride toothpaste, protects teeth and freshens breath.`,
-  },
-  {
-    name: "Face Mask",
-    price: 12,
-    img: ["faceMask1", "faceMask2", "faceMask3", "faceMask4"],
-    category: "Beauty & Health",
-    quantity: 1,
-    description: `Revitalizing face mask, rejuvenates and brightens skin.`,
   },
   {
     name: "Hand Cream",
@@ -480,7 +444,7 @@ export const products: IProduct[] = [
   {
     name: "Sunscreen",
     price: 10,
-    img: ["sunscreen1", "sunscreen2", "sunscreen3", "sunscreen4"],
+    img: ["sunscreen1", "sunscreen2"],
     category: "Beauty & Health",
     quantity: 1,
     description: `SPF 30 sunscreen, protects against UV rays.`,
@@ -488,7 +452,7 @@ export const products: IProduct[] = [
   {
     name: "Lip Balm",
     price: 3,
-    img: ["lipBalm1", "lipBalm2", "lipBalm3", "lipBalm4"],
+    img: ["lipBalm1", "lipBalm2", "lipBalm3"],
     category: "Beauty & Health",
     quantity: 1,
     description: `Moisturizing lip balm, prevents dryness and chapping.`,
@@ -496,23 +460,10 @@ export const products: IProduct[] = [
   {
     name: "Body Lotion",
     price: 12,
-    img: ["bodyLotion1", "bodyLotion2", "bodyLotion3", "bodyLotion4"],
+    img: ["bodyLotion1", "bodyLotion2"],
     category: "Beauty & Health",
     sale: 20,
     quantity: 1,
     description: `Hydrating body lotion, keeps skin smooth and moisturized.`,
-  },
-  {
-    name: "Vitamin Supplements",
-    price: 15,
-    img: [
-      "vitaminSupplements1",
-      "vitaminSupplements2",
-      "vitaminSupplements3",
-      "vitaminSupplements4",
-    ],
-    category: "Beauty & Health",
-    quantity: 1,
-    description: `Multivitamin supplements, supports overall health and wellness.`,
   },
 ];

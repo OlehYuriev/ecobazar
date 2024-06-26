@@ -39,7 +39,11 @@ const OrderSummery: FC<IProps> = ({
             className="flex items-center   justify-between"
           >
             <div className="flex items-center">
-              <img src="../img/apple.png" alt={product.name} className="w-16" />
+              <img
+                src={`../img/products/${product.img[0]}.png`}
+                alt={product.name}
+                className="w-16"
+              />
               <div>
                 <span>{t(`products.${product.name}.name`)}</span>
                 <span className="ml-1.5">X{product.quantity}</span>

@@ -1,11 +1,12 @@
 import AccordionComponent from "@/components/accordion/AccordionComponent";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import ButtonsCategories from "./ButtonsCategories";
 import RangeComponent from "@/components/ui/range/RangeComponent";
 import styles from "./Categories.module.scss";
 import DiscountCategories from "./DiscountCategories";
 import SaleProducts from "./SaleProducts";
 import { useTranslation } from "react-i18next";
+import useExchangeRate from "@/hooks/useExchangeRate";
 
 interface IProps {
   radioOption: string;
@@ -27,6 +28,20 @@ const FilterCategories: FC<IProps> = ({
   setFilter,
 }) => {
   const { t } = useTranslation();
+  const { currency } = useExchangeRate();
+  const [max, setMax] = useState(500);
+  useEffect(() => {
+    let newMax = 500;
+    if (currency === "UAH") {
+      newMax = 5000;
+    }
+    setMax(newMax);
+
+    // Проверка текущего значения inputTo, чтобы не прыгал ползунок
+    if (inputTo > newMax) {
+      setInputTo(newMax);
+    }
+  }, [currency, inputTo, setInputTo]);
   return (
     <>
       <div className="flex flex-col gap-y-5">
@@ -41,7 +56,7 @@ const FilterCategories: FC<IProps> = ({
           <AccordionComponent title={t("categoriesPage.Price")}>
             <RangeComponent
               min={0}
-              max={1000}
+              max={max}
               step={1}
               forid="display1"
               inputFrom={inputFrom}

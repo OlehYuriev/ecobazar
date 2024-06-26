@@ -14,14 +14,22 @@ const CategoriesScreens: FC = () => {
   const { exchangeRate, currency } = useExchangeRate();
   const [radioOption, setRadioOption] = useState("All");
   const [inputFrom, setInputFrom] = useState(0);
-  const [inputTo, setInputTo] = useState(1000);
+  const [inputTo, setInputTo] = useState(500);
   const { searchParams, setPage, setSearchParams } = useParamsPage();
-
   const [currentPage, setCurrentPage] = useState(1);
   const searchProduct = useSelector(
     (state: RootState) => state.search.productsSearch
   );
 
+  useEffect(() => {
+    let newMax = 500;
+    if (currency === "UAH") {
+      newMax = 5000;
+    }
+    if (inputTo > newMax) {
+      setInputTo(newMax);
+    }
+  }, [currency, inputTo]);
   const setFilter = (filter: string) => {
     searchParams.set("category", filter);
     setSearchParams(searchParams);
