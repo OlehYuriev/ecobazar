@@ -38,7 +38,16 @@ const RangeComponent: FC<IProps> = ({
       }
     }
   }, [inputFrom, inputTo, min, max, step, forid]);
-
+  useEffect(() => {
+    // Обновляем inputTo при изменении max
+    if (inputTo > max) {
+      setInputTo(max);
+    }
+  }, [max, inputTo, setInputTo]);
+  useEffect(() => {
+    // Устанавливаем inputTo в максимальное значение при изменении max
+    setInputTo(max);
+  }, [max, setInputTo]);
   return (
     <>
       <div>
@@ -53,7 +62,7 @@ const RangeComponent: FC<IProps> = ({
             min={min}
             max={max}
             step={step}
-            defaultValue={min}
+            value={inputFrom}
           />
           <input
             type="range"
@@ -61,7 +70,7 @@ const RangeComponent: FC<IProps> = ({
             min={min}
             max={max}
             step={step}
-            defaultValue={max}
+            value={inputTo}
           />
         </div>
       </div>
