@@ -44,7 +44,7 @@ const CategoriesHome: FC = () => {
         <div className="container">
           <div>
             <TitleSection title={t("header.categories")} />
-            <div className="flex justify-between mt-12 gap-1.5">
+            <div className={styles.items}>
               {categories.map((item) => {
                 return (
                   <Link

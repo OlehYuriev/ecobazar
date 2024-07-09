@@ -54,10 +54,10 @@ const AccountTable: FC<IProps> = ({ tableArray, columns, type }) => {
             <tbody>
               {tableArray.map((product) => (
                 <tr
-                  className=" border-b-2 border-gray-scale-gray-100 text-left text-gray-scale-gray-800 "
+                  className=" border-b-2 border-gray-scale-gray-100 text-left text-gray-scale-gray-800"
                   key={product.name}
                 >
-                  <td className="pl-6">
+                  <td className="pl-6 py-6">
                     <div className="flex items-center gap-x-3">
                       <img
                         src={`/img/products/${product.img[0]}.png`}

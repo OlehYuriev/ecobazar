@@ -31,7 +31,7 @@ const BannersHome: FC = () => {
                 />
               </div>
             </div>
-            <div className="gap-y-5 flex flex-col flex-1">
+            <div className="gap-y-5 flex flex-col flex-1 md:flex hidden">
               <div className={styles.sale}>
                 <div className={styles.sale__content}>
                   <h4 className=" uppercase font-medium">

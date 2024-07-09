@@ -16,6 +16,7 @@ import ProductInfo from "../ProductInfo/ProductInfo";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { useTranslation } from "react-i18next";
 import useProductExists from "@/hooks/useProductExists";
+import AddToWishlistButton from "../AddToWishlistButton/AddToWishlistButton";
 
 interface IProps {
   product: IProduct;
@@ -58,20 +59,13 @@ const ProductCard: FC<IProps> = ({ product }) => {
                 alt={product.name}
                 className="w-full h-72 object-contain"
               />
+
+              <div className={`${styles.button} ${styles.button_heart}`}>
+                <AddToWishlistButton product={product} />
+              </div>
               <button
                 type="button"
-                className={`${styles.button} ${styles.button_heart} ${
-                  wishlistExists
-                    ? " bg-red-500 text-white"
-                    : "bg-gray-scale-gray-50"
-                }`}
-                onClick={(e) => addWishlist(e)}
-              >
-                <FaRegHeart fontSize="1.35rem" />
-              </button>
-              <button
-                type="button"
-                className={`${styles.button} ${styles.button_eye}`}
+                className={`${styles.button} ${styles.button_opacity} ${styles.button_eye}`}
                 onClick={(e) => openModal(e)}
               >
                 <IoEyeOutline fontSize="1.35rem" />
@@ -82,13 +76,13 @@ const ProductCard: FC<IProps> = ({ product }) => {
                 </span>
               )}
             </div>
-            <div className="flex p-3 items-center justify-between">
+            <div className="flex p-3 items-center justify-between ">
               <div>
                 <h4 className="text-gray-scale-gray-700 pr-3">
                   {t(`products.${product.name}.name`)}
                 </h4>
                 {product.sale ? (
-                  <span className=" text-base font-medium">
+                  <span className=" text-base font-medium flex flex-wrap gap-1">
                     <span>
                       {currencyChange(currency)}
                       {handleUsdAmountChange(
@@ -97,7 +91,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
                         currency
                       )}
                     </span>
-                    <span className="text-gray-scale-gray-400 font-normal line-through ml-1">
+                    <span className="text-gray-scale-gray-400 font-normal line-through ">
                       {currencyChange(currency)}
                       {handleUsdAmountChange(
                         product.price,
@@ -119,7 +113,7 @@ const ProductCard: FC<IProps> = ({ product }) => {
               </div>
 
               <button
-                className={`p-2.5 rounded-full ${
+                className={`p-2.5 rounded-full ml-3 ${
                   basketExists
                     ? "bg-branding-success text-white"
                     : "bg-gray-scale-gray-50"

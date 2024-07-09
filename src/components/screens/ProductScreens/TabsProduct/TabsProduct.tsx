@@ -82,7 +82,10 @@ const TabsProduct: FC<IProps> = ({ product }) => {
         <div className={styles.tabContent}>
           {activeTab === 0 && (
             <div className={styles.slide}>
-              <p className="text-gray-scale-gray-500"></p>
+              <p className="text-gray-scale-gray-500">
+                {" "}
+                {t(`products.${product.name}.description`)}
+              </p>
             </div>
           )}
           {activeTab === 1 && (
@@ -116,7 +119,7 @@ const TabsProduct: FC<IProps> = ({ product }) => {
                   placeholder={t("AddComment")}
                   label={t("AddComment")}
                 />
-                <div className="max-w-48 mt-5">
+                <div className="mt-5 inline-flex">
                   <ButtonMain
                     value={t("SendComment")}
                     type="submit"

@@ -37,18 +37,18 @@ const CheckoutForm: FC<IProps> = ({ info, setInfo }) => {
             placeholder={t("account.LastName")}
             label={t("account.LastName")}
           />
-          <InputComponent
-            value={info.companyName}
-            setValue={(newValue: string) =>
-              setInfo((prevInfo) => ({
-                ...prevInfo,
-                companyName: newValue,
-              }))
-            }
-            placeholder={t("account.CompanyName")}
-            label={`${t("account.CompanyName")} (${t("optional")})`}
-          />
         </div>
+        <InputComponent
+          value={info.companyName}
+          setValue={(newValue: string) =>
+            setInfo((prevInfo) => ({
+              ...prevInfo,
+              companyName: newValue,
+            }))
+          }
+          placeholder={t("account.CompanyName")}
+          label={`${t("account.CompanyName")} (${t("optional")})`}
+        />
         <div>
           <InputComponent
             value={info.streetAddress}

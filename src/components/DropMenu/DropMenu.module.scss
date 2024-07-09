@@ -12,6 +12,16 @@
 		}
 	}
 
+	@media (pointer: coarse) {
+		&.active &__list {
+			opacity: 1;
+			visibility: visible;
+		}
+		&.active &__icon {
+			transform: rotate(180deg);
+			@apply transition-all;
+		}
+	}
 	&__list {
 		@apply flex flex-col absolute bg-gray-scale-gray-100 bg-opacity-80  text-black rounded-sm py-1 gap-y-1 text-base transition-all;
 		opacity: 0;

@@ -61,7 +61,7 @@ const BillingAddress: FC = () => {
               label={t("account.CityAddress")}
             />
 
-            <div className="max-w-44">
+            <div>
               <ButtonMain
                 value={t("account.ChangeAddress")}
                 type="submit"

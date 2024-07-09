@@ -4,6 +4,7 @@ import { BsHeadset } from "react-icons/bs";
 import { BsBagCheck } from "react-icons/bs";
 import { PiPackage } from "react-icons/pi";
 import { useTranslation } from "react-i18next";
+import styles from "./InfoShop.module.scss";
 
 const InfoShop: FC = () => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ const InfoShop: FC = () => {
       <section className="mt-6">
         <div className="container">
           <div className="bg-white shadow-info py-10 rounded-lg">
-            <ol className="flex justify-around flex-wrap">
+            <ol className={styles.items}>
               {info.map((item) => {
                 return (
                   <li key={item.title} className="flex px-2 ">

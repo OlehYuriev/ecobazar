@@ -9,11 +9,11 @@ interface IProps {
   setInfo: React.Dispatch<React.SetStateAction<IInfo>>;
   error: Error | null;
 }
+
 const InfoSetting: FC<IProps> = ({ info, setInfo, error }) => {
   const { t } = useTranslation();
   return (
     <>
-      {" "}
       <div className="flex flex-col gap-y-4">
         <InputComponent
           value={info.firstName}
@@ -60,7 +60,7 @@ const InfoSetting: FC<IProps> = ({ info, setInfo, error }) => {
           label={t("account.PhoneNumber")}
           type="number"
         />
-        <div className="max-w-44">
+        <div>
           <ButtonMain value={t("account.SaveChanges")} type="submit" />
         </div>
         {error && <p className=" text-red-600">Error: {error.message}</p>}

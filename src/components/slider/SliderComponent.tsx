@@ -69,7 +69,7 @@ const SliderComponent: FC<IProps> = ({ product }) => {
             direction="vertical"
           >
             {product.img.map((item) => (
-              <SwiperSlide key={item}>
+              <SwiperSlide key={item} className=" cursor-pointer">
                 <img src={`../img/products/${item}.png`} alt={product.name} />
               </SwiperSlide>
             ))}

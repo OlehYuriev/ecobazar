@@ -66,12 +66,12 @@ const HeaderTop: FC = () => {
     <>
       <div className="py-3 bg-gray-scale-gray-800">
         <div className="container">
-          <div className="text-gray-scale-gray-400 flex text-xs items-center justify-between">
+          <div className="text-gray-scale-gray-400 flex text-xs items-center justify-between gap-x-4">
             <a
               href="https://www.google.com.ua/maps/search/Lincoln-+344,+Illinois,+Chicago,+USA/@41.846882,-87.7413803,11z?hl=ru&entry=ttu"
-              className="flex items-center"
+              className="flex items-center text-balance"
             >
-              <CiLocationOn className="fill-gray" fontSize="1.25rem" />
+              <CiLocationOn className="fill-gray " fontSize={"1.25rem"} />
               <span className="ml-2">{t("header.address")}</span>
             </a>
             <div className="flex gap-x-5">
@@ -86,7 +86,7 @@ const HeaderTop: FC = () => {
                 changeValue={changeCurrency}
               />
 
-              <div className="border-l-2 border-gray-scale-gray-600 pl-5">
+              <div className="border-l-2 border-gray-scale-gray-600 pl-5 text-nowrap">
                 {authUser ? (
                   <Link to="/account">
                     <FaUser fontSize={"1rem"} />

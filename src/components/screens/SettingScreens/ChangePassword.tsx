@@ -70,7 +70,7 @@ const ChangePassword: FC = () => {
               autoComplete="password"
               label={t("account.CurrentPassword")}
             />
-            <div className="flex gap-x-4">
+            <div className="flex gap-4 flex-col sm:flex-row">
               <InputComponent
                 value={password.newPassword}
                 setValue={(newValue: string) => {
@@ -98,7 +98,7 @@ const ChangePassword: FC = () => {
                 label={t("account.ConfirmPassword")}
               />
             </div>
-            <div className="max-w-44">
+            <div>
               <ButtonMain
                 value={t("account.ChangePassword")}
                 type="submit"

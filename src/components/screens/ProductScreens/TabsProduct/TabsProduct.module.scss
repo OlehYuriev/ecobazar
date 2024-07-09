@@ -22,12 +22,16 @@
 }
 
 .tabContent {
-	@apply flex mt-8 gap-x-32;
+	@apply flex mt-8 gap-10 sm:gap-x-32;
+	flex-direction: column;
+	@media (min-width: 460px) {
+		flex-direction: row;
+	}
 	.slide {
 		flex: 1 1 62%;
 	}
 	.tabForm {
-		flex: 1 1 48%;
+		flex: 1 1 38%;
 	}
 	.list {
 		@apply gap-3;

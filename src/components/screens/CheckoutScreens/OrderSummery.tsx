@@ -44,7 +44,7 @@ const OrderSummery: FC<IProps> = ({
                 alt={product.name}
                 className="w-16"
               />
-              <div>
+              <div className="ml-4">
                 <span>{t(`products.${product.name}.name`)}</span>
                 <span className="ml-1.5">X{product.quantity}</span>
               </div>
@@ -60,7 +60,7 @@ const OrderSummery: FC<IProps> = ({
           </div>
         ))}
 
-        <div className="w-96">
+        <div className="mt-6 sm:w-96 sm:mt-0">
           <div className="flex justify-between py-3">
             <span className="gray-scale-gray-700">{t("Subtotal")}</span>
             <span className="font-medium">

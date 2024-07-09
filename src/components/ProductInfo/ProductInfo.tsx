@@ -10,6 +10,7 @@ import ButtonMain from "../ui/buttons/ButtonMain";
 import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { useTranslation } from "react-i18next";
+import AddToWishlistButton from "../AddToWishlistButton/AddToWishlistButton";
 
 interface IProps {
   product: IProduct;
@@ -84,7 +85,10 @@ const ProductInfo: FC<IProps> = ({ product }) => {
               <span>{quantity}</span>
               <ButtonQuantity value="+" fun={addQuantity} />
             </div>
-            <ButtonMain value={t("AddCart")} fun={(e) => addBasket(e)} />
+            <div className={styles.button}>
+              <ButtonMain value={t("AddCart")} fun={(e) => addBasket(e)} />
+            </div>
+            <AddToWishlistButton product={product} />
           </div>
           <div className="pt-6 border-t border-gray-scale-gray-100 mt-6 font-medium">
             {t("Category")}:{" "}

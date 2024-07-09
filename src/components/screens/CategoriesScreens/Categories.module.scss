@@ -1,11 +1,17 @@
 .categories {
-	@apply mt-8 flex gap-x-6;
+	@apply mt-8 flex gap-x-6 relative;
 	& > :nth-child(1) {
 		flex: 0 0 19.5rem;
 	}
 	& > :nth-child(2) {
 		flex: 1 1 calc(76% - 0.75rem);
 		@apply self-start;
+	}
+	@media (max-width: 767.98px) {
+		& > :nth-child(1) {
+			flex: 0 0 auto;
+		}
+		@apply flex-col;
 	}
 }
 
@@ -27,5 +33,8 @@
 
 	& > * {
 		width: calc(33.333% - 1rem);
+		@media (max-width: 499.98px) {
+			width: calc(50% - (1.5rem / 2));
+		}
 	}
 }

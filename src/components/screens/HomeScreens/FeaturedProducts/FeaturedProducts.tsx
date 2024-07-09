@@ -10,10 +10,28 @@ import styles from "./FeaturedProducts.module.scss";
 const FeaturedProducts = () => {
   const { t } = useTranslation();
   const [randomSaleProducts, setRandomSaleProducts] = useState<IProduct[]>([]);
+  const [numOfProducts, setNumOfProducts] = useState<number>(5);
   useEffect(() => {
-    const saleProducts = getRandomSaleProducts(5, products);
-    setRandomSaleProducts(saleProducts);
+    const handleResize = () => {
+      if (window.innerWidth < 1200) {
+        setNumOfProducts(4);
+      } else {
+        setNumOfProducts(5);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  useEffect(() => {
+    const saleProducts = getRandomSaleProducts(numOfProducts, products);
+    setRandomSaleProducts(saleProducts);
+  }, [numOfProducts]);
   return (
     <>
       <section className="mt-14">

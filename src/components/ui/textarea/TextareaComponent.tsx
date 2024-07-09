@@ -23,7 +23,7 @@ const TextareaComponent: FC<IProps> = ({
   return (
     <>
       <label htmlFor={htmlForValue} className="flex flex-col w-full">
-        {label && <span>{label}</span>}
+        {label && <span className=" font-semibold">{label}</span>}
         <textarea
           value={value}
           onChange={handleChange}

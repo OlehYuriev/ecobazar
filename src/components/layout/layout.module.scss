@@ -4,11 +4,13 @@
 }
 
 .account {
-	@apply flex gap-x-6 mt-8;
-	& > :nth-child(1) {
-		width: 19rem;
-	}
+	@apply flex gap-6 mt-8 flex-col md:flex-row;
 	& > :nth-child(2) {
+		@media (min-width: 768px) {
+			width: 19rem;
+		}
+	}
+	& > :nth-child(3) {
 		flex: 1;
 	}
 }

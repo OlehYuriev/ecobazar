@@ -6,7 +6,7 @@ const FooterComponent = () => {
     <>
       <footer className="bg-black text-gray-scale-gray-400 mt-14">
         <div className="container">
-          <div className="py-14 flex gap-x-28">
+          <div className="py-14 flex gap-x-28 gap-y-8 flex-col items-center sm:flex-row sm:items-start">
             <div>
               <Link to="/">
                 <svg

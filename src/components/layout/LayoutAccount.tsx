@@ -10,25 +10,27 @@ const LayoutAccount: FC = () => {
   const authUser = useAuth();
   return (
     <>
-      <HeaderComponent />
-      <main className="container">
-        {authUser ? (
-          <div className={styles.account}>
-            <AccountNavigation />
-            <Outlet />
-          </div>
-        ) : (
-          <div className={styles.link}>
-            <Link
-              to="/login"
-              className="font-semibold text-2xl hover:text-branding-success transition-all"
-            >
-              login to your account
-            </Link>
-          </div>
-        )}
-      </main>
-      <FooterComponent />
+      <div className="flex flex-col min-h-screen">
+        <HeaderComponent />
+        <main className="container flex-1">
+          {authUser ? (
+            <div className={styles.account}>
+              <AccountNavigation />
+              <Outlet />
+            </div>
+          ) : (
+            <div className={styles.link}>
+              <Link
+                to="/login"
+                className="font-semibold text-2xl hover:text-branding-success transition-all"
+              >
+                login to your account
+              </Link>
+            </div>
+          )}
+        </main>
+        <FooterComponent />
+      </div>
     </>
   );
 };

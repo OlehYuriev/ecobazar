@@ -10,7 +10,7 @@ const TitleSection: FC<IProps> = ({ title }) => {
   return (
     <>
       <div className="flex justify-between">
-        <h2 className="font-semibold text-3xl">{title}</h2>
+        <h2 className="font-semibold text-3xl mr-2">{title}</h2>
         <LinkComponent name={t("links.ViewAll")} />
       </div>
     </>

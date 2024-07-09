@@ -1,5 +1,6 @@
 import { FC, useRef } from "react";
 import styles from "./ModalComponent.module.scss";
+import useBodyOverflow from "@/hooks/useBodyOverflow";
 
 interface IProps {
   isModal: boolean;
@@ -15,6 +16,7 @@ const ModalComponent: FC<IProps> = ({ isModal, children, setIsModal }) => {
       setIsModal(false);
     }
   };
+  useBodyOverflow(isModal);
   return (
     <>
       <div

@@ -136,7 +136,7 @@ const CheckoutScreens: FC = () => {
     <>
       <section>
         <div className="container">
-          <div className="flex mt-8 gap-x-6">
+          <div className="flex mt-8 gap-6 flex-col sm:flex-row">
             <CheckoutForm info={info} setInfo={setInfo} />
             <OrderSummery
               info={info}

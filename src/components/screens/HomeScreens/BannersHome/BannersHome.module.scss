@@ -1,7 +1,9 @@
 .HomeScreen {
 	@apply mt-6 flex gap-x-5 h-full;
 	min-height: calc(100vh - (13.65rem));
-
+	@media (max-width: 639.98px) {
+		min-height: calc(100vh - (17rem));
+	}
 	.fresh {
 		flex-basis: 66%;
 		border-radius: 10px;
@@ -31,6 +33,25 @@
 			@apply font-normal mt-2 text-white opacity-80;
 			font-size: clamp(10px, 1.1vw, 14px);
 			max-width: 20vw;
+		}
+		@media (max-width: 767.98px) {
+			flex-basis: 100%;
+
+			&__content {
+				padding-top: 8%;
+				padding-bottom: 5%;
+			}
+			&__sale {
+				max-width: 100%;
+			}
+		}
+		@media (max-width: 375.98px) {
+			&__sale {
+				max-width: 50%;
+			}
+			&__title {
+				color: black;
+			}
 		}
 	}
 

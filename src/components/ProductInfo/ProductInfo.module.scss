@@ -1,6 +1,16 @@
 .product {
-	@apply flex gap-x-4  w-full;
+	@apply flex flex-col gap-x-4  w-full sm:flex-row;
 }
 .content {
-	flex: 1 1 50%;
+	@apply mt-12;
+	@media (min-width: 640px) {
+		margin-top: 0;
+		flex: 1 1 50%;
+	}
+}
+.button {
+	@apply flex-1 flex;
+	& > :nth-child(1) {
+		width: 100%;
+	}
 }

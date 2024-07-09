@@ -15,8 +15,8 @@ const OrderItemScreens = () => {
       {authUser && order ? (
         <section className="border border-gray-scale-gray-100 rounded-lg ">
           <div className="border-b border-gray-scale-gray-100">
-            <div className="flex items-center justify-between py-4 px-6">
-              <h1 className="text-gray-scale-gray-700 ">
+            <div className="flex items-center justify-between py-4 px-6 ">
+              <h1 className="text-gray-scale-gray-700 text-balance">
                 <span className="text-xl font-semibold">
                   {t("OrderDetails")}
                 </span>
@@ -38,7 +38,7 @@ const OrderItemScreens = () => {
               </h1>
               <Link
                 to={"/account/order"}
-                className="text-branding-success text-base hover:text-branding-warning transition-all"
+                className="text-branding-success text-base hover:text-branding-warning transition-all whitespace-nowrap ml-4"
               >
                 {t("links.BackList")}
               </Link>

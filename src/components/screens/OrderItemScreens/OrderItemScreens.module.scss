@@ -1,5 +1,5 @@
 .info {
-	@apply py-4 px-6 flex gap-x-6;
+	@apply py-4 px-6 flex gap-6 flex-col;
 	& > :nth-child(1) {
 		flex: 1 1 64%;
 	}

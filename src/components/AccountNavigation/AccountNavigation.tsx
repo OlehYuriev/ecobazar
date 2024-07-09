@@ -9,12 +9,16 @@ import { GrUpdate } from "react-icons/gr";
 import { useTranslation } from "react-i18next";
 import { RiShoppingBagLine } from "react-icons/ri";
 import { FaRegHeart } from "react-icons/fa";
-
+import styles from "./AccountNavigation.module.scss";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
+import useBodyOverflow from "@/hooks/useBodyOverflow";
 const AccountNavigation: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [activePath, setActivePath] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   useEffect(() => {
     if (location.pathname.startsWith("/account/order")) {
       setActivePath(true);
@@ -58,18 +62,34 @@ const AccountNavigation: FC = () => {
   function logOut() {
     signOut(auth)
       .then(() => {
+        setIsActive(false);
         navigate("/login");
       })
       .catch((error) => {
         console.log(error);
       });
   }
+  useBodyOverflow(isActive);
   return (
     <>
-      <section className="border border-gray-scale-gray-100 rounded-lg self-start">
-        <h2 className="text-xl font-medium mx-5 my-6">
-          {t("links.Navigation")}
-        </h2>
+      <GiHamburgerMenu
+        className=" md:hidden cursor-pointer"
+        fontSize={"2rem"}
+        onClick={() => setIsActive(true)}
+      />
+      <section
+        className={`${styles.navigation} ${isActive ? styles.active : ""}`}
+      >
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold mx-5 my-6">
+            {t("links.Navigation")}
+          </h2>
+          <IoMdClose
+            className=" md:hidden cursor-pointer mx-6"
+            onClick={() => setIsActive(false)}
+            fontSize={"2rem"}
+          />
+        </div>
         <nav>
           <ol>
             {" "}
@@ -78,6 +98,7 @@ const AccountNavigation: FC = () => {
                 <NavLink
                   to={link.url}
                   end
+                  onClick={() => setIsActive(false)}
                   className={({ isActive }) =>
                     `${
                       isActive || link.activeUrl

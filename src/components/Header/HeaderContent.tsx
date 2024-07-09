@@ -30,9 +30,13 @@ const HeaderContent: FC = () => {
   return (
     <>
       <div className="container">
-        <div className="py-6 flex justify-between items-center">
+        <div className="py-6 flex justify-between items-center flex-wrap gap-4">
           <Link to="/">
-            <img src="../img/Logo.svg" alt="ecobazar" className="h-9" />
+            <img
+              src="../img/Logo.svg"
+              alt="ecobazar"
+              className="h-9 w-36 sm:w-auto"
+            />
           </Link>
           <HeaderSearch />
 

@@ -58,12 +58,14 @@ const InputComponent: FC<IProps> = ({
           (!isActiveEye ? (
             <IoEyeOutline
               className={`${styles.eye} ${label ? styles.eye__label : ""}`}
+              fontSize={"1.25rem"}
               onClick={() => toggleEye()}
             />
           ) : (
             <IoEyeOffOutline
               className={`${styles.eye} ${label ? styles.eye__label : ""}`}
               onClick={() => toggleEye()}
+              fontSize={"1.25rem"}
             />
           ))}
       </label>

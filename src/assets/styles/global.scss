@@ -6,11 +6,15 @@ html {
 	@media (max-width: 992px) {
 		font-size: 0.7rem;
 	}
+	@media (max-width: 640px) {
+		font-size: 0.6rem;
+	}
 }
 
 body {
-	@apply font-poppins font-normal leading-normal text-sm overflow-x-hidden;
+	@apply font-poppins font-normal leading-normal text-sm;
 	letter-spacing: 0.03em;
+	height: 100%;
 }
 
 .container {

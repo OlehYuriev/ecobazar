@@ -63,6 +63,7 @@ const FooterNavigation = () => {
                 {linksAuth.map((link) => (
                   <li key={link.name}>
                     <NavLink
+                      onClick={() => window.scrollTo(0, 0)}
                       to={link.url}
                       end
                       className={({ isActive }) =>
@@ -87,6 +88,7 @@ const FooterNavigation = () => {
             {pages.map((link) => (
               <li key={link.name}>
                 <NavLink
+                  onClick={() => window.scrollTo(0, 0)}
                   to={link.url}
                   end
                   className={({ isActive }) =>

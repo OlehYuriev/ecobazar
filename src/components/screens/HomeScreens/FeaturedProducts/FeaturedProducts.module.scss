@@ -1,6 +1,7 @@
 .items {
-	@apply flex justify-between  mt-8 gap-x-7;
-	& > * {
-		width: 20%;
+	@apply grid justify-items-stretch  mt-8 gap-6;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	@media (max-width: 991.98px) {
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 	}
 }

@@ -84,13 +84,15 @@ const CommentsComponent: FC<IProps> = ({ product }) => {
           </div>
         ))}
         {visibleComments < comments.length && (
-          <button
-            onClick={loadMoreComments}
-            className="text-branding-success bg-branding-success bg-opacity-10
-				 py-3.5  rounded-lg max-w-36 font-semibold hover:text-branding-warning transition-all"
-          >
-            {t("LoadMore")}
-          </button>
+          <div className="inline-flex">
+            <button
+              onClick={loadMoreComments}
+              className="text-branding-success bg-branding-success bg-opacity-10
+				 p-3.5  rounded-lg font-semibold hover:text-branding-warning transition-all"
+            >
+              {t("LoadMore")}
+            </button>
+          </div>
         )}
       </div>
     </>

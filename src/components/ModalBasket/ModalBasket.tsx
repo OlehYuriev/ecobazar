@@ -11,6 +11,7 @@ import useExchangeRate from "@/hooks/useExchangeRate";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { useTranslation } from "react-i18next";
 import useAuth from "@/hooks/useAuth";
+import useBodyOverflow from "@/hooks/useBodyOverflow";
 
 interface IProps {
   isModal: boolean;
@@ -32,7 +33,7 @@ const ModalBasket: FC<IProps> = ({ isModal, setIsModal }) => {
     closeBasketModal();
     navigate("/checkout");
   }
-
+  useBodyOverflow(isModal);
   return (
     <>
       <section

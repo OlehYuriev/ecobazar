@@ -18,13 +18,17 @@
 
 .form {
 	display: flex;
-	margin: 0 20px;
 	width: 37.7vw;
 	max-width: 498px;
 	min-width: 200px;
 	input,
 	label {
 		width: 100%;
+	}
+	@media (max-width: 640px) {
+		order: 3;
+		width: 100%;
+		max-width: 100%;
 	}
 }
 

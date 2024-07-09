@@ -67,8 +67,10 @@ const FilterCategories: FC<IProps> = ({
             />
           </AccordionComponent>
         </div>
-        <DiscountCategories />
-        <SaleProducts />
+        <div className="md:flex md:flex-col hidden">
+          <DiscountCategories />
+          <SaleProducts />
+        </div>
       </div>
     </>
   );
