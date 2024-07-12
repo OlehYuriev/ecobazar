@@ -1,0 +1,21 @@
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+		@apply border-t-8 border-t-branding-warning;
+	}
+	50% {
+		@apply border-t-8 border-t-branding-success;
+	}
+	100% {
+		transform: rotate(360deg);
+		@apply border-t-8 border-t-branding-warning;
+	}
+}
+
+.loader {
+	border: 8px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite;
+}

@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import styles from "./AccordionComponent.module.scss";
@@ -10,22 +10,7 @@ interface IProps {
 
 const AccordionComponent: FC<IProps> = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(true);
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
-      }
-    };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   function open() {
     setIsOpen((prev) => !prev);
   }

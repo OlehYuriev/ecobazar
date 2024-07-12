@@ -41,7 +41,7 @@ const DropMenu: FC<IProps> = ({ value, buttons, changeValue }) => {
         </div>
         <div className={styles.dropMenu__list}>
           {buttons.map((item) => (
-            <span onClick={changeValue} key={item} type="button">
+            <span onClick={changeValue} key={item}>
               {item}
             </span>
           ))}

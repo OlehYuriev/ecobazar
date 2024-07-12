@@ -1,9 +1,14 @@
 import ButtonMain from "@/components/ui/buttons/ButtonMain";
 import styles from "./BannerDiscount.module.scss";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const BannerDiscount = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  function linkCategories() {
+    navigate("/categories");
+  }
   return (
     <>
       <section className="mt-14 ">
@@ -24,7 +29,7 @@ const BannerDiscount = () => {
                   {t("home.FreeOnAll")}
                 </p>
                 <div className="inline-block mt-7">
-                  <ButtonMain value={t("links.ShopNow")} />
+                  <ButtonMain value={t("links.ShopNow")} fun={linkCategories} />
                 </div>
               </div>
             </div>

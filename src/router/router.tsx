@@ -1,20 +1,24 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import LayoutComponent from "@/components/layout/LayoutComponent";
-import HomePage from "@/pages/HomePage";
-import CheckoutPage from "@/pages/CheckoutPage";
-import CategoriesPage from "@/pages/CategoriesPage";
-import ProductPage from "@/pages/ProductPage";
-import { fetchProduct } from "@/services/fetchProduct";
-import LoginPage from "@/pages/LoginPage";
-import RegisterPage from "@/pages/RegisterPage";
-import DashboardPage from "@/pages/DashboardPage";
 import LayoutAccount from "@/components/layout/LayoutAccount";
-import SettingPage from "@/pages/SettingPage";
-import OrderPage from "@/pages/OrderPage";
-import OrderItemPage from "@/pages/OrderItemPage";
+
+import { fetchProduct } from "@/services/fetchProduct";
 import { fetchOrder } from "@/services/fetchOrder";
-import ShoppingCartPage from "@/pages/ShoppingCartPage";
-import WishlistPage from "@/pages/WishlistPage";
+
+const HomePage = lazy(() => import("@/pages/HomePage"));
+const CheckoutPage = lazy(() => import("@/pages/CheckoutPage"));
+const CategoriesPage = lazy(() => import("@/pages/CategoriesPage"));
+const ProductPage = lazy(() => import("@/pages/ProductPage"));
+const LoginPage = lazy(() => import("@/pages/LoginPage"));
+const RegisterPage = lazy(() => import("@/pages/RegisterPage"));
+const DashboardPage = lazy(() => import("@/pages/DashboardPage"));
+const SettingPage = lazy(() => import("@/pages/SettingPage"));
+const OrderPage = lazy(() => import("@/pages/OrderPage"));
+const ShoppingCartPage = lazy(() => import("@/pages/ShoppingCartPage"));
+const OrderItemPage = lazy(() => import("@/pages/OrderItemPage"));
+const WishlistPage = lazy(() => import("@/pages/WishlistPage"));
 
 const router = createBrowserRouter([
   {

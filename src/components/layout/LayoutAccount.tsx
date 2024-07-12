@@ -1,10 +1,11 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import HeaderComponent from "../Header/HeaderComponent";
 import { Link, Outlet } from "react-router-dom";
 import AccountNavigation from "../AccountNavigation/AccountNavigation";
 import useAuth from "@/hooks/useAuth";
 import styles from "./layout.module.scss";
 import FooterComponent from "../footer/FooterComponent";
+import LoaderComponent from "../ui/loader/LoaderComponent";
 
 const LayoutAccount: FC = () => {
   const authUser = useAuth();
@@ -16,7 +17,9 @@ const LayoutAccount: FC = () => {
           {authUser ? (
             <div className={styles.account}>
               <AccountNavigation />
-              <Outlet />
+              <Suspense fallback={<LoaderComponent />}>
+                <Outlet />
+              </Suspense>
             </div>
           ) : (
             <div className={styles.link}>

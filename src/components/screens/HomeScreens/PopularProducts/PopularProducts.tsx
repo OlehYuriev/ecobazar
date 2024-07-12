@@ -14,7 +14,6 @@ const PopularProducts: FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log(window.innerWidth);
       if (window.innerWidth < 961) {
         setNumOfProducts(6);
       } else if (window.innerWidth < 1200) {

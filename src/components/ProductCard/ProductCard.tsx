@@ -1,11 +1,9 @@
 import { FC, useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
 import { RiShoppingBagLine } from "react-icons/ri";
 import styles from "./ProductCard.module.scss";
 import IProduct from "@/interface/IProduct";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "@/store/basket/basketSlice";
-import { addProductWIshlist } from "@/store/wishlist/wishlistSlice";
 import { handleUsdAmountChange, currencyChange } from "@/utils";
 import { RootState } from "@/store/store";
 import { calculateDiscountedPrice } from "@/utils";
@@ -25,9 +23,6 @@ interface IProps {
 const ProductCard: FC<IProps> = ({ product }) => {
   const { t } = useTranslation();
   const basket = useSelector((state: RootState) => state.basket.productsBasket);
-  const wishlist = useSelector(
-    (state: RootState) => state.wishlist.productsWishlist
-  );
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
@@ -35,15 +30,11 @@ const ProductCard: FC<IProps> = ({ product }) => {
 
   const basketExists = useProductExists(basket, product);
 
-  const wishlistExists = useProductExists(wishlist, product);
   function addBasket(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     dispatch(addProduct(product));
   }
-  function addWishlist(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    dispatch(addProductWIshlist(product));
-  }
+
   function openModal(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     setIsModal(true);

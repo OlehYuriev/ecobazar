@@ -1,9 +1,10 @@
 .item {
-	@apply border border-gray-scale-gray-100 transition-all
-	hover:border-branding-success-dark hover:shadow-hover-item-categories;
-
-	&:hover .button {
-		opacity: 1;
+	@apply border border-gray-scale-gray-100 transition-all;
+	@media (hover: hover) {
+		@apply hover:border-branding-success-dark hover:shadow-hover-item-categories;
+		&:hover .button {
+			opacity: 1;
+		}
 	}
 }
 
