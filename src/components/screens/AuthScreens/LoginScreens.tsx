@@ -15,6 +15,7 @@ import { auth } from "@/firebase";
 import { FirebaseError } from "firebase/app";
 import { useTranslation } from "react-i18next";
 import AlertSuccess from "@/components/AlertSuccess/AlertSuccess";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const LoginScreens: FC = () => {
   const { t } = useTranslation();
@@ -24,6 +25,26 @@ const LoginScreens: FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
+  async function authGoogle() {
+    const provider = new GoogleAuthProvider();
+    try {
+      if (isChecked) {
+        await signInWithPopup(auth, provider);
+        navigate("/account/setting");
+      } else {
+        await setPersistence(auth, browserSessionPersistence);
+        await signInWithPopup(auth, provider);
+        navigate("/account/setting");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const signInWithGoogle = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    authGoogle();
+  };
   const handleEmailChange = (newValue: string) => {
     setLogIn((prevState) => ({
       ...prevState,
@@ -54,7 +75,6 @@ const LoginScreens: FC = () => {
     e.preventDefault();
     if (logIn.email && logIn.password) {
       if (isChecked) {
-        // Сохранение сеанса аутентификации при помощи метода setPersistence с аргументом 'local'
         signInWithEmailAndPassword(auth, logIn.email, logIn.password)
           .then((userCredential) => {
             authLogin(userCredential);
@@ -64,7 +84,6 @@ const LoginScreens: FC = () => {
           });
       } else {
         // Аутентификация пользователя без сохранения сеанса
-
         setPersistence(auth, browserSessionPersistence)
           .then(() => {
             return signInWithEmailAndPassword(
@@ -83,7 +102,7 @@ const LoginScreens: FC = () => {
     }
   }
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const ForgetPassword = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, logIn.email);
@@ -115,7 +134,6 @@ const LoginScreens: FC = () => {
               autoComplete="current-password"
             />
             <div className="flex justify-between items-center">
-              {" "}
               <CheckboxComponent
                 isChecked={isChecked}
                 setIsChecked={setIsChecked}
@@ -124,7 +142,7 @@ const LoginScreens: FC = () => {
               <button
                 type="button"
                 className="text-gray-scale-gray-600 hover:text-branding-warning transition-all"
-                onClick={handleSubmit}
+                onClick={ForgetPassword}
               >
                 {t("ForgetPassword")}
               </button>
@@ -135,6 +153,13 @@ const LoginScreens: FC = () => {
               disabled={!logIn.email || !logIn.password}
             />
           </form>
+          <button
+            type="submit"
+            onClick={signInWithGoogle}
+            className="mt-2 hover:text-branding-warning transition-all"
+          >
+            {t("authGoogle")}
+          </button>
           {errorMessage && <p className=" text-red-600 mt-3">{errorMessage}</p>}
           <div className="text-gray-scale-gray-600 text-center mt-5">
             {t("HaveAccount")}{" "}

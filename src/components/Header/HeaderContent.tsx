@@ -44,6 +44,7 @@ const HeaderContent: FC = () => {
             <div className="pr-4">
               <button
                 type="button"
+                name="wishlist"
                 className="relative"
                 onClick={() => setIsModalWishlist(true)}
               >
@@ -61,6 +62,7 @@ const HeaderContent: FC = () => {
               <button
                 type="button"
                 className="relative"
+                name="basket"
                 onClick={openBasketModal}
               >
                 {basket.length !== 0 && (

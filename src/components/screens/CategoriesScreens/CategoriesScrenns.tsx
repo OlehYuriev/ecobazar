@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import FilterCategories from "./FilterCategories";
 import ProductsCategories from "./ProductsCategories";
 import styles from "./Categories.module.scss";
@@ -61,42 +61,52 @@ const CategoriesScreens: FC = () => {
     }
   }, [searchParams]);
 
-  const filteredProducts = products.filter((product) => {
-    const price = calculateDiscountedPriceOneProduct(product);
-    const priceCurrency = parseFloat(
-      handleUsdAmountChange(price, exchangeRate, currency)
-    );
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      const price = calculateDiscountedPriceOneProduct(product);
+      const priceCurrency = parseFloat(
+        handleUsdAmountChange(price, exchangeRate, currency)
+      );
 
-    // Получаем переведенное имя продукта
-    const translatedProductName = t(`products.${product.name}.name`);
+      // Получаем переведенное имя продукта
+      const translatedProductName = t(`products.${product.name}.name`);
 
-    // Фильтрация по выбранной категории
-    if (radioOption !== "All" && product.category !== radioOption) {
-      return false;
-    }
+      // Фильтрация по выбранной категории
+      if (radioOption !== "All" && product.category !== radioOption) {
+        return false;
+      }
 
-    // Фильтрация по тексту поиска
-    if (
-      !product.name.toLowerCase().includes(searchProduct.toLowerCase()) &&
-      !translatedProductName
-        .toLowerCase()
-        .includes(searchProduct.toLowerCase()) &&
-      !(uaTranslations.products as UaTranslationsType["products"])[
-        product.name
-      ]?.name
-        .toLowerCase()
-        .includes(searchProduct.toLowerCase())
-    ) {
-      return false;
-    }
+      // Фильтрация по тексту поиска
+      if (
+        !product.name.toLowerCase().includes(searchProduct.toLowerCase()) &&
+        !translatedProductName
+          .toLowerCase()
+          .includes(searchProduct.toLowerCase()) &&
+        !(uaTranslations.products as UaTranslationsType["products"])[
+          product.name
+        ]?.name
+          .toLowerCase()
+          .includes(searchProduct.toLowerCase())
+      ) {
+        return false;
+      }
 
-    // Фильтрация по цене
-    if (priceCurrency < inputFrom || priceCurrency > inputTo) {
-      return false;
-    }
+      // Фильтрация по цене
+      if (priceCurrency < inputFrom || priceCurrency > inputTo) {
+        return false;
+      }
 
-    return true;
-  });
+      return true;
+    });
+  }, [
+    radioOption,
+    searchProduct,
+    exchangeRate,
+    currency,
+    inputFrom,
+    inputTo,
+    t,
+  ]);
 
   return (
     <>

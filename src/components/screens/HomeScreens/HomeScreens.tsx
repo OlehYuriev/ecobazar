@@ -1,12 +1,16 @@
-import { FC } from "react";
+import { FC, lazy } from "react";
 import BannersHome from "./BannersHome/BannersHome";
 import InfoShop from "./InfoShop/InfoShop";
-import CategoriesHome from "./CategoriesHome/CategoriesHome";
-import PopularProducts from "./PopularProducts/PopularProducts";
-import BannerDiscount from "./BannerDuscount/BannerDiscount";
-import TeamComponent from "@/components/TeamComponent/TeamComponent";
-import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
 
+const CategoriesHome = lazy(() => import("./CategoriesHome/CategoriesHome"));
+const PopularProducts = lazy(() => import("./PopularProducts/PopularProducts"));
+const BannerDiscount = lazy(() => import("./BannerDuscount/BannerDiscount"));
+const TeamComponent = lazy(
+  () => import("@/components/TeamComponent/TeamComponent")
+);
+const FeaturedProducts = lazy(
+  () => import("./FeaturedProducts/FeaturedProducts")
+);
 const HomeScreens: FC = () => {
   return (
     <>

@@ -57,11 +57,6 @@ const HeaderTop: FC = () => {
     }
   }
 
-  // Do not render component until currency is loaded
-  if (!isCurrencyLoaded) {
-    return null;
-  }
-
   return (
     <>
       <div className="py-3 bg-gray-scale-gray-800">
