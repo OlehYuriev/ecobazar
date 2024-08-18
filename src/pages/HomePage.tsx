@@ -34,7 +34,7 @@ const HomePage: FC = () => {
       ) : (
         <Helmet>
           <title>
-            Buy fresh vegetables online | Online store of vegetabless
+            Buy fresh vegetables online | Online store of vegetablesss
           </title>
           <meta
             name="description"
